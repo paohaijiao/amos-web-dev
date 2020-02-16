@@ -4,12 +4,15 @@ import common from './common'
 import {
     host, apiUrl
 } from './serviceUrl'
-
-// 需要登陆的，都写到这里，否则就是不需要登陆的接口
-let methodToken = [
-
-]
-
+let methodToken='';
+const submitImg=(url,formData,callback)=>{
+  axios
+    .post(url,formData,'form-data')
+    .then(res => {
+      debugger;
+      callback(res.data)
+    });
+}
 const download = (url, method, data, callback, config = {}) => {
     let postStr = qs.stringify(data)
     url = url + "?" + postStr;
@@ -29,7 +32,6 @@ const post = (url, method, data, callback, config = {}) => {
     }
     let postStr = "";
 
-
     if (typeof(data) == 'string')
     {
         postStr = data;
@@ -38,53 +40,28 @@ const post = (url, method, data, callback, config = {}) => {
     {
         postStr = qs.stringify(data)
     }
-    //data.method = method;
-
-    console.log(apiUrl + url, typeof(data),postStr)
     sendPost(apiUrl + url, postStr, config, callback);
 }
-
-// axios 发送请求统一处理
 const sendPost = (url, data, config = {}, callback) => {
-
     if (Object.keys(config).length) {
-        // _this.$dialog.loading.open('上传中...')
     }
-
-    //this.$dialog.loading.open('数据加载中...')
     axios.post(url, data, config).then(response => {
-
         const headers = response.headers
         if (headers['content-type'] === 'application/octet-stream;charset=utf-8') {
-
             console.log("headers",headers)
-
             return response.data
         }
-        //console.log(response.headers)
         if (Object.keys(config).length) {
-            // _this.$dialog.loading.close()
         }
-        //this.$dialog.loading.close()
-        // _this.$dialog.loading.close()
         if (200 != response.data.code) {
-            // 输出错误显示
-            //common.errorToBack("接口"+url+" "+response.data.message)
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
-                // 用户未登录或者token过期 清空本地user_token
-                //common.removeStorage('user_token')
-                // 跳转至登录
                 console.log("登录失效")
                 common.jumpToLogin()
             }
             if (response.data.code === '403' || response.data.code === 403) {
-                // 用户未登录或者token过期 清空本地user_token
-                //common.removeStorage('user_token')
-                // 跳转至登录
                 common.errorToBack(response.data.message)
                 console.log("登录 403")
-                //common.jumpToLogin()
             }
         }
 
@@ -139,7 +116,6 @@ const sendPost = (url, data, config = {}, callback) => {
         }
     })
 }
-// 接口token验证
 const get = (url,method, data, callback) => {
     // 如果是需要登陆的，增加token
     if (methodToken.indexOf(method) >= 0) {
@@ -236,4 +212,8 @@ export const uploadFile = (data, callback) => {
 
 
 // 登录
-export const getUserLogin = (data, callback) => post('/api/user/login', 'getUserLogin', data, callback);
+let prefix='/api'
+export const getUserLogin = (data, callback) => post(prefix+'/user/login', 'getUserLogin', data, callback);
+export const getRegister = (data, callback) => post(prefix+'/publicApi/register', 'getRegister', data, callback);
+export const getUpload = (formdata, callback) => submitImg(prefix+'/publicApi/upload',  formdata, callback);
+export const getLocation = (data, callback) => post(prefix+'/publicApi/getLocation', 'getLocation', data, callback);

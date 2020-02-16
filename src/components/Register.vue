@@ -52,7 +52,7 @@
         </div>
       <div class="form-group">
         <label for="exampleInputFile">头像 :</label>
-        <input type="file" id="exampleInputFile" @change="upload" accept="image/*">
+        <input type="file" id="exampleInputFile" @change="upload" accept="image/*" multiple="multiple">
         <p class="help-block">{{message}}</p>
       </div>
       <div class="form-group" >
@@ -109,31 +109,26 @@
                 let that=this;
                 let formData = new FormData();
                 formData.append('file',this.file);
-                this.$axios
-                    .post('/api/publicApi/upload',formData,'form-data')
-                    .then(res => {
-                        if (res.data.code == 200) {
-                            that.imageId = res.data.data;
-                            that.message = res.data.message;
+                this.$api.getUpload(formData,res => {
+                    debugger;
+                        if (res.code == 200) {
+                            that.imageId = res.data;
+                            that.message = res.message;
                         }
-                    });
+                    },'form-data');
             },
             initProvince() {
                 this.level1 = [];
                 let that = this;
-                this.$axios
-                    .get('/api/publicApi/getLocation', {
+                this.$api.getLocation( {
                         level: 1
-                    })
-                    .then(res => {
-                        if (res.data.code == 200) {
-                            that.level1 = res.data.data;
+                    },res => {
+                        if (res.code == 200) {
+                            that.level1 = res.data;
                         }
                     });
-
             },
             register() {
-              debugger;
                 if (!this.checkStatus) {
                     this.$alert('必须先同意协议')
                     return;
@@ -192,17 +187,14 @@
                 obj.password=this.password;
                 obj.image=this.imageId
                 let that=this
-                this.$axios
-                    .post('/api/publicApi/register',obj)
-                    .then(res => {
-                        if (res.data.code == 200) {
+                this.$api.getRegister(obj,res => {
+                        if (res.code == 200) {
                           that.$alert("注册成功,等待管理员审核")
                         }else{
-                          that.$alert(res.data.message)
+                          that.$alert(res.message)
                         }
                     });
             }
-
         },
         created() {
             this.initProvince();
