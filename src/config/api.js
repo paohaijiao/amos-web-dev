@@ -56,8 +56,10 @@ const sendPost = (url, data, config = {}, callback) => {
         if (200 != response.data.code) {
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
+                debugger
                 console.log("登录失效")
                 this.$router.push({path: "/"});
+              this.$alert('登录失效')
             }
             if (response.data.code === '403' || response.data.code === 403) {
                 common.errorToBack(response.data.message)
@@ -222,3 +224,13 @@ export const getIndex= (data, callback) => post(prefix+'/indexApi/index', 'getIn
 export const getMailBox= (data, callback) => post(prefix+'/messageApi/mailbox', 'getMailBox', data, callback);
 export const getNotify= (data, callback) => post(prefix+'/indexApi/notify', 'getNotify', data, callback);
 export const getUserAll= (data, callback) => post(prefix+'/userApi/selectUserAll', 'getUserAll', data, callback);
+export const getDatabaseType= (data, callback) => post(prefix+'/dataSourceApi/listDatabaseType', 'getDatabaseType', data, callback);
+export const getListDatabase= (data, callback) => post(prefix+'/dataSourceApi/listDatabase', 'getListDatabase', data, callback);
+export const getDeleteDatabase= (data, callback) => post(prefix+'/dataSourceApi/delete', 'getDeleteDatabase', data, callback);
+export const getListAllDatabase= (data, callback) => post(prefix+'/dataSourceApi/listAllDatabase', 'getListAllDatabase', data, callback);
+export const getCreateOrUpdate= (data, callback) => post(prefix+'/dataSourceApi/createOrUpdate', 'getCreateOrUpdate', data, callback);
+export const getGatherSave= (data, callback) => post(prefix+'/dataSourceApi/gatherSave', 'getGatherSave', data, callback);
+export const getGatherList= (data, callback) => post(prefix+'/dataSourceApi/gatherList', 'getGatherList', data, callback);
+export const getGatherDelete= (data, callback) => post(prefix+'/dataSourceApi/deleteById', 'getGatherDelete', data, callback);
+export const getMakeHadoopCluster= (data, callback) => post(prefix+'/dataAdminPlatform/makeHadoopCluster', 'getMakeHadoopCluster', data, callback);
+export const getHadoopCluster= (data, callback) => post(prefix+'/dataAdminPlatform/getHadoopCluster', 'getHadoopCluster', data, callback);
