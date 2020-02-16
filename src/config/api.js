@@ -57,7 +57,7 @@ const sendPost = (url, data, config = {}, callback) => {
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
                 console.log("登录失效")
-                common.jumpToLogin()
+                this.$router.push({path: "/"});
             }
             if (response.data.code === '403' || response.data.code === 403) {
                 common.errorToBack(response.data.message)
@@ -217,3 +217,8 @@ export const getUserLogin = (data, callback) => post(prefix+'/user/login', 'getU
 export const getRegister = (data, callback) => post(prefix+'/publicApi/register', 'getRegister', data, callback);
 export const getUpload = (formdata, callback) => submitImg(prefix+'/publicApi/upload',  formdata, callback);
 export const getLocation = (data, callback) => post(prefix+'/publicApi/getLocation', 'getLocation', data, callback);
+export const getServerPerform = (data, callback) => post(prefix+'/indexApi/serverPerform', 'getServerPerform', data, callback);
+export const getIndex= (data, callback) => post(prefix+'/indexApi/index', 'getIndex', data, callback);
+export const getMailBox= (data, callback) => post(prefix+'/messageApi/mailbox', 'getMailBox', data, callback);
+export const getNotify= (data, callback) => post(prefix+'/indexApi/notify', 'getNotify', data, callback);
+export const getUserAll= (data, callback) => post(prefix+'/userApi/selectUserAll', 'getUserAll', data, callback);
