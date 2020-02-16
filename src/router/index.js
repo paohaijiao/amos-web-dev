@@ -6,6 +6,7 @@ import Dash from '@/components/Dash'
 import collectionIndex from '@/components/collection/index'
 import collectionData from '@/components/collection/collection-data'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
+import scheduling from '@/components/scheduling/scheduling'
 Vue.use(Router)
 
 export default new Router({
@@ -56,5 +57,15 @@ export default new Router({
       }
     },
     //采集数据结束
+    //数据调度开始
+    {
+      path: '/index/scheduling',
+      component: scheduling,
+      name: '数据治理',
+      meta: {
+        title: '大数据节点'
+      }
+    },
+    //数据调度结束
   ]
 })

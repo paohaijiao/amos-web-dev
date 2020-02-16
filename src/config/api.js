@@ -234,3 +234,9 @@ export const getGatherList= (data, callback) => post(prefix+'/dataSourceApi/gath
 export const getGatherDelete= (data, callback) => post(prefix+'/dataSourceApi/deleteById', 'getGatherDelete', data, callback);
 export const getMakeHadoopCluster= (data, callback) => post(prefix+'/dataAdminPlatform/makeHadoopCluster', 'getMakeHadoopCluster', data, callback);
 export const getHadoopCluster= (data, callback) => post(prefix+'/dataAdminPlatform/getHadoopCluster', 'getHadoopCluster', data, callback);
+export const getListTaskType= (data, callback) => post(prefix+'/sysTaskConfigApi/listTaskType', 'getListTaskType', data, callback);
+export const getTaskConfigCreateOrUpdate= (data, callback) => post(prefix+'/sysTaskConfigApi/createOrUpdate', 'getTaskConfigCreateOrUpdate', data, callback);
+export const getTaskConfigList= (data, callback) => post(prefix+'/sysTaskConfigApi/taskList', 'getTaskConfigList', data, callback);
+export const getListTask= (data, callback) => post(prefix+'/sysTaskConfigApi/listTask', 'getListTask', data, callback);
+export const getTaskDelete= (data, callback) => post(prefix+'/sysTaskConfigApi/deleteTask', 'getTaskDelete', data, callback);
+export const getExecTask= (data, callback) => post(prefix+'/sysTaskConfigApi/execTask', 'getExecTask', data, callback);
