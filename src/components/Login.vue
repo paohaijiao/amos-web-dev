@@ -37,11 +37,7 @@
 </template>
 
 <script>
-    import api from '../config/api'
-    let params={
-        username:'zmq',
-        pws:'123'
-    }
+    import common from '../config/common'
 export default {
   name: 'Login',
   data() {
@@ -65,7 +61,7 @@ export default {
               let param=new Object();
               param.username=this.loginForm.username
               param.password= this.loginForm.password
-              api.login(params,res=> {
+              this.$api.getUserLogin(param,res=> {
                           if (res.code === 200) {
                               let userInfo = res.data.userInfo;
                               window.localStorage.setItem(
@@ -89,7 +85,6 @@ export default {
 
 },
 created(){
-    debugger;
 }
 }
 </script>

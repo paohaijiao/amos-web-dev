@@ -3,7 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import axios from 'axios'
+import qs from 'qs'
+import * as Api from './config/api'
+import Common from './config/common'
+Vue.prototype.$api = Api
+Vue.prototype.GLOBAL = Common
+Vue.config.productionTip = false
+Vue.prototype.axios = axios
+Vue.prototype.qs = qs
+import Echarts from 'echarts'
+Vue.prototype.echarts = Echarts
+Vue.use(Echarts)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
