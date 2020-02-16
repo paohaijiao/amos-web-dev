@@ -7,6 +7,11 @@ import collectionIndex from '@/components/collection/index'
 import collectionData from '@/components/collection/collection-data'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
 import scheduling from '@/components/scheduling/scheduling'
+
+import governance from '@/components/governance/index.vue'
+import transList from '@/components/governance/trans.vue'
+import jobList from '@/components/governance/job_list.vue'
+import job from '@/components/governance/job.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -67,5 +72,40 @@ export default new Router({
       }
     },
     //数据调度结束
+    //数据治理开始
+    {
+      path: '/index/governance',
+      name: '数据治理',
+      meta: {
+        title: '转换'
+      },
+      component: governance,
+    },
+    {
+      path: '/index/trans',
+      name: '数据治理',
+      meta: {
+        title: '转换列表'
+      },
+      component: transList
+    },
+    {
+      path: '/index/job',
+      name: '数据治理',
+      meta: {
+        title: '作业'
+      },
+      component: job
+    },
+
+    {
+      path: '/index/job_list',
+      name: '数据治理',
+      meta: {
+        title: '作业列表'
+      },
+      component: jobList
+    },
+    //数据治理结束
   ]
 })

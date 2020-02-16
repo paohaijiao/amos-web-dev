@@ -6,8 +6,7 @@ import {
 } from './serviceUrl'
 let methodToken='';
 const submitImg=(url,formData,callback)=>{
-  axios
-    .post(url,formData,'form-data')
+  axios.post(url,formData,'form-data')
     .then(res => {
       debugger;
       callback(res.data)
@@ -240,3 +239,6 @@ export const getTaskConfigList= (data, callback) => post(prefix+'/sysTaskConfigA
 export const getListTask= (data, callback) => post(prefix+'/sysTaskConfigApi/listTask', 'getListTask', data, callback);
 export const getTaskDelete= (data, callback) => post(prefix+'/sysTaskConfigApi/deleteTask', 'getTaskDelete', data, callback);
 export const getExecTask= (data, callback) => post(prefix+'/sysTaskConfigApi/execTask', 'getExecTask', data, callback);
+export const getCreateTrans= (data, callback) => post(prefix+'/dataAdminPlatform/createOrUpdate', 'getCreateTrans', data, callback, { type: 'json' });
+export const getTransMenuList= (data, callback) => post(prefix+'/dataAdminPlatform/getMenuList', 'getTransMenuList', data, callback, );
+export const getTransById= (data, callback) => post(prefix+'/dataAdminPlatform/getTransById', 'getTransById', data, callback, );
