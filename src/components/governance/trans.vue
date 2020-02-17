@@ -87,14 +87,12 @@ export default {
         option.page=this.pagination.page;
         option.name=this.search ? this.search : null;
         let that =this;
-      this.$axios
-        .get('/api/dataAdminPlatform/getTransList', option)
-        .then(res => {
-          if (res.data.code === 200) {
-              that.tableData = res.data.data.content
-              that.pagination.total = res.data.data.totalElements
+      this.$api.getTransList( option,res=> {
+          if (res.code === 200) {
+              that.tableData = res.data.content
+              that.pagination.total = res.data.totalElements
           } else{
-              this.$alert(res.data.message);
+              this.$alert(res.message);
           }
         })
     },
@@ -121,10 +119,8 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-      this.$axios
-        .get('/api/dataAdminPlatform/deleteTransById', param)
-        .then(res => {
-          if (res.data.code === 200) {
+      this.$api.getDeleteTransById( param,res => {
+          if (res.code === 200) {
               this.$alert('删除成功');
               this.getList();
           } else {

@@ -30,7 +30,6 @@ const post = (url, method, data, callback, config = {}) => {
         }
     }
     let postStr = "";
-
     if (typeof(data) == 'string')
     {
         postStr = data;
@@ -55,7 +54,6 @@ const sendPost = (url, data, config = {}, callback) => {
         if (200 != response.data.code) {
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
-                debugger
                 console.log("登录失效")
                 this.$router.push({path: "/"});
               this.$alert('登录失效')
@@ -239,6 +237,8 @@ export const getTaskConfigList= (data, callback) => post(prefix+'/sysTaskConfigA
 export const getListTask= (data, callback) => post(prefix+'/sysTaskConfigApi/listTask', 'getListTask', data, callback);
 export const getTaskDelete= (data, callback) => post(prefix+'/sysTaskConfigApi/deleteTask', 'getTaskDelete', data, callback);
 export const getExecTask= (data, callback) => post(prefix+'/sysTaskConfigApi/execTask', 'getExecTask', data, callback);
-export const getCreateTrans= (data, callback) => post(prefix+'/dataAdminPlatform/createOrUpdate', 'getCreateTrans', data, callback, { type: 'json' });
+export const getCreateTrans= (data, callback) => sendPost(prefix+'/dataAdminPlatform/createOrUpdate',  data, {},callback);
 export const getTransMenuList= (data, callback) => post(prefix+'/dataAdminPlatform/getMenuList', 'getTransMenuList', data, callback, );
 export const getTransById= (data, callback) => post(prefix+'/dataAdminPlatform/getTransById', 'getTransById', data, callback, );
+export const getTransList= (data, callback) => post(prefix+'/dataAdminPlatform/getTransList', 'getTransList', data, callback, );
+export const getDeleteTransById= (data, callback) => post(prefix+'/dataAdminPlatform/deleteTransById', 'getDeleteTransById', data, callback, );

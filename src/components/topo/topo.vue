@@ -921,16 +921,17 @@ export default {
       } else {
         this.$api
           .getCreateTrans(
-            this.getData({
-              val: this.title,
-              id: this.$route.query.id ? this.$route.query.id : null
-            }), res => {
-            if (res.data.code === 200) {
+                  this.getData({
+                  val: this.title,
+                  id: this.$route.query.id ? this.$route.query.id : null
+              })
+        , res => {
+            if (res.code === 200) {
               this.visible = false
               this.$alert('保存成功');
               this.$router.push('/index/trans')
             } else {
-              this.$alert(res.data.message);
+              this.$alert(res.message);
             }
           })
       }
