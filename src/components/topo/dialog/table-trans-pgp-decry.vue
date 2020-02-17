@@ -62,16 +62,7 @@
                 this.dialogVisible = false
                 this.$emit('on-close', this.item)
             },
-            getSource() {
-                let that=this;
-                var obj=new Object();
-                obj.taskType='KettleJob';
-                this.$axios.get('/api/sysTaskConfigApi/taskList',obj).then(res => {
-                    if (res.data.code === 200) {
-                        that.list = res.data.data;
-                    }
-                })
-            },
+
             handleDelete(index) {
                 this.tableData.splice(index, 1)
             },
@@ -85,8 +76,6 @@
             }
         },
         created() {
-            this.getSource()
-            this.getLogLevel();
             this.tableData = this.form.field ? this.form.field : []
         }
     }
