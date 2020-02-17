@@ -245,3 +245,4 @@ export const getDeleteTransById= (data, callback) => post(prefix+'/dataAdminPlat
 export const getTransDataType= (data, callback) => post(prefix+'/dataAdminPlatform/getDataType', 'getTransDataType', data, callback, );
 export const getRrandomType= (data, callback) => post(prefix+'/kettleApi/randomType', 'getRrandomType', data, callback, );
 export const getCalcTypee= (data, callback) => post(prefix+'/kettleApi/calcType', 'getCalcTypee', data, callback, );
+export const getListAllDatabaseNotPage= (data, callback) => post(prefix+'/dataAdminPlatform/listAllDatabase', 'getListAllDatabaseNotPage', data, callback, );
