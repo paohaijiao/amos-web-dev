@@ -242,3 +242,4 @@ export const getTransMenuList= (data, callback) => post(prefix+'/dataAdminPlatfo
 export const getTransById= (data, callback) => post(prefix+'/dataAdminPlatform/getTransById', 'getTransById', data, callback, );
 export const getTransList= (data, callback) => post(prefix+'/dataAdminPlatform/getTransList', 'getTransList', data, callback, );
 export const getDeleteTransById= (data, callback) => post(prefix+'/dataAdminPlatform/deleteTransById', 'getDeleteTransById', data, callback, );
+export const getTransDataType= (data, callback) => post(prefix+'/dataAdminPlatform/getDataType', 'getTransDataType', data, callback, );
