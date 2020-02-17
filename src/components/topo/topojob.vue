@@ -361,9 +361,10 @@ export default {
   methods: {
     init() {
         let that=this;
-      this.$axios.get('/api/kettleJobApi/getJobType').then(res => {
-        if (res.data.code === 200) {
-            that.list = res.data.data
+        let param=new Object();
+      this.$api.getJobType(param,res => {
+        if (res.code === 200) {
+            that.list = res.data
           this.$nextTick(() => {
             this.bindDragEvent()
           })
@@ -372,18 +373,15 @@ export default {
       // 详情
       if (this.$route.query.id) {
           let that=this;
-        this.$axios
-          .get('/api/kettleJobApi/getJobById', {
-            id: this.$route.query.id
-          })
-          .then(res => {
-            if (res.data.code === 200) {
-              let result = res.data.data
+          let param=new Object();
+          param.id= this.$route.query.id;
+        this.$api.getJobById(param,res => {
+            if (res.code === 200) {
+              let result = res.data
               let obj = {}
               that.title = result.jobName
               for (let k in result.step) {
                   var a=result.step[k];
-                  debugger;
                 obj[result.step[k].frontId] = {
                 // obj[k] = {
                   id: result.step[k].frontId,
@@ -506,16 +504,13 @@ export default {
         this.$alert('job名称不能为空');
         return;
       } else {
-        this.$axios
-          .post(
-            '/api/kettleJobApi/makeKettleJob',
+          let param=new Object();
+        this.$api
+          .makeKettleJob(
             this.getData({
               val: this.title,
               id: this.$route.query.id ? this.$route.query.id : null
-            }),
-            { type: 'json' }
-          )
-          .then(res => {
+            }), res => {
             if (res.code === 200) {
               this.visible = false
               this.$alert('保存成功');
@@ -539,7 +534,6 @@ export default {
     },
     onCloseDialog(item) {
       this.dialog[item.code] = false
-        debugger;
         $('#myModal').modal('hide')
     }
   }

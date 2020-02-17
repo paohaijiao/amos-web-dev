@@ -55,11 +55,11 @@
       },
       getSource() {
           let that=this;
-          var obj=new Object();
-          obj.taskType='KettleJob';
-        this.$axios.get('/api/sysTaskConfigApi/taskList',obj).then(res => {
-          if (res.data.code === 200) {
-              that.list = res.data.data;
+          var param=new Object();
+          param.taskType='KettleJob';
+        this.$api.getTaskConfigList(param,res => {
+          if (res.code === 200) {
+              that.list = res.data;
           }
         })
       },
@@ -68,9 +68,10 @@
       },
         getLogLevel(){
           let that=this;
-            this.$axios.get('/api/kettleJobApi/getLogLevel').then(res => {
-                if (res.data.code === 200) {
-                    that.loglist = res.data.data;
+            let param=new Object();
+            this.$api.getLogLevel(param,res => {
+                if (res.code === 200) {
+                    that.loglist = res.data;
                 }
             })
         }

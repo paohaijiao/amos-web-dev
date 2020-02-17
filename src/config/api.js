@@ -248,3 +248,9 @@ export const getCalcTypee= (data, callback) => post(prefix+'/kettleApi/calcType'
 export const getListAllDatabaseNotPage= (data, callback) => post(prefix+'/dataAdminPlatform/listAllDatabase', 'getListAllDatabaseNotPage', data, callback, );
 export const getFileType= (data, callback) => post(prefix+'/kettleApi/filetype', 'getFileType', data, callback, );
 export const getVariableType= (data, callback) => post(prefix+'/kettleApi/variableType', 'getVariableType', data, callback, );
+export const getJobType= (data, callback) => post(prefix+'/kettleJobApi/getJobType', 'getJobType', data, callback, );
+export const getJobById= (data, callback) => post(prefix+'/kettleJobApi/getJobById', 'getJobById', data, callback, );
+export const getLogLevel= (data, callback) => post(prefix+'/kettleJobApi/getLogLevel', 'getLogLevel', data, callback, );
+export const makeKettleJob= (data, callback) => sendPost(prefix+'/kettleJobApi/makeKettleJob',  data, {},callback);
+export const getJobList= (data, callback) => post(prefix+'/kettleJobApi/getJobList', 'getJobList', data, callback, );
+export const getDeleteKettleJob= (data, callback) => post(prefix+'/kettleJobApi/deleteJob', 'getDeleteKettleJob', data, callback, );
