@@ -95,9 +95,10 @@
         // })
       },
       getSource() {
-        this.$axios.get('/api/dataAdminPlatform/getDataType').then(res => {
-          if (res.data.code === 200) {
-            let retdata = res.data.data;
+          let param=new Object();
+        this.$api.getTransDataType(param,res => {
+          if (res.code === 200) {
+            let retdata = res.data;
             retdata.forEach((item, index, arr) => {
               let o = {};
               o.name = item;
@@ -107,9 +108,10 @@
           }
         })
          let that=this;
-              this.$axios.get('/api/dataAdminPlatform/listAllDatabase').then(res => {
-                  if (res.data.code === 200) {
-                      that.options = res.data.data
+
+              this.$api.getListAllDatabaseNotPage(param,res => {
+                  if (res.code === 200) {
+                      that.options = res.data
                   }
               })
       },
