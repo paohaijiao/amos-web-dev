@@ -117,7 +117,7 @@ export default {
     },
     getSource() {
         let param=new Object();
-      this.$axios.getListAllDatabaseNotPage(param,res => {
+      this.$api.getListAllDatabaseNotPage(param,res => {
         if (res.code === 200) {
           this.options = res.data
         }
