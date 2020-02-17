@@ -254,3 +254,4 @@ export const getLogLevel= (data, callback) => post(prefix+'/kettleJobApi/getLogL
 export const makeKettleJob= (data, callback) => sendPost(prefix+'/kettleJobApi/makeKettleJob',  data, {},callback);
 export const getJobList= (data, callback) => post(prefix+'/kettleJobApi/getJobList', 'getJobList', data, callback, );
 export const getDeleteKettleJob= (data, callback) => post(prefix+'/kettleJobApi/deleteJob', 'getDeleteKettleJob', data, callback, );
+export const getExportType= (data, callback) => post(prefix+'/kettleJobApi/exportType', 'getExportType', data, callback, );

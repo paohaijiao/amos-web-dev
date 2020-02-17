@@ -58,10 +58,9 @@
       },
       getSource() {
           let that=this;
-        this.$axios.get('/api/kettleJobApi/exportType').then(res => {
-            debugger;
-          if (res.data.code === 200) {
-              that.list = res.data.data;
+        this.$api.getExportType({},res => {
+          if (res.code === 200) {
+              that.list = res.data;
           }
         })
       },

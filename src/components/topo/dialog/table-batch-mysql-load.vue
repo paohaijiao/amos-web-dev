@@ -90,27 +90,18 @@
           let that=this;
           var obj=new Object();
           obj.taskType='KettleJob';
-          this.$axios.get('/api/dataAdminPlatform/listAllDatabase',obj).then(res => {
-          if (res.data.code === 200) {
-              that.list = res.data.data;
+          this.$api.getListAllDatabaseNotPage(obj,res => {
+          if (res.code === 200) {
+              that.list = res.data;
           }
         })
       },
       handleDelete(index) {
         this.tableData.splice(index, 1)
-      },
-        getLogLevel(){
-          let that=this;
-            this.$axios.get('/api/kettleJobApi/getLogLevel').then(res => {
-                if (res.data.code === 200) {
-                    that.loglist = res.data.data;
-                }
-            })
-        }
+      }
     },
     created() {
         this.getSource()
-        this.getLogLevel();
         this.tableData = this.form.field ? this.form.field : []
     }
   }
