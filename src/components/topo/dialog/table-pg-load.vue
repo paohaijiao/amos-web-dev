@@ -104,9 +104,10 @@
                 // })
             },
             getSource() {
-                this.$axios.get('/api/dataAdminPlatform/listAllDatabase').then(res => {
-                    if (res.data.code === 200) {
-                        this.options = res.data.data
+                let param=new Object();
+                this.$api.getListAllDatabaseNotPage(param,res => {
+                    if (res.code === 200) {
+                        this.options = res.data
                     }
                 })
             },

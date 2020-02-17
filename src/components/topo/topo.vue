@@ -919,6 +919,7 @@ export default {
       if (!this.title) {
         this.$alert('请输入转换名称')
       } else {
+          let that=this;
         this.$api
           .getCreateTrans(
                   this.getData({
@@ -931,7 +932,7 @@ export default {
               this.$alert('保存成功');
               this.$router.push('/index/trans')
             } else {
-              this.$alert(res.message);
+                that.$alert(res.message);
             }
           })
       }

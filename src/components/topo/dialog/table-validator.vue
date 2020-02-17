@@ -156,9 +156,10 @@
         // })
       },
       getSource() {
-        this.$axios.get('/api/dataAdminPlatform/getDataType').then(res => {
-          if (res.data.code === 200) {
-            let retdata = res.data.data;
+          let param=new Object();
+        this.$api.getTransDataType(param,res => {
+          if (res.code === 200) {
+            let retdata = res.data;
             retdata.forEach((item, index, arr) => {
               let o = {};
               o.name = item;
@@ -168,9 +169,9 @@
           }
         })
          let that=this;
-          this.$axios.get('/api/kettleApi/calcType').then(res => {
-              if (res.data.code === 200) {
-                  that.types = res.data.data;
+          this.$api.getCalcTypee(param,res => {
+              if (res.code === 200) {
+                  that.types = res.data;
               }
           })
       },
