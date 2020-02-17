@@ -25,7 +25,7 @@
           <td><input type="text" class="form-control" v-model="item.field_name"></td>
           <td>
             <select class="form-control select2 select2-hidden-accessible" v-model="item.field_type">
-              <option v-for="item1 in typeoptions" :key="item1.value" :label="item1.name" :value="item1.value"></option>
+              <option v-for="item1 in typeoptions" :key="item1.key" :label="item1.value" :value="item1.value"></option>
             </select>
           </td>
           <td>
@@ -79,23 +79,14 @@
         // })
       },
       getSource() {
-        this.$axios.get('/api/dataAdminPlatform/getDataType').then(res => {
-          if (res.data.code === 200) {
-            let retdata = res.data.data;
-            retdata.forEach((item, index, arr) => {
-              let o = {};
-              o.name = item;
-              o.value = item;
-              this.typeoptions.push(o);
-            })
+          let param=new Object();
+          let that=this;
+          this.$api.getFileType(param,res => {
+          if (res.code === 200) {
+            let retdata = res.data;
+              that.typeoptions=retdata;
           }
         })
-         let that=this;
-          this.$axios.get('/api/kettleApi/calcType').then(res => {
-              if (res.data.code === 200) {
-                  that.types = res.data.data;
-              }
-          })
       },
       addList() {
         let obj = {}

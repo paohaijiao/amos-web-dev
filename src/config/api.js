@@ -246,3 +246,5 @@ export const getTransDataType= (data, callback) => post(prefix+'/dataAdminPlatfo
 export const getRrandomType= (data, callback) => post(prefix+'/kettleApi/randomType', 'getRrandomType', data, callback, );
 export const getCalcTypee= (data, callback) => post(prefix+'/kettleApi/calcType', 'getCalcTypee', data, callback, );
 export const getListAllDatabaseNotPage= (data, callback) => post(prefix+'/dataAdminPlatform/listAllDatabase', 'getListAllDatabaseNotPage', data, callback, );
+export const getFileType= (data, callback) => post(prefix+'/kettleApi/filetype', 'getFileType', data, callback, );
+export const getVariableType= (data, callback) => post(prefix+'/kettleApi/variableType', 'getVariableType', data, callback, );

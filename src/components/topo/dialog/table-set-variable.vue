@@ -82,9 +82,10 @@
       },
       getSource() {
           let that=this;
-        this.$axios.get('/api/kettleApi/variableType').then(res => {
-          if (res.data.code === 200) {
-            that.options = res.data.data;
+          let param=new Object();
+        this.$api.getVariableType(param,res => {
+          if (res.code === 200) {
+            that.options = res.data;
 
           }
         })
