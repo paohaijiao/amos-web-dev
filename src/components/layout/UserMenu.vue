@@ -1,7 +1,7 @@
 <template>
   <li class="dropdown user user-menu">
     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-      <img src="/static/img/stock/user2-160x160.jpg"  class="user-image" />
+      <img src="/static/img/user2-160x160.jpg"  class="user-image" />
       <span class="hidden-xs">{{userInfo.name}}</span>
     </a>
     <ul class="dropdown-menu">

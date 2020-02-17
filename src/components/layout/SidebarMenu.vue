@@ -1,9 +1,13 @@
 <template>
   <ul class="sidebar-menu" data-widget="tree">
-  <li class="header">主菜单</li>
+  <li class="header">
+    <a href="#" style="height: 38px;">
+      <i class="fa" :class="iconLIst[0]"></i> <span style="font-size: 16px">主菜单</span>
+    </a>
+  </li>
   <li class=" treeview" v-for="(menu,index) in menuList">
     <a href="#">
-      <i class="fa" :class="iconLIst[index]"></i> <span style="font-size: 16px">{{menu.name}}</span>
+      <i class="fa" :class="iconLIst[index+1]"></i> <span style="font-size: 16px">{{menu.name}}</span>
       <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -28,7 +32,7 @@
                 isCollapse: false,
                 routeActiveMenu: this.$route.path,
                 menuList: [],
-                iconLIst: ['fa-dashboard', 'fa-files-o', 'fa-th', 'fa-pie-chart', 'fa-laptop', 'fa-edit', 'fa-table', 'fa-calendar', 'fa-envelope',
+                iconLIst: ['fa-dashboard', 'fa-files-o', 'fa-th', 'fa-laptop', 'fa-edit', 'fa-table', 'fa-calendar', 'fa-envelope',
                   'fa-folder', 'fa-share', 'fa-book','fa-bar-chart','fa-apple','fa-codepen','fa-codepen','fa-superpowers','fa-steam','a-simplybuilt']
             }
         },
@@ -55,9 +59,15 @@
     }
 </script>
 <style>
-  /* override default */
+  .header{
+    color: #4b646f;
+    background: #1a2226;
+  }
   .sidebar-menu > li > a {
     padding: 12px 15px 12px 15px;
+  }
+  .skin-blue .sidebar a {
+    color: #b8c7ce !important;
   }
 
   .sidebar-menu li.active > a > .fa-angle-left,

@@ -16,7 +16,7 @@
       <!-- Info boxes -->
       <div class="col-md-3 col-sm-6 col-xs-12">
         <info-box color-class="bg-aqua"
-                  :icon-classes="['ion', 'ion-ios-gear-outline']"
+                  :icon-classes="['fa', 'fa-cube']"
                   text="数据源个数"
                   :number="item.ds"
                   ></info-box>

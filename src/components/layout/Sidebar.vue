@@ -7,7 +7,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/static/img/stock/user2-160x160.jpg"   />
+          <img src="/static/img/user2-160x160.jpg"   />
         </div>
         <div class="pull-left info">
           <div>
@@ -83,10 +83,14 @@ export default {
 #search {
   width: 80%;
   float: right;
+  height: 35px;
 }
 
 #search-btn {
   width: 20%;
   height: 34px;
+}
+body{
+  background-color: #222d32;
 }
 </style>

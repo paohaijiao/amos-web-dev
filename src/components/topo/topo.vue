@@ -2,7 +2,7 @@
   <div >
     <dash-header ></dash-header>
     <sidebar />
-    <div class="content-wrapper" style="min-height: 1200px">
+    <div class="content-wrapper" >
         <div id="topo-container" style="border: 1px solid #daecf5;">
           <item-list id="item-list-left" :stepList="list"></item-list>
           <div id="chart-container" style="position: relative;float:left ">

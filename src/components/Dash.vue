@@ -1,5 +1,5 @@
 <template>
-  <div style="height:900px">
+  <div class="wrapper" style="height: auto; min-height: 100%;">
     <dash-header ></dash-header>
     <sidebar  />
     <div class="content-wrapper">

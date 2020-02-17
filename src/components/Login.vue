@@ -96,6 +96,9 @@ created(){
 
 html,
 body,
+/*.login-box{*/
+/*  margin: 15% auto !important;;*/
+/*}*/
 .container-table {
   height: 100%;
   background-color: #282b30 !important;

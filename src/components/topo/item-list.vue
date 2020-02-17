@@ -1,6 +1,6 @@
 <template>
   <div class="items-list" style="float:left;">
-    <div class="dropdown" v-for="(stepfirst,index) in stepList">
+    <div class="dropdown dropdownItem" v-for="(stepfirst,index) in stepList">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="width:100%">
         {{stepfirst.name}}
       </button>
@@ -44,3 +44,8 @@ export default {
 }
 }
 </script>
+<style>
+  .dropdownItem{
+    width:160px;
+  }
+</style>
