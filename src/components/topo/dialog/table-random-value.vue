@@ -63,15 +63,16 @@
       },
       getSource() {
           let that=this;
-        this.$axios.get('/api/kettleApi/randomType').then(res => {
-          if (res.data.code === 200) {
-              that.typeoptions = res.data.data;
+          let param=new Object();
+        this.$api.getRrandomType(param,res => {
+          if (res.code === 200) {
+              that.typeoptions = res.data;
               debugger;
           }
         })
-          this.$axios.get('/api/kettleApi/calcType').then(res => {
-              if (res.data.code === 200) {
-                  that.types = res.data.data;
+          this.$api.getCalcTypee(param,res => {
+              if (res.code === 200) {
+                  that.types = res.data;
               }
           })
       },

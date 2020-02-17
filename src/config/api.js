@@ -243,3 +243,5 @@ export const getTransById= (data, callback) => post(prefix+'/dataAdminPlatform/g
 export const getTransList= (data, callback) => post(prefix+'/dataAdminPlatform/getTransList', 'getTransList', data, callback, );
 export const getDeleteTransById= (data, callback) => post(prefix+'/dataAdminPlatform/deleteTransById', 'getDeleteTransById', data, callback, );
 export const getTransDataType= (data, callback) => post(prefix+'/dataAdminPlatform/getDataType', 'getTransDataType', data, callback, );
+export const getRrandomType= (data, callback) => post(prefix+'/kettleApi/randomType', 'getRrandomType', data, callback, );
+export const getCalcTypee= (data, callback) => post(prefix+'/kettleApi/calcType', 'getCalcTypee', data, callback, );
