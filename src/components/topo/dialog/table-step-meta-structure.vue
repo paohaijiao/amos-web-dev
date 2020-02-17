@@ -57,25 +57,6 @@
         $('#myModal').modal('hide')
         this.onClose()
       },
-      getSource() {
-        this.$axios.get('/api/dataAdminPlatform/getDataType').then(res => {
-          if (res.data.code === 200) {
-            let retdata = res.data.data;
-            retdata.forEach((item, index, arr) => {
-              let o = {};
-              o.name = item;
-              o.value = item;
-              this.typeoptions.push(o);
-            })
-          }
-        })
-         let that=this;
-          this.$axios.get('/api/kettleApi/calcType').then(res => {
-              if (res.data.code === 200) {
-                  that.types = res.data.data;
-              }
-          })
-      },
       addList() {
         let obj = {}
         this.tableData.push(obj)
@@ -85,7 +66,6 @@
       }
     },
     created() {
-      this.getSource()
       this.tableData = this.form.field ? this.form.field : []
     }
   }
