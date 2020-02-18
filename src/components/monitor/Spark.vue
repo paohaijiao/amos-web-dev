@@ -82,12 +82,10 @@ export default {
           option.page=this.pagination.page;
           option.name=this.search ? this.search : null;
           let that=this;
-      this.$axios
-        .get('/api/taskManager/getSparkJobLogList',option)
-        .then(res => {
-            if (res.data.code === 200) {
-                that.tableData = res.data.data.content
-                that.pagination.total = res.data.data.totalElements
+      this.$api.getSparkJobLogList(option,res => {
+            if (res.code === 200) {
+                that.tableData = res.data.content
+                that.pagination.total = res.data.totalElements
             }else{
             }
         })
