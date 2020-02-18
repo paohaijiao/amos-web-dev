@@ -12,12 +12,15 @@ import governance from '@/components/governance/index.vue'
 import transList from '@/components/governance/trans.vue'
 import jobList from '@/components/governance/job_list.vue'
 import job from '@/components/governance/job.vue'
-
+import users from '@/components/system/users'
 import transLog from '@/components/monitor/translate'
 import stepLog from '@/components/monitor/step'
 import jobLog from '@/components/monitor/joblog'
 import jobItemLog from '@/components/monitor/jobitemlog'
 import SparkLog from '@/components/monitor/Spark'
+
+import dataservice from '@/components/review/dataservice.vue'
+import registerAudit from '@/components/review/registerAudit.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -155,8 +158,50 @@ export default new Router({
       meta: {
         title: '作业项日志'
       }
-    }
+    },
 
     //任务监控结束
+    //系统管理开始
+    {
+      path: '/index/users',
+      component: users,
+      name: '数据治理',
+      meta: {
+        title: '用户管理'
+      }
+    },
+    // {
+    //   path: '/index/character',
+    //   component: character,
+    //   name: '数据治理',
+    //   meta: {
+    //     title: '用户管理'
+    //   }
+    // },
+    // {
+    //   path: '/index/menus',
+    //   component: menus,
+    //   name: '数据治理',
+    //   meta: {
+    //     title: '菜单管理'
+    //   }
+    // },
+    //系统管理结束
+    {
+      path: '/index/dataservice',
+      name: '数据治理',
+      meta: {
+        title: '接口审核'
+      },
+      component: dataservice
+    },
+    {
+      path: '/index/registerAutdit',
+      name: '数据治理',
+      meta: {
+        title: '注册审核'
+      },
+      component: registerAudit
+    }
   ]
 })

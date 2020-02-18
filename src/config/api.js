@@ -260,3 +260,7 @@ export const getTransLogList= (data, callback) => post(prefix+'/taskManager/getT
 export const getJobLog= (data, callback) => post(prefix+'/jobLogApi/getJobLog', 'getJobLog', data, callback, );
 export const getJobItemLog= (data, callback) => post(prefix+'/jobLogApi/getJobItemLog', 'getJobItemLog', data, callback, );
 export const getSparkJobLogList= (data, callback) => post(prefix+'/taskManager/getSparkJobLogList', 'getSparkJobLogList', data, callback, );
+export const getDeleteUser= (data, callback) => post(prefix+'/userApi/deleteUser', 'getDeleteUser', data, callback, );
+export const getUserDeleteOrUpdate= (data, callback) => post(prefix+'/userApi/createOrUpdate', 'getUserDeleteOrUpdate', data, callback, );
+export const getSelectDropDown= (data, callback) => post(prefix+'/role/selectDropDown', 'getSelectDropDown', data, callback, );
+export const getAuditUser= (data, callback) => post(prefix+'/userApi/auditUser', 'getAuditUser', data, callback, );
