@@ -255,3 +255,5 @@ export const makeKettleJob= (data, callback) => sendPost(prefix+'/kettleJobApi/m
 export const getJobList= (data, callback) => post(prefix+'/kettleJobApi/getJobList', 'getJobList', data, callback, );
 export const getDeleteKettleJob= (data, callback) => post(prefix+'/kettleJobApi/deleteJob', 'getDeleteKettleJob', data, callback, );
 export const getExportType= (data, callback) => post(prefix+'/kettleJobApi/exportType', 'getExportType', data, callback, );
+export const getStepLogList= (data, callback) => post(prefix+'/taskManager/getStepLogList', 'getStepLogList', data, callback, );
+export const getTransLogList= (data, callback) => post(prefix+'/taskManager/getTransLogList', 'getTransLogList', data, callback, );

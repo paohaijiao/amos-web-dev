@@ -12,6 +12,12 @@ import governance from '@/components/governance/index.vue'
 import transList from '@/components/governance/trans.vue'
 import jobList from '@/components/governance/job_list.vue'
 import job from '@/components/governance/job.vue'
+
+import transLog from '@/components/monitor/translate'
+import stepLog from '@/components/monitor/step'
+import jobLog from '@/components/monitor/joblog'
+import jobItemLog from '@/components/monitor/jobitemlog'
+import SparkLog from '@/components/monitor/Spark'
 Vue.use(Router)
 
 export default new Router({
@@ -107,5 +113,50 @@ export default new Router({
       component: jobList
     },
     //数据治理结束
+    //任务监控开始
+    {
+      path: '/index/translate',
+      component: transLog,
+      name: '数据治理',
+      meta: {
+        title: '转换日志'
+      }
+    },
+    {
+      path: '/index/step',
+      component: stepLog,
+      name: '数据治理',
+      meta: {
+        title: '步骤日志'
+      }
+    },
+    {
+      path: '/index/joblog',
+      component: jobLog,
+      name: '数据治理',
+      meta: {
+        title: '步骤日志'
+      }
+    },
+    {
+      path: '/index/Spark',
+      component: SparkLog,
+      name: '数据治理',
+      meta: {
+        title: 'Spark日志'
+      }
+    },
+
+
+    {
+      path: '/index/jobitemlog',
+      component: jobItemLog,
+      name: '数据治理',
+      meta: {
+        title: '作业项日志'
+      }
+    }
+
+    //任务监控结束
   ]
 })

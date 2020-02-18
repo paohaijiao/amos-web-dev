@@ -93,4 +93,7 @@ export default {
 body{
   background-color: #222d32;
 }
+  a{
+    color: #c0c4cc!important;
+  }
 </style>
