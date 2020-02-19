@@ -138,6 +138,7 @@ export default {
         return
       }
       let param = {
+        id:this.item.id,
         interfaceCode: this.item.interfaceCode,
         dataSourceId: this.item.dataSourceId,
         sql: this.item.sql
@@ -185,7 +186,6 @@ export default {
       let param = {
         id: id
       }
-
       this.$axios
         .post('/api/interfaceMaintain/deleteInterfaceMaintain', param, {
           type: 'json'
