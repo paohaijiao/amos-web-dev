@@ -86,16 +86,12 @@ export default {
         option.page=this.pagination.page;
         option.name=this.search ? this.search : null;
         let that=this;
-      this.$axios
-        .get('/api/review/getPendingReviewList', option, {
-          type: 'json'
-        })
-        .then(res => {
-          if (res.data.code === 200) {
-              that.tableData = res.data.data.listData
-              that.pagination.total = res.data.data.total
+      this.$api.getPendingReviewList( option, res => {
+          if (res.code === 200) {
+              that.tableData = res.data.listData
+              that.pagination.total = res.data.total
           }else{
-              this.$alert(res.data.message);
+              this.$alert(res.message);
           }
         })
     },
@@ -112,16 +108,13 @@ export default {
         reviewTime: row.reviewTime
       }
 
-      this.$axios
-        .post('/api/review/updateDataApply', param, {
-          type: 'json'
-        })
-        .then(res => {
-          if (res.data.code === 200) {
-              this.$alert(res.data.message);
+      this.$api
+        .getUpdateDataApply( param,res => {
+          if (res.code === 200) {
+              this.$alert(res.message);
               this.getList()
           } else {
-              this.$alert(res.data.message);
+              this.$alert(res.message);
           }
         })
     },
@@ -138,16 +131,13 @@ export default {
         reviewTime: row.reviewTime
       }
 
-      this.$axios
-        .post('/api/review/updateDataApply', param, {
-          type: 'json'
-        })
-        .then(res => {
-          if (res.data.code === 200) {
-              this.$alert(res.data.message);
+      this.$api
+        .getUpdateDataApply( param,res => {
+          if (res.code === 200) {
+              this.$alert(res.message);
               this.getList()
           } else {
-              this.$alert(res.data.message);
+              this.$alert(res.message);
           }
         })
     }

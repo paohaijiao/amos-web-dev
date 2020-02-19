@@ -271,3 +271,12 @@ export const getSaveRole= (data, callback) => post(prefix+'/role/saveRole', 'get
 export const getTreeView= (data, callback) => post(prefix+'/menu/treeView', 'getTreeView', data, callback, );
 export const getDeleteRole= (data, callback) => post(prefix+'/role/deleteRole', 'getDeleteRole', data, callback, );
 export const getSaveRoleMenu= (data, callback) => post(prefix+'/role/saveRoleMenu', 'getSaveRoleMenu', data, callback, );
+export const getDataApplyList= (data, callback) => post(prefix+'/dataService/getDataApplyList', 'getDataApplyList', data, callback, );
+export const getKeyPairList= (data, callback) => post(prefix+'/keyPair/getKeyPairList', 'getKeyPairList', data, callback, );
+export const batchGenerateKeyPair= (data, callback) => post(prefix+'/keyPair/batchGenerateKeyPair', 'batchGenerateKeyPair', data, callback, );
+export const getInterfaceMaintainList= (data, callback) => post(prefix+'/interfaceMaintain/getInterfaceMaintainList', 'getInterfaceMaintainList', data, callback, );
+export const getSaveInterfaceMaintain= (data, callback) => post(prefix+'/interfaceMaintain/saveInterfaceMaintain', 'getSaveInterfaceMaintain', data, callback, );
+export const getSelectInterfaceApply= (data, callback) => post(prefix+'/dataService/selectInterfaceApply', 'getSelectInterfaceApply', data, callback, );
+export const getSaveDataApply= (data, callback) => post(prefix+'/dataService/saveDataApply', 'getSaveDataApply', data, callback, );
+export const getPendingReviewList= (data, callback) => post(prefix+'/review/getPendingReviewList', 'getPendingReviewList', data, callback, );
+export const getUpdateDataApply= (data, callback) => post(prefix+'/review/updateDataApply', 'getUpdateDataApply', data, callback, );

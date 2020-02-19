@@ -21,6 +21,11 @@ import jobLog from '@/components/monitor/joblog'
 import jobItemLog from '@/components/monitor/jobitemlog'
 import SparkLog from '@/components/monitor/Spark'
 
+import dataapply from '@/components/service/dataapply'
+import interfacemaintain from '@/components/service/interfacemaintain'
+import invokeLog from '@/components/service/invokeLog'
+import keymanagement from '@/components/service/keymanagement'
+
 import dataservice from '@/components/review/dataservice.vue'
 import registerAudit from '@/components/review/registerAudit.vue'
 Vue.use(Router)
@@ -204,6 +209,42 @@ export default new Router({
         title: '注册审核'
       },
       component: registerAudit
-    }
+    },
+    //数据服务开始
+    {
+      path: '/index/dataapply',
+      component: dataapply,
+      name: '数据治理',
+      meta: {
+        title: '数据申请'
+      }
+    },
+    {
+      path: '/index/interfacemaintain',
+      component: interfacemaintain,
+      name: '数据治理',
+      meta: {
+        title: '接口维护'
+      }
+    },
+    {
+      path: '/index/invokeLog',
+      component: invokeLog,
+      name: '数据治理',
+      meta: {
+        title: '调用日志'
+      }
+    },
+    {
+      path: '/index/keymanagement',
+      component: keymanagement,
+      name: '数据治理',
+      meta: {
+        title: '秘钥管理'
+      }
+    },
+
+
+    //数据服务结束
   ]
 })
