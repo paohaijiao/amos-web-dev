@@ -13,6 +13,7 @@ import transList from '@/components/governance/trans.vue'
 import jobList from '@/components/governance/job_list.vue'
 import job from '@/components/governance/job.vue'
 import users from '@/components/system/users'
+import menus from '@/components/system/menus'
 import transLog from '@/components/monitor/translate'
 import stepLog from '@/components/monitor/step'
 import jobLog from '@/components/monitor/joblog'
@@ -178,14 +179,14 @@ export default new Router({
     //     title: '用户管理'
     //   }
     // },
-    // {
-    //   path: '/index/menus',
-    //   component: menus,
-    //   name: '数据治理',
-    //   meta: {
-    //     title: '菜单管理'
-    //   }
-    // },
+    {
+      path: '/index/menus',
+      component: menus,
+      name: '数据治理',
+      meta: {
+        title: '菜单管理'
+      }
+    },
     //系统管理结束
     {
       path: '/index/dataservice',

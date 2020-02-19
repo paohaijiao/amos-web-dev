@@ -264,3 +264,5 @@ export const getDeleteUser= (data, callback) => post(prefix+'/userApi/deleteUser
 export const getUserDeleteOrUpdate= (data, callback) => post(prefix+'/userApi/createOrUpdate', 'getUserDeleteOrUpdate', data, callback, );
 export const getSelectDropDown= (data, callback) => post(prefix+'/role/selectDropDown', 'getSelectDropDown', data, callback, );
 export const getAuditUser= (data, callback) => post(prefix+'/userApi/auditUser', 'getAuditUser', data, callback, );
+export const getSaveMenu= (data, callback) => post(prefix+'/menu/saveMenu', 'getSaveMenu', data, callback, );
+export const getSelectMenuAll= (data, callback) => post(prefix+'/menu/selectMenuAll', 'getSaveMenu', data, callback, );
