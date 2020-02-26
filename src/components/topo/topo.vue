@@ -3,21 +3,22 @@
     <dash-header ></dash-header>
     <sidebar />
     <div class="content-wrapper" >
-        <div id="topo-container" style="border: 1px solid #daecf5;">
-          <item-list id="item-list-left" :stepList="list"></item-list>
-          <div id="chart-container" style="position: relative;float:left ">
-            <div class="toolbar" style="width:100%">
-              <div  style="float:left;" v-show="!visible">
-                <h3>
-                <label for="name" class="label label-success" style="width:150px;height:34px">转换名称</label>
-                  <input type="text"  id="name" class="form_input" placeholder="请输入转换名称" v-model="title"/>
-                </h3>
-              </div>
-              <div  style="float:right;margin-top:18px">
-                <button type="button" class="btn btn-warning" @click="save">保存</button>
-              </div>
+      <div class="toolbar" style="height:37px" >
+        <div v-show="!visible">
+          <h3 style="display:flex">
+            <label for="name" class="label label-primary" style="width:160px;height:34px">作业名称</label>
+            <input type="text"  id="name" class="form_input" placeholder="请输入作业名称" v-model="title" style="height:37px"/>
+            <div  style="float:right">
+              <button type="button" class="btn btn-warning" @click="save">保存</button>
             </div>
-            <svg id="topo-chart" width="1300px" height="880px">
+          </h3>
+        </div>
+      </div>
+      <div id="topo-container" >
+
+          <div id="chart-container" >
+            <item-list id="item-list-left" :stepList="list" style="width:10%;float:left"></item-list>
+            <svg id="topo-chart" style="width:90%;height:500px" >
               <defs>
                 <marker
                   id="arrow"
