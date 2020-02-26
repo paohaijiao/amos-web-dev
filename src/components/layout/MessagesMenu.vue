@@ -33,17 +33,17 @@ export default {
     methods:{
         getMailInbox(){
             let that=this;
-            this.$api.getMailBox(res => {
-                    if (res.data.code === 200) {
-                        that.mailbox.inbox=res.data.inbox.value;
-                        that.mailbox.outbox=res.data.outbox.value;
-                        that.mailbox.draft=res.data.draft.value;
-                        that.mailbox.junk=res.data.junk.value;
-                        that.mailbox.trash=res.data.trash.value;
-                    }else{
-                        this.$alert('获取用户失败');
-                    }
-                })
+            // this.$api.getMailBox(res => {
+            //         if (res.data.code === 200) {
+            //             that.mailbox.inbox=res.data.inbox.value;
+            //             that.mailbox.outbox=res.data.outbox.value;
+            //             that.mailbox.draft=res.data.draft.value;
+            //             that.mailbox.junk=res.data.junk.value;
+            //             that.mailbox.trash=res.data.trash.value;
+            //         }else{
+            //             this.$alert('获取用户失败');
+            //         }
+            //     })
         }
     },
     created(){

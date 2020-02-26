@@ -2,7 +2,7 @@
   <div >
     <dash-header ></dash-header>
     <sidebar />
-    <div class="content-wrapper" style="min-height: 1200px">
+    <div class="content-wrapper" >
       <section class="content-header">
         <h1>
           转换日志

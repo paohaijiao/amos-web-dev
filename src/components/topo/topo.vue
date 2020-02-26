@@ -958,4 +958,24 @@ export default {
   },
 }
 </script>
+<style>
+  .port {
+    fill: #ddd;
+    stroke: #999;
+    stroke-width: 1;
+    cursor: crosshair;
+  }
+  .line {
+    fill: none;
+    stroke: #999;
+    stroke-width: 3px;
+  }
+  .item_label {
+    font-size: 13px;
+    fill: #fff;
+    stroke-width: 0;
+    user-select: none;
+  }
+
+</style>
 

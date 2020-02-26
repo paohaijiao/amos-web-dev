@@ -1,5 +1,5 @@
 <template>
-  <div class="items-list" style="float:left;">
+  <div class="items-list">
     <div class="dropdown dropdownItem" v-for="(stepfirst,index) in stepList">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="width:100%">
         {{stepfirst.name}}
