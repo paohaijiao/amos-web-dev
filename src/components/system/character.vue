@@ -288,8 +288,9 @@ export default {
 </script>
 
 <style >
-
-
+  .container{
+    width:600px !important;
+  }
   .paging-box {
     margin-top: 20px;
     text-align: right;
