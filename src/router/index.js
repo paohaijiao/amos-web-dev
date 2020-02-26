@@ -29,6 +29,7 @@ import keymanagement from '@/components/service/keymanagement'
 
 import dataservice from '@/components/review/dataservice.vue'
 import registerAudit from '@/components/review/registerAudit.vue'
+import sql from '@/components/preview/sql'
 Vue.use(Router)
 
 export default new Router({
@@ -257,5 +258,15 @@ export default new Router({
 
 
     //数据服务结束
+    //数据预览开始
+    {
+      path: '/index/sql-preview',
+      component: sql,
+      name: '数据治理',
+      meta: {
+        title: '数据查询'
+      }
+    },
+    //数据预览结束
   ]
 })

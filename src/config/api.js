@@ -283,3 +283,4 @@ export const getUpdateDataApply= (data, callback) => post(prefix+'/review/update
 export const getMakeGenericDataSource= (data, callback) => post(prefix+'/genericDataSourceApi/makeGenericDataSource', 'getMakeGenericDataSource', data, callback, );
 export const getGenericDataSourceList= (data, callback) => post(prefix+'/genericDataSourceApi/getGenericDataSourceList', 'getGenericDataSourceList', data, callback, );
 export const getDeleteDataSource= (data, callback) => post(prefix+'/genericDataSourceApi/deleteDataSource', 'deleteDataSource', data, callback, );
+export const getSql= (data, callback) => post(prefix+'/preview/sql', 'getSql', data, callback, );
