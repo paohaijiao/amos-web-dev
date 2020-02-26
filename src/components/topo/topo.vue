@@ -18,7 +18,7 @@
 
           <div id="chart-container" >
             <item-list id="item-list-left" :stepList="list" style="width:10%;float:left"></item-list>
-            <svg id="topo-chart" style="width:90%;height:500px" >
+            <svg id="topo-chart" style="width:90%;height:720px" >
               <defs>
                 <marker
                   id="arrow"

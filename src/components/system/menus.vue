@@ -5,7 +5,7 @@
     <div class="content-wrapper" >
       <section class="content-header">
         <h1>
-          菜单管理
+          菜单管理111
           <small>列表</small>
         </h1>
         <ol class="breadcrumb">
@@ -25,7 +25,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>主键</th>
+<!--                    <th style="width:20%;">主键</th>-->
                     <th>菜单名称</th>
                     <th>url</th>
                     <th>父节点</th>
@@ -36,7 +36,7 @@
                   </thead>
                   <tbody>
                   <tr v-for="(item)  in tableData">
-                    <td>{{item.id}}</td>
+<!--                    <td style="width:20%;">{{item.id}}</td>-->
                     <td>{{item.menuName}}</td>
                     <td >{{item.url}}</td>
                     <td>{{item.pid}}</td>
@@ -184,8 +184,7 @@ export default {
 </script>
 
 <style >
-  .paging-box {
-    margin-top: 20px;
-    text-align: right;
-  }
+td{
+  width:15px !important;
+}
 </style>
