@@ -284,3 +284,5 @@ export const getMakeGenericDataSource= (data, callback) => post(prefix+'/generic
 export const getGenericDataSourceList= (data, callback) => post(prefix+'/genericDataSourceApi/getGenericDataSourceList', 'getGenericDataSourceList', data, callback, );
 export const getDeleteDataSource= (data, callback) => post(prefix+'/genericDataSourceApi/deleteDataSource', 'deleteDataSource', data, callback, );
 export const getSql= (data, callback) => post(prefix+'/preview/sql', 'getSql', data, callback, );
+export const getPreview= (data, callback) => post(prefix+'/kettlePreview/preview', 'getPreview', data, callback, );
+export const getStepByTransId= (data, callback) => post(prefix+'/kettlePreview/getStepByTransId', 'getStepByTransId', data, callback, );

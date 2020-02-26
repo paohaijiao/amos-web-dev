@@ -30,6 +30,7 @@ import keymanagement from '@/components/service/keymanagement'
 import dataservice from '@/components/review/dataservice.vue'
 import registerAudit from '@/components/review/registerAudit.vue'
 import sql from '@/components/preview/sql'
+import steppreview from '@/components/preview/step-preview'
 Vue.use(Router)
 
 export default new Router({
@@ -267,6 +268,16 @@ export default new Router({
         title: '数据查询'
       }
     },
+    {
+      path: '/index/step-preview',
+      component: steppreview,
+      name: '数据治理',
+      meta: {
+        title: '步骤预览'
+      }
+    },
+
+
     //数据预览结束
   ]
 })

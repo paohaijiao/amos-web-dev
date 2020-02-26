@@ -60,10 +60,9 @@
 </template>
 
 <script>
-  import DashFooter from '../../layout/DashFooter'
-  import DashHeader from '../../layout/DashHeader'
-  import Sidebar from '../../layout/Sidebar'
-  import 'bootstrap-table/dist/bootstrap-table.min.js'
+  import DashFooter from '../layout/DashFooter'
+  import DashHeader from '../layout/DashHeader'
+  import Sidebar from '../layout/Sidebar'
     export default {
         name: 'addSche',
         props: {},
@@ -100,29 +99,29 @@
                 param.transName=this.transName;
                 param.stepName=this.stepName;
                 param.row=this.row;
-                this.$axios.get('/api/kettlePreview/preview', param).then(res => {
-                    if (res.data.code === 200) {
+                this.$api.getPreview(param,res => {
+                    if (res.code === 200) {
                         // that.cols=res.data.data.data.rowBufferMeta;
-                        let totalLine=res.data.data.data.rowBuffer.length;
+                        let totalLine=res.data.data.rowBuffer.length;
                         let lines=[];
                         for (var index=0;index<totalLine;index++) {
-                            let line=res.data.data.data.rowBuffer[index];
+                            let line=res.data.data.rowBuffer[index];
                             var obj=new Object() ;
-                            for (var col=0;col<res.data.data.data.rowBufferMeta.length;col++) {
-                                let key=res.data.data.data.rowBufferMeta[col].name;
+                            for (var col=0;col<res.data.data.rowBufferMeta.length;col++) {
+                                let key=res.data.data.rowBufferMeta[col].name;
                                 obj[key] = line[col];
                             }
                             lines.push(obj);
 
                         }
                         that.tables=lines;
-                        let columnLength=res.data.data.data.rowBufferMeta.length;
+                        let columnLength=res.data.data.rowBufferMeta.length;
                         for (var i=0;i<columnLength;i++) {
-                            let temp=res.data.data.data.rowBufferMeta[i]
+                            let temp=res.data.data.rowBufferMeta[i]
                             if(null!=temp){
                                 var o=new Object() ;
-                                o.field=res.data.data.data.rowBufferMeta[i].name;
-                                o.title=res.data.data.data.rowBufferMeta[i].name;
+                                o.field=res.data.data.rowBufferMeta[i].name;
+                                o.title=res.data.data.rowBufferMeta[i].name;
                                 that.cols.push(o)
                             }
                         }
@@ -142,9 +141,9 @@
                 let that=this;
                 var param=new Object();
                 param.taskType='KettleJob';
-                this.$axios.get('/api/sysTaskConfigApi/taskList', param).then(res => {
-                    if (res.data.code === 200) {
-                        that.option = res.data.data
+                this.$api.getTaskConfigList(param,res => {
+                    if (res.code === 200) {
+                        that.option = res.data
                     }
                 })
             },
@@ -157,9 +156,9 @@
                 let that=this;
                 let param=new Object();
                 param.transName=transName;
-                this.$axios.get('/api/kettlePreview/getStepByTransId', param).then(res => {
-                    if (res.data.code === 200) {
-                        that.stetpOption = res.data.data
+                this.$api.getStepByTransId( param,res => {
+                    if (res.code === 200) {
+                        that.stetpOption = res.data
                     }
                 })
             }
@@ -170,119 +169,10 @@
     }
 </script>
 
-<style lang="scss" scoped>
-  .inner {
-    width: 100%;
-    min-height: 500px;
-    box-sizing: border-box;
-    .table-outer {
-      .query-btns {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-items: center;
-        font-size: 14px;
-        margin-bottom: 15px;
-      }
-      .form-box {
-        .outerdiv {
-          width: 670px;
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-content: flex-start;
-          align-items: center;
-          flex-wrap: nowrap;
-          margin-bottom: 20px;
-          .conditions-query {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-content: flex-start;
-            align-items: center;
-            flex-wrap: nowrap;
-            font-size: 14px;
-            flex: 1;
-            .btn-query {
-              background-color: #4ac4e3;
-              border: 1px solid #4ac4e3;
-              color: #ffffff;
-            }
-            .field-aligned {
-              width: 130px;
-              text-align: right;
-              margin-right: 10px;
-              white-space: nowrap;
-              b {
-                color: #ff0000;
-                font-weight: normal;
-              }
-            }
-            .vail-box-align {
-              display: flex;
-              flex-direction: column;
-              align-content: center;
-              justify-content: flex-start;
-              align-items: flex-start;
-              min-height: 70px;
-              flex: 1;
-              .vail-font-color {
-                color: #666666;
-                text-align: left;
-                line-height: 20px;
-                display: block;
-              }
-              .arrangement {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-content: center;
-                align-items: center;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .query-btn-com {
-      background: #5578ff;
-      border-radius: 5px;
-      color: #ffffff;
-      font-size: 13px;
-      border-color: #5578ff;
-      height: 30px;
-      line-height: 30px;
-      padding: 0 15px;
-    }
-    .query-btn-com:hover,
-    .query-btn-com:active,
-    .query-btn-com:focus {
-      background: #6e8bfb;
-      border-color: #6e8bfb;
-    }
-
-    .query-btn-plain {
-      background: #ffffff;
-      border-radius: 5px;
-      color: #5578ff;
-      font-size: 13px;
-      border-color: #5578ff;
-      height: 30px;
-      line-height: 30px;
-      padding: 0 15px;
-    }
-    .query-btn-plain:hover,
-    .query-btn-plain:active,
-    .query-btn-plain:focus {
-      background: #f0f0f0;
-    }
-
+<style >
     .paging-box {
       margin-top: 20px;
       text-align: right;
     }
-  }
+
 </style>
