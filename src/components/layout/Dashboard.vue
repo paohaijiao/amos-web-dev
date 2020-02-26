@@ -166,30 +166,30 @@ export default {
     getContainer() {
       let that = this
         this.$api.getServerPerform(res => {
+            debugger;
                   if (res.code === 200) {
                     that.containner = res.data
                     this.draw()
                   } else {
-                    // this.$alert(res.data.message)
+                     this.$alert(res.data.message)
                   }
                 })
     },
     getList() {
       let that = this
         this.$api.getIndex(res => {
-                  if (res.code === 200) {
-                    that.item = res.data
-                    debugger
-                  } else {
-                    // this.$alert(res.message)
-                  }
-                })
+            debugger;
+            if (res.code === 200) {
+                that.item = res.data
+            } else {
+                     this.$alert(res.message)
+            }
+        })
     },
     draw() {
       this.$nextTick(() => {
         var ctx = document.getElementById('trafficBar').getContext('2d')
         let array = this.containner
-        debugger
         var config = {
           type: 'line',
           data: {

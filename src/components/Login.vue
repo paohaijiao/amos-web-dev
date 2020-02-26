@@ -75,7 +75,7 @@ export default {
                               this.$router.push({path: "/index"});
                           }
                           else {
-                              alert(res.data.message)
+                              alert(res.message)
                           }
                       })
                   },
