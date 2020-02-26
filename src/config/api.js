@@ -280,3 +280,6 @@ export const getSelectInterfaceApply= (data, callback) => post(prefix+'/dataServ
 export const getSaveDataApply= (data, callback) => post(prefix+'/dataService/saveDataApply', 'getSaveDataApply', data, callback, );
 export const getPendingReviewList= (data, callback) => post(prefix+'/review/getPendingReviewList', 'getPendingReviewList', data, callback, );
 export const getUpdateDataApply= (data, callback) => post(prefix+'/review/updateDataApply', 'getUpdateDataApply', data, callback, );
+export const getMakeGenericDataSource= (data, callback) => post(prefix+'/genericDataSourceApi/makeGenericDataSource', 'getMakeGenericDataSource', data, callback, );
+export const getGenericDataSourceList= (data, callback) => post(prefix+'/genericDataSourceApi/getGenericDataSourceList', 'getGenericDataSourceList', data, callback, );
+export const getDeleteDataSource= (data, callback) => post(prefix+'/genericDataSourceApi/deleteDataSource', 'deleteDataSource', data, callback, );

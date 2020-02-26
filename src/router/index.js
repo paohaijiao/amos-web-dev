@@ -6,6 +6,7 @@ import Dash from '@/components/Dash'
 import collectionIndex from '@/components/collection/index'
 import collectionData from '@/components/collection/collection-data'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
+import generic from '@/components/collection/generic'
 import scheduling from '@/components/scheduling/scheduling'
 
 import governance from '@/components/governance/index.vue'
@@ -69,6 +70,16 @@ export default new Router({
         title: '采集关系'
       }
     },
+    {
+      path: '/index/generic',
+      component: generic,
+      name: '数据治理',
+      meta: {
+        title: '通用数据源节点'
+      }
+    },
+
+
     {
       path: '/index/hadoop-cluster',
       component: hadoopCluster,
