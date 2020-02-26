@@ -61,7 +61,7 @@
                             <input type="text" class="form-control" v-model="item.name" id="name" placeholder="请输入数据源名称">
                           </div>
                           <div class="form-group">
-                            <label >数据库类型</label>
+                            <label >数据库类型({{item.description}})</label>
                             <select style="width:100%;height:34px" v-model="item.databaseTypeId" >
                               <option :value="item.id" v-for="item in baseTypeList" >{{item.code}}</option>
                             </select>

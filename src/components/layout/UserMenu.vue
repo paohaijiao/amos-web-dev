@@ -14,7 +14,7 @@
       <li class="user-footer">
         <a @click="logout()" class="btn btn-default btn-flat btn-block">
           <i class="fa fa-sign-out"></i>
-          <span>Logout</span>
+          <span>退出登录</span>
         </a>
       </li>
     </ul>

@@ -1,12 +1,12 @@
 <template>
   <li class="dropdown tasks-menu">
-    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-      <i class="fa fa-flag-o"></i>
-      <span class="label label-danger">{{item.count}} </span>
-    </a>
-    <ul class="dropdown-menu">
-      <li class="header">你有{{item.count}}用户需要审核</li>
-    </ul>
+<!--    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">-->
+<!--      <i class="fa fa-flag-o"></i>-->
+<!--      <span class="label label-danger">{{item.count}} </span>-->
+<!--    </a>-->
+<!--    <ul class="dropdown-menu">-->
+<!--      <li class="header">你有{{item.count}}用户需要审核</li>-->
+<!--    </ul>-->
   </li>
 </template>
 

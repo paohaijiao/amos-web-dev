@@ -1,13 +1,13 @@
 <template>
-  <li class="dropdown messages-menu">
-    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-      <i class="fa fa-envelope-o"></i>
-      <span class="label label-success">{{  mailbox.inbox }}</span>
-    </a>
-    <ul class="dropdown-menu">
-      <li class="header">你收件箱有{{  mailbox.inbox }}条消息</li>
-    </ul>
-  </li>
+<!--  <li class="dropdown messages-menu">-->
+<!--    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">-->
+<!--      <i class="fa fa-envelope-o"></i>-->
+<!--      <span class="label label-success">{{  mailbox.inbox }}</span>-->
+<!--    </a>-->
+<!--    <ul class="dropdown-menu">-->
+<!--      <li class="header">你收件箱有{{  mailbox.inbox }}条消息</li>-->
+<!--    </ul>-->
+<!--  </li>-->
 </template>
 
 <script>

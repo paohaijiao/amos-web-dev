@@ -1,14 +1,14 @@
 <template>
   <li class="dropdown notifications-menu">
     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-      <i class="fa fa-bell-o"></i>
-      <span class="label label-warning">{{ notification.length }}</span>
+<!--      <i class="fa fa-bell-o"></i>-->
+<!--      <span class="label label-warning">{{ notification.length }}</span>-->
     </a>
     <ul class="dropdown-menu">
       <li class="header">
         <div class="row no-margin">
           <span class="col-xs-12 col-md-12 tab-link" :class="'new'">
-              <a href="javascript:;">系统通知</a>
+<!--              <a href="javascript:;">系统通知</a>-->
             </span>
         </div>
       </li>
@@ -16,14 +16,14 @@
         <ul  class="menu">
           <notification-item v-for="item in notification" :key="item.id" :notification="item"></notification-item>
           <li v-if="0==notification.length">
-            <span class="center-block text-center">没有新消息</span>
+<!--            <span class="center-block text-center">没有新消息</span>-->
           </li>
         </ul>
       </li>
       <li v-if="notification.length && tab === 'new'" class="footer">
         <a href="javascript:;" >
-          <i class="fa fa-check"></i>
-          <span>查看更多</span>
+<!--          <i class="fa fa-check"></i>-->
+<!--          <span>查看更多</span>-->
         </a>
       </li>
     </ul>
