@@ -54,6 +54,7 @@ export default {
     this.userInfo={};
     let str=window.localStorage.getItem('userInfo');
     this.userInfo=JSON.parse(str);
+    debugger;
   },
 }
 </script>

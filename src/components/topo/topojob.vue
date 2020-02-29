@@ -8,9 +8,9 @@
         <div v-show="!visible">
           <h3 style="display:flex">
             <label for="name" class="label label-primary" style="width:160px;height:34px">作业名称</label>
-            <input type="text"  id="name" class="form_input" placeholder="请输入作业名称" v-model="title" style="height:37px"/>
+            <input type="text"  id="name" class="form_input" placeholder="请输入作业名称" v-model="title" style="height:37px;margin-left:30px"/>
             <div  style="float:right">
-              <button type="button" class="btn btn-warning" @click="save">保存</button>
+              <button type="button" class="btn btn-warning" @click="save" style="margin-left:10px">保存</button>
             </div>
           </h3>
         </div>

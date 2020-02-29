@@ -34,4 +34,7 @@ export default {
 #drag1 {
   cursor: pointer;
 }
+ .content-wrapper{
+   margin-top: -20px;
+ }
 </style>
