@@ -53,10 +53,11 @@ const sendPost = (url, data, config = {}, callback) => {
         }
         if (200 != response.data.code) {
             debugger;
-            alert('登录失效')
+
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
                 console.log("登录失效")
+                alert('登录失效')
                 this.$router.push({path: "/"});
 
 
