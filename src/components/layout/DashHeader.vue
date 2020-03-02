@@ -1,7 +1,7 @@
 <template>
   <header class="main-header" style="background-color: #3c8dbc;">
     <span class="logo-mini">
-      <a href="/"><img src="/static/img/copilot-logo-white.svg" alt="Logo" class="img-responsive center-block logo"></a>
+<!--      <a href="/"><img src="http://img5.imgtn.bdimg.com/it/u=3476482573,773944624&fm=26&gp=0.jpg" alt="Logo" class="img-responsive center-block logo"></a>-->
     </span>
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">

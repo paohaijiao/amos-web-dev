@@ -1,10 +1,5 @@
 <template>
   <ul class="sidebar-menu" data-widget="tree">
-  <li class="header">
-    <a href="#" style="height: 38px;">
-      <i class="fa" :class="iconLIst[0]"></i> <span style="font-size: 16px">主菜单</span>
-    </a>
-  </li>
   <li class=" treeview" v-for="(menu,index) in menuList">
     <a href="#">
       <i class="fa" :class="iconLIst[index+1]"></i> <span style="font-size: 16px">{{menu.name}}</span>

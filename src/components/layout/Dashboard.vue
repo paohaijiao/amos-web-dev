@@ -8,8 +8,8 @@
                type="success"
                :iconClasses="['fa', 'fa-check']"
                title="数据治理平台">
-          <span>点击图标联系我们.</span>
-          <a href="mailto:goudingcheng@sina.com&subject=amos大数据数据治理平台使用感受&body=你有什么想法可以发送给我们"><i class="fa fa-github fa-2x"></i></a>
+          <span>若有好的建议或者bug修复请联系作者.</span>
+          <a href="mailto:814780613@qq.com&subject=大数据+数据治理平台使用感受&body=你有什么想法可以发送给我们"><i class="fa fa-github fa-2x"></i></a>
         </alert>
       </div>
 
