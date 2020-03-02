@@ -30,6 +30,6 @@ export default {
 </script>
 <style>
   .content-wrapper{
-    margin-top: -20px;
+    margin-top: -20px !important;;
   }
 </style>

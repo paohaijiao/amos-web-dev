@@ -55,6 +55,12 @@ export default new Router({
       name: 'dash',
       component: Dash
     },
+    {
+      path: '/index/index1',
+      name: '主页',
+      component: Dash
+    },
+
     //采集数据开始
     {
       path: '/index/collection',

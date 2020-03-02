@@ -35,6 +35,6 @@ export default {
   cursor: pointer;
 }
  .content-wrapper{
-   margin-top: -20px;
+   margin-top: -20px !important;
  }
 </style>

@@ -97,7 +97,7 @@
         <process-info-box color-class="bg-green"
                           :icon-classes="['ion', 'ion-ios-heart-outline']"
                           text="消息数"
-                          :number="item.message"
+                          :number="0"
                           :progress="20"
                           description=""></process-info-box>
       </div>
@@ -165,24 +165,23 @@ export default {
   methods: {
     getContainer() {
       let that = this
-        this.$api.getServerPerform(res => {
+        this.$api.getServerPerform({},res => {
             debugger;
                   if (res.code === 200) {
                     that.containner = res.data
-                    this.draw()
+                    that.draw()
                   } else {
-                     this.$alert(res.data.message)
+                    that.$alert(res.data.message)
                   }
                 })
     },
     getList() {
       let that = this
-        this.$api.getIndex(res => {
-            debugger;
+        this.$api.getIndex({},res => {
             if (res.code === 200) {
                 that.item = res.data
             } else {
-                     this.$alert(res.message)
+                that.$alert(res.message)
             }
         })
     },
@@ -225,7 +224,7 @@ export default {
           }
         }
 
-        new Chart(ctx, config) // eslint-disable-line no-new
+         new Chart(ctx, config) // eslint-disable-line no-new
 
         var pieChartCanvas = document.getElementById('languagePie').getContext('2d')
         var pieConfig = {
@@ -270,6 +269,12 @@ export default {
 <style>
   .content{
     margin-top: 10px !important;
+  }
+  #trafficBar{
+    height:250px!important;
+  }
+  #languagePie{
+    height:250px!important;
   }
 .info-box {
   cursor: pointer;
