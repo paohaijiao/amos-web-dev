@@ -7,7 +7,7 @@
         <alert :dismissible="true"
                type="success"
                :iconClasses="['fa', 'fa-check']"
-               title="数据治理平台">
+               title="数据治理+大数据平台(支持原生hadoop+cloudera平台)">
           <span>若有好的建议或者bug修复请联系作者.</span>
           <a href="mailto:814780613@qq.com&subject=大数据+数据治理平台使用感受&body=你有什么想法可以发送给我们"><i class="fa fa-github fa-2x"></i></a>
         </alert>
