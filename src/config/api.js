@@ -52,11 +52,14 @@ const sendPost = (url, data, config = {}, callback) => {
         if (Object.keys(config).length) {
         }
         if (200 != response.data.code) {
+            debugger;
+            alert('登录失效')
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
                 console.log("登录失效")
                 this.$router.push({path: "/"});
-              this.$alert('登录失效')
+
+
             }
             if (response.data.code === '403' || response.data.code === 403) {
                 common.errorToBack(response.data.message)
