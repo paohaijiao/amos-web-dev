@@ -5,7 +5,7 @@
     <div class="content-wrapper" >
       <section class="content-header">
         <h1>
-          通用数据源jdbc(暂时不支持phoenix但是支持kylin等olap数据源)
+          通用数据源jdbc(druid数据源请走rest)
           <small>列表</small>
         </h1>
         <ol class="breadcrumb">
