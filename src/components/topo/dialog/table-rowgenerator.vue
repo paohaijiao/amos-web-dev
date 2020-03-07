@@ -8,23 +8,42 @@
       <input type="text" class="form-control"   v-model="form.name" placeholder="请输入步骤名称">
     </div>
     <div class="form-group">
-      <label >字段名称</label>
-      <input type="text" class="form-control"    v-model="form.field_name" placeholder="请输入字段名称">
-    </div>
-
-    <div class="form-group">
-      <label >字段类型</label>
-      <select  v-model="form.field_type" class="form-control select2 select2-hidden-accessible">
-        <option v-for="item in typeoptions"  :key="item.value" :label="item.name" :value="item.value"></option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label >值</label>
-      <input type="text" class="form-control"    v-model="form.field_nullif" placeholder="请输入值">
-    </div>
-    <div class="form-group">
       <label >限制</label>
       <input type="text" class="form-control"    v-model="form.limit" placeholder="请输入生成数目（数字）">
+    </div>
+    <div class="box">
+      <div class="box-header with-border">
+        <label  style="line-height: 35px;">字段</label>
+        <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增</button>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered"  >
+          <thead>
+          <tr>
+            <th>字段名称</th>
+            <th>字段类型</th>
+            <th>值</th>
+            <th >操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="item in tableData">
+            <td><input type="text" class="form-control" v-model="item.field_name"></td>
+            <td>
+              <select class="form-control select2 select2-hidden-accessible" v-model="item.field_type">
+                <option v-for="item1 in typeoptions" :key="item1.value" :label="item1.name" :value="item1.value"></option>
+              </select>
+            </td>
+            <td><input type="text" class="form-control" v-model="item.field_nullif"></td>
+            <td>
+              <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" @click="cancel">取消</button>
@@ -42,12 +61,15 @@
       return {
         form: _.cloneDeep(this.item.data) || {},
         dialogVisible: true,
+        tableData: [],
         typeoptions: []
       }
     },
     methods: {
       onConfirm() {
         this.form.field = this.tableData
+          let a=this.item;
+          debugger;
         this.item.data = this.form
         $('#myModal').modal('hide')
         this.onClose();
@@ -59,10 +81,15 @@
       onClose() {
         this.dialogVisible = false
         this.$emit('on-close', this.item)
-        // this.item.updateItem({
-        //     text: this.form.title
-        // })
       },
+        addList() {
+          debugger;
+            let obj = {}
+            this.tableData.push(obj)
+        },
+        handleDelete(index) {
+            this.tableData.splice(index, 1)
+        },
       getSource() {
           let param=new Object();
         this.$api.getTransDataType(param,res => {
@@ -76,10 +103,12 @@
             })
           }
         })
-      }
+      },
+
     },
     created() {
-      this.getSource()
+      this.getSource();
+        this.tableData = this.form.field ? this.form.field : []
     }
   }
 </script>

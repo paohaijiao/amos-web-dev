@@ -12,9 +12,20 @@
       <input type="text" class="form-control"   v-model="form.result_name" placeholder="请输入result_name">
     </div>
     <div class="form-group">
-      <label  >urlField</label>
+      <label  >上一步的字段作为urlField</label>
       <input type="text" class="form-control"   v-model="form.urlField" placeholder="请输入urlField">
     </div>
+    <div class="form-group">
+      <label  >上一步的字段作为bodyField</label>
+      <input type="text" class="form-control"   v-model="form.bodyField" placeholder="请输入bodyField">
+    </div>
+    <div class="form-group" v-if="null!=form.bodyField">
+      <label  >applicationType</label>
+      <select  v-model="form.applicationType" class="form-control select2 select2-hidden-accessible">
+        <option v-for="item in applicationType"  :key="item.key" :label="item.value" :value="item.value"></option>
+      </select>
+    </div>
+
     <div class="form-group">
       <label  >method</label>
       <select  v-model="form.method" class="form-control select2 select2-hidden-accessible">
@@ -45,6 +56,7 @@
       return {
         form: _.cloneDeep(this.item.data) || {},
         dialogVisible: true,
+        applicationType:[],
         optiona: [
           {name: 'TEXT PLAIN', value: 'TEXT PLAIN' },
           {name: 'XML', value: 'XML' },
@@ -87,12 +99,24 @@
       onClose() {
         this.dialogVisible = false
         this.$emit('on-close', this.item)
-        // this.item.updateItem({
-        //     text: this.form.title
-        // })
       },
+      getApplicationType() {
+            let param=new Object();
+            this.$api.getApplicationType(param,res => {
+                if (res.code === 200) {
+                    let retdata = res.data;
+                    retdata.forEach((item, index, arr) => {
+                        let o = {};
+                        o.key = item.key;
+                        o.value = item.value;
+                        this.applicationType.push(o);
+                    })
+                }
+            })
+        },
     },
     created() {
+        this.getApplicationType();
     }
   }
 </script>

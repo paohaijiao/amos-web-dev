@@ -292,3 +292,5 @@ export const getPreview= (data, callback) => post(prefix+'/kettlePreview/preview
 export const getStepByTransId= (data, callback) => post(prefix+'/kettlePreview/getStepByTransId', 'getStepByTransId', data, callback, );
 export const getExport= (data, callback) => post(prefix+'/exportApi/export', 'getExport', data, callback, );
 export const getImport= (data, callback) => post(prefix+'/exportApi/import', 'getImport', data, callback, );
+export const getJsonOperateType= (data, callback) => post(prefix+'/kettleApi/jsonOperateType', 'getJsonOperateType', data, callback, );
+export const getApplicationType= (data, callback) => post(prefix+'/kettleApi/applicationType', 'getApplicationType', data, callback, );

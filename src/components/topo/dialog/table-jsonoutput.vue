@@ -8,6 +8,14 @@
       <input type="text" class="form-control"    v-model="form.name" placeholder="请输入步骤名称">
     </div>
     <div class="form-group">
+      <label  >操作</label>
+      <select class="form-control select2 select2-hidden-accessible" v-model="form.operation_type">
+        <option v-for="item1 in jsonOperateType" :key="item1.key" :label="item1.value" :value="item1.key"></option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
       <label  >文件名</label>
       <input type="text" class="form-control"    v-model="form.file_name" placeholder="请输入文件名">
     </div>
@@ -39,7 +47,7 @@
             <td><input type="text" class="form-control" v-model="item.field_name"></td>
             <td>
               <select class="form-control select2 select2-hidden-accessible" v-model="item.field_element">
-                <option v-for="item1 in typeoptions" :key="item1.value" :label="item1.name" :value="item1.value"></option>
+                <option v-for="item1 in typeoptions" :key="item1.key" :label="item1.value" :value="item1.key"></option>
               </select>
             </td>
             <td>
@@ -68,7 +76,8 @@ export default {
       form: _.cloneDeep(this.item.data) || {file_required: 'N', include_subfolders: 'N'},
       dialogVisible: true,
       typeoptions: [],
-      tableData: []
+      tableData: [],
+      jsonOperateType:[]
     }
   },
   methods: {
@@ -91,14 +100,15 @@ export default {
     },
     getSource() {
         let param=new Object();
-      this.$api.getTransDataType(param,res => {
+        let that=this;
+        that.$api.getTransDataType(param,res => {
         if (res.code === 200) {
           let retdata = res.data;
           retdata.forEach((item, index, arr) => {
             let o = {};
-            o.name = item;
+            o.key = item;
             o.value = item;
-            this.typeoptions.push(o);
+            that.typeoptions.push(o);
           })
         }
       })
@@ -109,10 +119,25 @@ export default {
     },
     handleDelete(index) {
       this.tableData.splice(index, 1)
-    }
+    },
+     getJsonOperateType() {
+          let param=new Object();
+          this.$api.getJsonOperateType(param,res => {
+              if (res.code === 200) {
+                  let retdata = res.data;
+                  retdata.forEach((item, index, arr) => {
+                      let o = {};
+                      o.key = item.key;
+                      o.value = item.value;
+                      this.jsonOperateType.push(o);
+                  })
+              }
+          })
+      }
   },
   created() {
     this.getSource()
+    this.getJsonOperateType();
     this.tableData = this.form.field ? this.form.field : []
   }
 }
