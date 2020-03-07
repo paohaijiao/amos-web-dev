@@ -32,6 +32,7 @@ import registerAudit from '@/components/review/registerAudit.vue'
 import sql from '@/components/preview/sql'
 import steppreview from '@/components/preview/step-preview'
 import exportrepository from '@/components/repository/export-repository.vue'
+import importrepository from '@/components/repository/import-repository.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -286,6 +287,7 @@ export default new Router({
 
 
     //数据预览结束
+    //资源库开始
     {
       path: '/index/export-repository',
       component: exportrepository,
@@ -294,7 +296,15 @@ export default new Router({
         title: '导出资源库'
       }
     },
-
+    {
+      path: '/index/import-repository',
+      component: importrepository,
+      name: '数据治理',
+      meta: {
+        title: '导入资源库'
+      }
+    },
+    //资源库结束
 
   ]
 })

@@ -291,3 +291,4 @@ export const getSql= (data, callback) => post(prefix+'/preview/sql', 'getSql', d
 export const getPreview= (data, callback) => post(prefix+'/kettlePreview/preview', 'getPreview', data, callback, );
 export const getStepByTransId= (data, callback) => post(prefix+'/kettlePreview/getStepByTransId', 'getStepByTransId', data, callback, );
 export const getExport= (data, callback) => post(prefix+'/exportApi/export', 'getExport', data, callback, );
+export const getImport= (data, callback) => post(prefix+'/exportApi/import', 'getImport', data, callback, );
