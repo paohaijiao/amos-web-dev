@@ -91,7 +91,7 @@ export default {
       }
 
       let params = {
-          exportPath: this.item.filepath,
+          filepath: this.item.filepath,
           dir: this.item.dir,
       }
       this.$api.getImport( params,res => {
