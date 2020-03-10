@@ -52,8 +52,6 @@ const sendPost = (url, data, config = {}, callback) => {
         if (Object.keys(config).length) {
         }
         if (200 != response.data.code) {
-            debugger;
-
             console.log("接口错误:" + url,response)
             if (response.data.code === '300005' || response.data.code === 300005) {
                 console.log("登录失效")
@@ -294,3 +292,4 @@ export const getExport= (data, callback) => post(prefix+'/exportApi/export', 'ge
 export const getImport= (data, callback) => post(prefix+'/exportApi/import', 'getImport', data, callback, );
 export const getJsonOperateType= (data, callback) => post(prefix+'/kettleApi/jsonOperateType', 'getJsonOperateType', data, callback, );
 export const getApplicationType= (data, callback) => post(prefix+'/kettleApi/applicationType', 'getApplicationType', data, callback, );
+export const getElasticSearchPreview= (data, callback) => post(prefix+'/elasticSearchApi/elasticSearchPreview', 'getElasticSearchPreview', data, callback, );

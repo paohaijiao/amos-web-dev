@@ -1,7 +1,7 @@
 <template>
   <div class="login-box">
     <div class="login-logo">
-      <a style="color: #f4f4f4"><b>数据</b>治理</a>
+      <a style="color: #f4f4f4"><b>数据</b>中台</a>
     </div>
     <div class="login-box-body">
       <p class="login-box-msg">登录账户</p>

@@ -28,7 +28,7 @@
                 </div>
                 <div>
                   <label>端口号</label>
-                  <input type="text" class="form-control" placeholder="请输入端口号" v-model="item.port" >
+                  <input type="text" class="form-control" placeholder="请输入端口号默认9200" v-model="item.port" >
                 </div>
                 <div>
                   <label>索引名称</label>
@@ -80,11 +80,11 @@
 </template>
 
 <script>
-  import DashFooter from '../../layout/DashFooter'
-  import DashHeader from '../../layout/DashHeader'
-  import Sidebar from '../../layout/Sidebar'
+  import DashFooter from '../layout/DashFooter'
+  import DashHeader from '../layout/DashHeader'
+  import Sidebar from '../layout/Sidebar'
     export default {
-        name: 'addSche',
+        name: 'elasticsearch',
         props: {},
         components: {DashHeader,DashFooter,Sidebar},
         data() {
@@ -115,10 +115,11 @@
                 param.type=this.item.type;
                 param.start=this.item.start;
                 param.count=this.item.count;
-                this.$axios.get('/api/elasticSearchApi/elasticSearchPreview', param).then(res => {
-                  debugger;
-                    if (res.data.code === 200) {
-                        that.item.jsonData = res.data.data
+                this.$api.getElasticSearchPreview( param,res => {
+                    if (res.code === 200) {
+                        that.item.jsonData = res.data
+                        console.debug( that.item.jsonData );
+                        debugger;
                     }else{
                       that.$alert('加载数据出错')
                         return
@@ -132,119 +133,4 @@
     }
 </script>
 
-<style lang="scss" scoped>
-  .inner {
-    width: 100%;
-    min-height: 500px;
-    box-sizing: border-box;
-    .table-outer {
-      .query-btns {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-items: center;
-        font-size: 14px;
-        margin-bottom: 15px;
-      }
-      .form-box {
-        .outerdiv {
-          width: 670px;
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-content: flex-start;
-          align-items: center;
-          flex-wrap: nowrap;
-          margin-bottom: 20px;
-          .conditions-query {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-content: flex-start;
-            align-items: center;
-            flex-wrap: nowrap;
-            font-size: 14px;
-            flex: 1;
-            .btn-query {
-              background-color: #4ac4e3;
-              border: 1px solid #4ac4e3;
-              color: #ffffff;
-            }
-            .field-aligned {
-              width: 130px;
-              text-align: right;
-              margin-right: 10px;
-              white-space: nowrap;
-              b {
-                color: #ff0000;
-                font-weight: normal;
-              }
-            }
-            .vail-box-align {
-              display: flex;
-              flex-direction: column;
-              align-content: center;
-              justify-content: flex-start;
-              align-items: flex-start;
-              min-height: 70px;
-              flex: 1;
-              .vail-font-color {
-                color: #666666;
-                text-align: left;
-                line-height: 20px;
-                display: block;
-              }
-              .arrangement {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-content: center;
-                align-items: center;
-              }
-            }
-          }
-        }
-      }
-    }
 
-    .query-btn-com {
-      background: #5578ff;
-      border-radius: 5px;
-      color: #ffffff;
-      font-size: 13px;
-      border-color: #5578ff;
-      height: 30px;
-      line-height: 30px;
-      padding: 0 15px;
-    }
-    .query-btn-com:hover,
-    .query-btn-com:active,
-    .query-btn-com:focus {
-      background: #6e8bfb;
-      border-color: #6e8bfb;
-    }
-
-    .query-btn-plain {
-      background: #ffffff;
-      border-radius: 5px;
-      color: #5578ff;
-      font-size: 13px;
-      border-color: #5578ff;
-      height: 30px;
-      line-height: 30px;
-      padding: 0 15px;
-    }
-    .query-btn-plain:hover,
-    .query-btn-plain:active,
-    .query-btn-plain:focus {
-      background: #f0f0f0;
-    }
-
-    .paging-box {
-      margin-top: 20px;
-      text-align: right;
-    }
-  }
-</style>

@@ -31,6 +31,7 @@ import dataservice from '@/components/review/dataservice.vue'
 import registerAudit from '@/components/review/registerAudit.vue'
 import sql from '@/components/preview/sql'
 import steppreview from '@/components/preview/step-preview'
+import elasticsearch from '@/components/preview/elasticsearch'
 import exportrepository from '@/components/repository/export-repository.vue'
 import importrepository from '@/components/repository/import-repository.vue'
 Vue.use(Router)
@@ -282,6 +283,14 @@ export default new Router({
       name: '数据治理',
       meta: {
         title: '步骤预览'
+      }
+    },
+    {
+      path: '/index/es-preview',
+      component: elasticsearch,
+      name: '数据治理',
+      meta: {
+        title: 'elasticSearch查询'
       }
     },
 
