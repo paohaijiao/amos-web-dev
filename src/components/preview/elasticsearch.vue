@@ -5,8 +5,8 @@
     <div class="content-wrapper" style="min-height: 1200px">
       <section class="content-header">
         <h1>
-          数据预览
-          <small>列表</small>
+          ElasticSearch查询
+          <small>结果</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
