@@ -1,6 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import common from './common'
+axios.defaults.timeout = 60000;
 import {
     host, apiUrl
 } from './serviceUrl'
@@ -292,4 +293,5 @@ export const getExport= (data, callback) => post(prefix+'/exportApi/export', 'ge
 export const getImport= (data, callback) => post(prefix+'/exportApi/import', 'getImport', data, callback, );
 export const getJsonOperateType= (data, callback) => post(prefix+'/kettleApi/jsonOperateType', 'getJsonOperateType', data, callback, );
 export const getApplicationType= (data, callback) => post(prefix+'/kettleApi/applicationType', 'getApplicationType', data, callback, );
+export const getGroupType= (data, callback) => post(prefix+'/kettleApi/groupType', 'getGroupType', data, callback, );
 export const getElasticSearchPreview= (data, callback) => post(prefix+'/elasticSearchApi/elasticSearchPreview', 'getElasticSearchPreview', data, callback, );

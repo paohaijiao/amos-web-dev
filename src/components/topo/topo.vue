@@ -462,6 +462,11 @@
             :item="editItem"
             @on-close="onCloseDialog">
           </dialog-sqoop>
+           <dialog-group-by
+             v-if="dialog.GroupBy"
+             :item="editItem"
+             @on-close="onCloseDialog"
+           ></dialog-group-by>
           <dialog-excel-out-put
             v-if="dialog.ExcelOutput"
             :item="editItem"
@@ -569,6 +574,7 @@ import dialogHbaseCreateTable from './dialog/table-hbase-create-table'
 import dialogKafkaConsumer from './dialog/table-kafka-consumer'
 import dialogSqoop from './dialog/table-sqoop'
 import dialogExcelOutPut from './dialog/table-excel-output'
+import dialogGroupBy from './dialog/table-group-by'
 
 
 let chart = null
@@ -661,6 +667,7 @@ export default {
     dialogKafkaConsumer,
     dialogSqoop,
     dialogExcelOutPut,
+    dialogGroupBy,
     DashFooter,
     DashHeader,
     Sidebar
@@ -763,7 +770,8 @@ export default {
         HbaseCreateTableStep:false,
         KafkaConsumerStep:false,
         SqoopImportStep:false,
-        ExcelOutput:false
+        ExcelOutput:false,
+        GroupBy:false
       },
       result: null
     }
