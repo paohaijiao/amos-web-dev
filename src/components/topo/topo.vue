@@ -472,6 +472,12 @@
             :item="editItem"
             @on-close="onCloseDialog">
           </dialog-excel-out-put>
+          <dialog-sorted-merge
+            v-if="dialog.SortedMerge"
+            :item="editItem"
+            @on-close="onCloseDialog">
+
+          </dialog-sorted-merge>
               </div>
             </div>
           </div>
@@ -575,6 +581,7 @@ import dialogKafkaConsumer from './dialog/table-kafka-consumer'
 import dialogSqoop from './dialog/table-sqoop'
 import dialogExcelOutPut from './dialog/table-excel-output'
 import dialogGroupBy from './dialog/table-group-by'
+import dialogSortedMerge from './dialog/table-sorted-merge'
 
 
 let chart = null
@@ -668,6 +675,7 @@ export default {
     dialogSqoop,
     dialogExcelOutPut,
     dialogGroupBy,
+    dialogSortedMerge,
     DashFooter,
     DashHeader,
     Sidebar
@@ -771,7 +779,8 @@ export default {
         KafkaConsumerStep:false,
         SqoopImportStep:false,
         ExcelOutput:false,
-        GroupBy:false
+        GroupBy:false,
+        SortedMerge:false
       },
       result: null
     }
