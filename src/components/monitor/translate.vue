@@ -25,18 +25,17 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>批次</th>
-                    <th>转换名称</th>
-                    <th>抽取标志</th>
-                    <th>阅读量</th>
-                    <th>写入量</th>
-                    <th>修改量</th>
-                    <th>输入量</th>
-                    <th>输出量</th>
-                    <th>拒绝量</th>
-                    <th>错误量</th>
-                    <th>开始时间</th>
-                    <th>结束时间</th>
+                    <th style="width:10px">批次</th>
+                    <th style="width:50px">转换名称</th>
+                    <th style="width:20px">阅读量</th>
+                    <th style="width:20px">写入量</th>
+                    <th style="width:20px">修改量</th>
+                    <th style="width:20px">输入量</th>
+                    <th style="width:20px">输出量</th>
+                    <th style="width:20px">拒绝量</th>
+                    <th style="width:20px">错误量</th>
+                    <th style="width:20px">开始时间</th>
+                    <th style="width:20px">结束时间</th>
                     <th>日志详细内容</th>
                   </tr>
                   </thead>
@@ -44,7 +43,6 @@
                   <tr v-for="(item)  in tableData">
                     <td>{{item.id}}</td>
                     <td>{{item.transName}}</td>
-                    <td>{{item.status}}</td>
                     <td>{{item.linesRead}}</td>
                     <td>{{item.linesWritten}}</td>
                     <td>{{item.linesUpdated}}</td>

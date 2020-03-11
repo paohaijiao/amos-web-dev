@@ -34,7 +34,6 @@
                     </div>
                   </div>
                   <div class="box-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     <button type="button" class="btn btn-primary" @click="submitForm()">导出</button>
                   </div>
                   <!-- /.box-body -->

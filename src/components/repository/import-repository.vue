@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
           <li><a href="#">资源库</a></li>
-          <li class="active">导出资源库到本地</li>
+          <li class="active">导入本地资源到系统</li>
         </ol>
       </section>
       <section class="content">
@@ -21,7 +21,7 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">导出资源库到本地</h4>
+                    <h4 class="modal-title" id="myModalLabel">导入本地资源到系统</h4>
                   </div>
                   <div class="box-body">
                     <div class="form-group">
@@ -34,7 +34,6 @@
                     </div>
                   </div>
                   <div class="box-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                     <button type="button" class="btn btn-primary" @click="submitForm()">导入</button>
                   </div>
                   <!-- /.box-body -->

@@ -7,22 +7,32 @@
       <label >步骤名称</label>
       <input type="text" class="form-control"   v-model="form.name" placeholder="请输入步骤名称">
     </div>
-    <div class="form-group">
+    <div class="form-group" v-if="form.file_required=='Y'">
       <label  >文件名</label>
       <input type="text" class="form-control" id="name"   v-model="form.file_name" placeholder="请输入文件名">
     </div>
-    <div class="form-group">
-      <label >是否需要文件</label>
+    <div class="form-group" >
+      <label >是否是文件</label>
       <select  v-model="form.file_required" class="form-control select2 select2-hidden-accessible">
         <option v-for="item in optiona"  :key="item.value" :label="item.name" :value="item.value"></option>
       </select>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" v-if="form.file_required=='Y'">
       <label >是否包含子目录</label>
       <select  v-model="form.include_subfolders" class="form-control select2 select2-hidden-accessible">
         <option v-for="item in optiona"  :key="item.value" :label="item.name" :value="item.value"></option>
       </select>
+    </div>
+    <div class="form-group" v-if="form.file_required=='N'">
+    <label >源定义在一个字段里</label>
+    <select  v-model="form.IsInFields" class="form-control select2 select2-hidden-accessible">
+      <option v-for="item in optiona"  :key="item.value" :label="item.name" :value="item.value"></option>
+    </select>
+  </div>
+    <div class="form-group" v-if="form.file_required=='N'">
+      <label >字段名</label>
+      <input type="text" class="form-control"   v-model="form.valueField" placeholder="请输入字段名">
     </div>
 
     <div class="box">
