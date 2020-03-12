@@ -483,6 +483,12 @@
              :item="editItem"
              @on-close="onCloseDialog"
            ></dialog-db-look-up>
+           <dialog-sort-row
+             v-if="dialog.SortRows"
+             :item="editItem"
+             @on-close="onCloseDialog">
+
+          </dialog-sort-row>
               </div>
             </div>
           </div>
@@ -588,6 +594,7 @@ import dialogExcelOutPut from './dialog/table-excel-output'
 import dialogGroupBy from './dialog/table-group-by'
 import dialogSortedMerge from './dialog/table-sorted-merge'
 import dialogDbLookUp from './dialog/table-db-lookup'
+import dialogSortRow from './dialog/table-sort-rows'
 
 
 let chart = null
@@ -683,6 +690,7 @@ export default {
     dialogGroupBy,
     dialogSortedMerge,
     dialogDbLookUp,
+    dialogSortRow,
     DashFooter,
     DashHeader,
     Sidebar
@@ -788,7 +796,8 @@ export default {
         ExcelOutput:false,
         GroupBy:false,
         SortedMerge:false,
-        DBLookup:false
+        DBLookup:false,
+        SortRows:false
       },
       result: null
     }
