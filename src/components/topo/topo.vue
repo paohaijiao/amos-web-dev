@@ -487,8 +487,12 @@
              v-if="dialog.SortRows"
              :item="editItem"
              @on-close="onCloseDialog">
-
           </dialog-sort-row>
+           <dialog-jion-rows
+             v-if="dialog.JoinRows"
+             :item="editItem"
+             @on-close="onCloseDialog">
+                </dialog-jion-rows>
               </div>
             </div>
           </div>
@@ -595,6 +599,7 @@ import dialogGroupBy from './dialog/table-group-by'
 import dialogSortedMerge from './dialog/table-sorted-merge'
 import dialogDbLookUp from './dialog/table-db-lookup'
 import dialogSortRow from './dialog/table-sort-rows'
+import dialogJionRows from './dialog/table-join-rows'
 
 
 let chart = null
@@ -691,6 +696,7 @@ export default {
     dialogSortedMerge,
     dialogDbLookUp,
     dialogSortRow,
+    dialogJionRows,
     DashFooter,
     DashHeader,
     Sidebar
@@ -797,7 +803,8 @@ export default {
         GroupBy:false,
         SortedMerge:false,
         DBLookup:false,
-        SortRows:false
+        SortRows:false,
+        JoinRows:false
       },
       result: null
     }
