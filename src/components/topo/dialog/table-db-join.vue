@@ -108,10 +108,10 @@
           }
         })
          let that=this;
-
               this.$api.getListAllDatabaseNotPage(param,res => {
                   if (res.code === 200) {
                       that.options = res.data
+                      debugger;
                   }
               })
       },

@@ -478,6 +478,11 @@
             @on-close="onCloseDialog">
 
           </dialog-sorted-merge>
+           <dialog-db-look-up
+             v-if="dialog.DBLookup"
+             :item="editItem"
+             @on-close="onCloseDialog"
+           ></dialog-db-look-up>
               </div>
             </div>
           </div>
@@ -582,6 +587,7 @@ import dialogSqoop from './dialog/table-sqoop'
 import dialogExcelOutPut from './dialog/table-excel-output'
 import dialogGroupBy from './dialog/table-group-by'
 import dialogSortedMerge from './dialog/table-sorted-merge'
+import dialogDbLookUp from './dialog/table-db-lookup'
 
 
 let chart = null
@@ -676,6 +682,7 @@ export default {
     dialogExcelOutPut,
     dialogGroupBy,
     dialogSortedMerge,
+    dialogDbLookUp,
     DashFooter,
     DashHeader,
     Sidebar
@@ -780,7 +787,8 @@ export default {
         SqoopImportStep:false,
         ExcelOutput:false,
         GroupBy:false,
-        SortedMerge:false
+        SortedMerge:false,
+        DBLookup:false
       },
       result: null
     }

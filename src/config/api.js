@@ -294,4 +294,5 @@ export const getImport= (data, callback) => post(prefix+'/exportApi/import', 'ge
 export const getJsonOperateType= (data, callback) => post(prefix+'/kettleApi/jsonOperateType', 'getJsonOperateType', data, callback, );
 export const getApplicationType= (data, callback) => post(prefix+'/kettleApi/applicationType', 'getApplicationType', data, callback, );
 export const getGroupType= (data, callback) => post(prefix+'/kettleApi/groupType', 'getGroupType', data, callback, );
+export const getCompareType= (data, callback) => post(prefix+'/kettleApi/compareType', 'getCompareType', data, callback, );
 export const getElasticSearchPreview= (data, callback) => post(prefix+'/elasticSearchApi/elasticSearchPreview', 'getElasticSearchPreview', data, callback, );
