@@ -52,14 +52,7 @@ export default {
     },
   methods: {
     getnotify () {
-        let that=this;
-        this.$api.getNotify(res => {
-                if (res.code === 200) {
-                    that.notification = res.data
-                } else{
-                    this.$alert(res.message);
-                }
-            })
+
 
     }
 
