@@ -24,6 +24,10 @@
       <label  >密码</label>
       <input type="text" class="form-control" v-model="form.password" placeholder="请输入密码">
     </div>
+    <div class="form-group">
+      <label  >命令</label>
+      <input type="text" class="form-control" v-model="form.command" placeholder="请输入命令行">
+    </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" @click="cancel">取消</button>
       <button type="button" class="btn btn-danger" @click="onConfirm">确定</button>

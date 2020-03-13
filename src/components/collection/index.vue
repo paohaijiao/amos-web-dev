@@ -189,10 +189,10 @@ export default {
         this.$alert('数据库用户不能为空');
         return;
       }
-      if(null==this.item.password||''==this.item.password){
-        this.$alert('数据库密码不能为空');
-        return;
-      }
+      // if(null==this.item.password||''==this.item.password){
+      //   this.$alert('数据库密码不能为空');
+      //   return;
+      // }
       let params = {
         name: this.item.name,
         databaseTypeId: this.item.databaseTypeId,
@@ -235,9 +235,17 @@ export default {
         retval = 'MYSQL'
       }  else if (dbId == 42) {
         retval = 'POSTGRESQL'
-      } else {
-        retval = '未知数据库'
-      }
+      } else if(dbId == 19){
+        retval = 'Impala'
+      }else if(dbId == 16){
+          retval = 'Hadoop Hive 2'
+      }else if(dbId == 54){
+          retval = 'Presto'
+      }else if(dbId == 55) {
+          retval = 'Phoenix'
+      }else{
+          retval = '未知数据源'
+          }
       return retval
     },
     getBaseType() {
