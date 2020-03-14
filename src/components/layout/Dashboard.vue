@@ -148,8 +148,7 @@ export default {
         jobs: null,
         task: null,
         api: null,
-        message: null,
-        message: null,
+        message: 0,
         user: null,
         spark: null
       },
@@ -166,7 +165,6 @@ export default {
     getContainer() {
       let that = this
         this.$api.getServerPerform({},res => {
-            debugger;
                   if (res.code === 200) {
                     that.containner = res.data
                     that.draw()

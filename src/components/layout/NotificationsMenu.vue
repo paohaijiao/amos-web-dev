@@ -48,13 +48,8 @@ export default {
 
   },
     created(){
-        this.getnotify();
     },
   methods: {
-    getnotify () {
-
-
-    }
 
   }
 }

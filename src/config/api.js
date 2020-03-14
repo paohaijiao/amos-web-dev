@@ -222,7 +222,7 @@ export const getLocation = (data, callback) => post(prefix+'/publicApi/getLocati
 export const getServerPerform = (data, callback) => post(prefix+'/indexApi/serverPerform', 'getServerPerform', data, callback);
 export const getIndex= (data, callback) => post(prefix+'/indexApi/index', 'getIndex', data, callback);
 // export const getMailBox= (data, callback) => post(prefix+'/messageApi/mailbox', 'getMailBox', data, callback);
-export const getNotify= (data, callback) => post(prefix+'/indexApi/notify', 'getNotify', data, callback);
+
 export const getUserAll= (data, callback) => post(prefix+'/userApi/selectUserAll', 'getUserAll', data, callback);
 export const getDatabaseType= (data, callback) => post(prefix+'/dataSourceApi/listDatabaseType', 'getDatabaseType', data, callback);
 export const getListDatabase= (data, callback) => post(prefix+'/dataSourceApi/listDatabase', 'getListDatabase', data, callback);

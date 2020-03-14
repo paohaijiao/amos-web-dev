@@ -20,11 +20,12 @@ export default {
   props: {
     text: {
       type: String,
+      default: '0',
       required: true
     },
     number: {
       type: String,
-      default: ''
+      default: '0'
     },
     progress: {
       type: Number,
