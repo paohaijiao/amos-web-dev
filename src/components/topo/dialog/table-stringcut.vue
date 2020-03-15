@@ -11,6 +11,7 @@
       <div class="box-header with-border">
         <label  style="line-height: 35px;">字段</label>
         <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getField" style="width:100px">获取字段</button>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -59,7 +60,7 @@
 import _ from 'lodash'
 export default {
   name: 'table-delete',
-  props: ['item'],
+  props: ['item','title'],
   data() {
     return {
       form: _.cloneDeep(this.item.data) || {},
@@ -84,7 +85,31 @@ export default {
       //     text: this.form.title
       // })
     },
+     getField(){
+          let param=new Object();
+          param.transName=this.title;
+          param.stepName=this.form.name
+          this.form.field = this.tableData
+          let that=this;
 
+          this.$api.getFieldFromPreviousStep(param,res => {
+              if (res.code === 200) {
+                  this.dialogVisible=false;
+                  that.tableData=[];
+                  let array=res.data.data;
+
+                  for(var i=0;i<array.length;i++){
+                      let ele=new Object();
+                      ele.in_stream_name=array[i].name;
+                      ele.out_stream_name=array[i].name+"1";
+                      ele.cut_from=0;
+                      ele.cut_to=0;
+                      that.tableData.push(ele);
+                  }
+                  this.dialogVisible=true;
+              }
+          })
+      },
     addList() {
       this.dialogVisible=false;
       let obj = {};

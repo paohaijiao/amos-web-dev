@@ -128,6 +128,7 @@
           <dialog-stringcut
             v-if="dialog.StringCut"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-stringcut>
           <dialog-unique
