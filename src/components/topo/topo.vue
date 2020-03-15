@@ -73,6 +73,7 @@
           <dialog-output
             v-if="dialog.TableOutput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-output>
           <dialog-delete
@@ -719,6 +720,7 @@ export default {
       editItem: null,
       visible: false,
       title: '',
+      title1:'hahah',
       list: [],
       dialog: {
         CsvInput: false,
@@ -990,6 +992,7 @@ export default {
     },
     onItemDblclick(item) {
       this.editItem = item
+
       this.dialog[item.code] = true
       $('#myModal').modal('show')
      // $('#identifier').modal('show')
