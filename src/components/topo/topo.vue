@@ -151,6 +151,7 @@
           <dialog-replacestring
             v-if="dialog.ReplaceString"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-replacestring>
           <dialog-setvaluefield
