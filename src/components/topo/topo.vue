@@ -168,6 +168,7 @@
           <dialog-nullif
             v-if="dialog.NullIf"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-nullif>
           <dialog-rest
