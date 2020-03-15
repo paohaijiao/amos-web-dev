@@ -99,6 +99,7 @@
           <dialog-insert-update
             v-if="dialog.InsertUpdate"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-insert-update>
           <dialog-json-output
