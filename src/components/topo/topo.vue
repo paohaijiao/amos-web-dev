@@ -201,11 +201,13 @@
           <dialog-hadoop-file-input-plugin
             v-if="dialog.HadoopFileInputPlugin"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-hadoop-file-input-plugin>
           <dialog-hadoop-file-output-plugin
             v-if="dialog.HadoopFileOutputPlugin"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-hadoop-file-output-plugin>
           <dialog-parquet-output
