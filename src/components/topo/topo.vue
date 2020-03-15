@@ -140,6 +140,7 @@
           <dialog-uniquerowsbyhashset
             v-if="dialog.UniqueRowsByHashSet"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-uniquerowsbyhashset>
           <dialog-sequence
