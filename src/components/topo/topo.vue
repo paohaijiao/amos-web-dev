@@ -218,11 +218,13 @@
           <dialog-h-base-output
             v-if="dialog.HBaseOutput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-h-base-output>
           <dialog-h-base-input
             v-if="dialog.HBaseInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-h-base-input>
           <dialog-hadoop-enter-plugin
