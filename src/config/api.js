@@ -297,3 +297,4 @@ export const getGroupType= (data, callback) => post(prefix+'/kettleApi/groupType
 export const getCompareType= (data, callback) => post(prefix+'/kettleApi/compareType', 'getCompareType', data, callback, );
 export const getJoinType= (data, callback) => post(prefix+'/kettleApi/joinType', 'getJoinType', data, callback, );
 export const getElasticSearchPreview= (data, callback) => post(prefix+'/elasticSearchApi/elasticSearchPreview', 'getElasticSearchPreview', data, callback, );
+export const getFieldFromPreviousStep= (data, callback) => post(prefix+'/kettlePreview/getFieldFromPreviousStep', 'getFieldFromPreviousStep', data, callback, );

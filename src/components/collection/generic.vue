@@ -246,7 +246,6 @@ export default {
   },
   created() {
     this.getList({})
-    this.getBaseType()
     this.getAllCollection();
   },
   watch: {
