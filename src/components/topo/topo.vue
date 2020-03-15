@@ -487,6 +487,7 @@
           <dialog-sorted-merge
             v-if="dialog.SortedMerge"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog">
 
           </dialog-sorted-merge>
@@ -498,6 +499,7 @@
            <dialog-sort-row
              v-if="dialog.SortRows"
              :item="editItem"
+             :title="title"
              @on-close="onCloseDialog">
           </dialog-sort-row>
            <dialog-jion-rows
