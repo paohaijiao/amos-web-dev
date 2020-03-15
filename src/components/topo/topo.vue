@@ -247,11 +247,13 @@
           <dialog-elastic-search
             v-if="dialog.ElasticSearchBulk"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog">
           </dialog-elastic-search>
           <dialog-pg-load
             v-if="dialog.PGBulkLoader"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"></dialog-pg-load>
           <dialog-calculator
             v-if="dialog.Calculator"
