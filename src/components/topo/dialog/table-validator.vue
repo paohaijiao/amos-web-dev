@@ -12,6 +12,7 @@
       <div class="box-header with-border">
         <label  style="line-height: 35px;">检验</label>
         <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px;">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getField" style="width:100px">获取字段</button>
       </div>
       <!-- /.box-header -->
       <div class="box-body" style="margin-left: 0px">
@@ -122,7 +123,7 @@
 <script>
   import _ from 'lodash'
   export default {
-    props: ['item'],
+    props: ['item','title'],
     data() {
       return {
         form: _.cloneDeep(this.item.data) || {},
@@ -148,6 +149,24 @@
         $('#myModal').modal('hide')
         this.onClose()
       },
+        getField(){
+            let param=new Object();
+            param.transName=this.title;
+            param.stepName=this.form.name
+            let that=this;
+            this.$api.getFieldFromPreviousStep(param,res => {
+                if (res.code === 200) {
+                    that.tableData=[];
+                    let array=res.data.data;
+                    for(var i=0;i<array.length;i++){
+                        let ele=new Object();
+                        ele.validator_field_name=array[i].name;
+                        ele.validator_field_validation_name=array[i].name;
+                        that.tableData.push(ele);
+                    }
+                }
+            })
+        },
       onClose() {
         this.dialogVisible = false
         this.$emit('on-close', this.item)

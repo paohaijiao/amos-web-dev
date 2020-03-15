@@ -353,6 +353,7 @@
           <dialog-validator
             v-if="dialog.Validator"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog">
           </dialog-validator>
           <dialog-java-script
