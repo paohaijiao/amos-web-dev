@@ -195,6 +195,7 @@
           <dialog-avro-output
             v-if="dialog.AvroOutput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-avro-output>
           <dialog-hadoop-file-input-plugin
