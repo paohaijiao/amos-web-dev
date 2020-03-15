@@ -408,6 +408,7 @@
           <dialog-select-fields
             v-if="dialog.SelectValues"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog">
           </dialog-select-fields>
           <dialog-tika-step

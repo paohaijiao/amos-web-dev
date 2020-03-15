@@ -16,6 +16,7 @@
     <div class="box-body">
       <div><span>选择字段方式</span>&nbsp;
         <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getField" style="width:100px">获取字段</button>
       </div>
       <table class="table table-bordered"   v-if="form.method=='unSelected'">
       <thead>
@@ -68,7 +69,7 @@
 <script>
   import _ from 'lodash'
   export default {
-    props: ['item'],
+    props: ['item','title'],
     data() {
       return {
         form: _.cloneDeep(this.item.data) || {},
@@ -95,6 +96,29 @@
         $('#myModal').modal('hide')
         this.onClose();
       },
+        getField(){
+            let param=new Object();
+            param.transName=this.title;
+            param.stepName=this.form.name
+            this.form.field = this.tableData
+            let that=this;
+
+            this.$api.getFieldFromPreviousStep(param,res => {
+                if (res.code === 200) {
+                    this.dialogVisible=false;
+                    that.tableData=[];
+                    let array=res.data.data;
+
+                    for(var i=0;i<array.length;i++){
+                        let ele=new Object();
+                        ele.field_name=array[i].name;
+                        ele.remove_name=array[i].name;
+                        that.tableData.push(ele);
+                    }
+                    this.dialogVisible=true;
+                }
+            })
+        },
       cancel() {
         $('#myModal').modal('hide')
         this.onClose()
