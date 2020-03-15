@@ -38,16 +38,19 @@
           <dialog-csv-input
             v-if="dialog.CsvInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-csv-input>
           <dialog-excel-input
             v-if="dialog.ExcelInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-excel-input>
           <dialog-text-file-input
             v-if="dialog.TextFileInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-text-file-input>
           <dialog-row-generator
@@ -58,11 +61,13 @@
           <dialog-json-input
             v-if="dialog.JsonInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-json-input>
           <dialog-access-input
             v-if="dialog.AccessInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog">
           </dialog-access-input>
           <dialog-input

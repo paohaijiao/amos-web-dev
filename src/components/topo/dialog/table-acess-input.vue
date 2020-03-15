@@ -20,6 +20,7 @@
         <div class="box-header with-border">
             <label for="file_name" style="line-height: 35px;">字段</label>
             <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增</button>
+          <button  class="form-control mybutton btn btn-primary " @click="getField" style="width:100px">获取字段</button>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -60,7 +61,7 @@
 <script>
 import _ from 'lodash'
 export default {
-  props: ['item'],
+  props: ['item','title'],
   data() {
     return {
       form: _.cloneDeep(this.item.data) || {},
@@ -76,6 +77,26 @@ export default {
             $('#myModal').modal('hide')
            this.onClose();
     },
+    getField(){
+          let param=new Object();
+          param.transName=this.title;
+          param.stepName=this.form.name
+          this.form.field = this.tableData
+          let that=this;
+          this.$api.getFieldFromPreviousStep(param,res => {
+              if (res.code === 200) {
+                  that.tableData=[];
+                  let array=res.data.data;
+                  for(var i=0;i<array.length;i++){
+                      let ele=new Object();
+                      ele.field_name=array[i].name;
+                      ele.field_attribut=array[i].name;
+                      ele.field_type=array[i].type;
+                      that.tableData.push(ele);
+                  }
+              }
+          })
+      },
     cancel() {
       $('#myModal').modal('hide')
       this.onClose()

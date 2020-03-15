@@ -1,7 +1,7 @@
 <template>
   <div style="min-height: 400px" :visible="dialogVisible">
     <div class="modal-header">
-      <h4 class="modal-title">CSVInput</h4>
+      <h4 class="modal-title">TextFileInput</h4>
     </div>
     <div class="form-group">
       <label  >步骤名称</label>
@@ -35,21 +35,20 @@
       <div class="box-header with-border">
         <label  style="line-height: 35px;">字段</label>
         <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getField" style="width:100px">获取字段</button>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <table class="table table-bordered"  >
           <thead>
           <tr>
-            <th>字段路径</th>
             <th>字段名称</th>
-            <th>字段名称</th>
+            <th>字段类型</th>
             <th >操作</th>
           </tr>
           </thead>
           <tbody>
           <tr v-for="item in tableData">
-            <td><input type="text" class="form-control" v-model="item.field_path"></td>
             <td><input type="text" class="form-control" v-model="item.field_name"></td>
             <td>
               <select class="form-control select2 select2-hidden-accessible" v-model="item.field_type">
@@ -75,7 +74,7 @@
 <script>
   import _ from 'lodash'
   export default {
-    props: ['item'],
+    props: ['item','title'],
     data() {
       return {
         form: _.cloneDeep(this.item.data) || {},
@@ -99,6 +98,25 @@
         $('#myModal').modal('hide')
         this.onClose();
       },
+        getField(){
+            let param=new Object();
+            param.transName=this.title;
+            param.stepName=this.form.name
+            this.form.field = this.tableData
+            let that=this;
+            this.$api.getFieldFromPreviousStep(param,res => {
+                if (res.code === 200) {
+                    that.tableData=[];
+                    let array=res.data.data;
+                    for(var i=0;i<array.length;i++){
+                        let ele=new Object();
+                        ele.field_name=array[i].name;
+                        ele.field_type=array[i].type;
+                        that.tableData.push(ele);
+                    }
+                }
+            })
+        },
       cancel() {
         $('#myModal').modal('hide')
         this.onClose()
