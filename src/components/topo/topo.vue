@@ -95,6 +95,7 @@
           <dialog-update
             v-if="dialog.Update"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-update>
           <dialog-insert-update
