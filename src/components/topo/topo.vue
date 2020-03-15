@@ -189,6 +189,7 @@
           <dialog-avro-input-new
             v-if="dialog.AvroInputNew"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-avro-input-new>
           <dialog-avro-output
