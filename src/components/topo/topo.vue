@@ -104,6 +104,7 @@
           <dialog-json-output
             v-if="dialog.JsonOutput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-json-output>
           <dialog-constant
