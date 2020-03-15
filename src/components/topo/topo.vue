@@ -134,6 +134,7 @@
           <dialog-unique
             v-if="dialog.Unique"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-unique>
           <dialog-uniquerowsbyhashset
