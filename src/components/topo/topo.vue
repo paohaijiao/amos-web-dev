@@ -184,6 +184,7 @@
           <dialog-parquet-input
             v-if="dialog.ParquetInput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-parquet-input>
           <dialog-avro-input-new
@@ -213,6 +214,7 @@
           <dialog-parquet-output
             v-if="dialog.ParquetOutput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-parquet-output>
           <dialog-h-base-output
