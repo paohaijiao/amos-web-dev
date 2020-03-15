@@ -162,6 +162,7 @@
           <dialog-ifnull
             v-if="dialog.IfNull"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-ifnull>
           <dialog-nullif
