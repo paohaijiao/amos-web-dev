@@ -84,6 +84,7 @@
           <dialog-textfileoutput
             v-if="dialog.TextFileOutput"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-textfileoutput>
           <dialog-sqlfileoutput
