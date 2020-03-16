@@ -42,7 +42,7 @@
                     <td>{{item.hostName}}</td>
                     <td>{{item.port}}</td>
                     <td>{{item.username}}</td>
-                    <td>{{item.password}}</td>
+                    <td>******</td>
                     <td><button type="submit" class="btn btn-primary" @click="update(item)">修改</button> <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button></td>
                   </tr>
                   </tbody>
