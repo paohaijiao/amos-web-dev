@@ -31,20 +31,16 @@ export default {
   },
   methods: {
         logout () {
-            debugger;
             if (window.localStorage) {
                 window.localStorage.setItem('user', null)
                 window.localStorage.setItem('token', null)
             }
             let that =this;
-            this.$axios
-                .post('/api/user/logout')
-                .then(res => {
-                    debugger;
-                    if (res.data.code === 200) {
+            this.$api.getLogout({},res => {
+                    if (res.code === 200) {
                         debugger;
                     }else{
-                        this.$alert(res.data.message);
+                        this.$alert(res.message);
                     }
                 })
             window.location="/"
