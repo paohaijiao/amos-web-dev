@@ -523,11 +523,16 @@
              :item="editItem"
              @on-close="onCloseDialog">
                 </dialog-jion-rows>
-                <dialog-merge-join
+           <dialog-merge-join
                   v-if="dialog.MergeJoin"
                   :item="editItem"
                   @on-close="onCloseDialog">
-                </dialog-merge-join>
+           </dialog-merge-join>
+           <dialog-synchronize-after-merge
+             v-if="dialog.SynchronizeAfterMerge"
+             :item="editItem"
+             @on-close="onCloseDialog">
+           </dialog-synchronize-after-merge>
               </div>
             </div>
           </div>
@@ -636,6 +641,7 @@ import dialogDbLookUp from './dialog/table-db-lookup'
 import dialogSortRow from './dialog/table-sort-rows'
 import dialogJionRows from './dialog/table-join-rows'
 import dialogMergeJoin from './dialog/table-merge-join'
+import dialogSynchronizeAfterMerge from './dialog/table-synchronize-AfterMerge'
 
 
 let chart = null
@@ -734,6 +740,7 @@ export default {
     dialogSortRow,
     dialogJionRows,
     dialogMergeJoin,
+    dialogSynchronizeAfterMerge,
     DashFooter,
     DashHeader,
     Sidebar
@@ -843,7 +850,8 @@ export default {
         DBLookup:false,
         SortRows:false,
         JoinRows:false,
-        MergeJoin:false
+        MergeJoin:false,
+        SynchronizeAfterMerge:false
       },
       result: null
     }
