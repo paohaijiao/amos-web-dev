@@ -34,6 +34,7 @@ import steppreview from '@/components/preview/step-preview'
 import elasticsearch from '@/components/preview/elasticsearch'
 import exportrepository from '@/components/repository/export-repository.vue'
 import importrepository from '@/components/repository/import-repository.vue'
+import log from '@/components/log/index.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -314,6 +315,14 @@ export default new Router({
       }
     },
     //资源库结束
+    {
+      path: '/index/oplog',
+      component: log,
+      name: '数据治理',
+      meta: {
+        title: '导入资源库'
+      }
+    },
 
   ]
 })

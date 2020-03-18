@@ -299,3 +299,4 @@ export const getJoinType= (data, callback) => post(prefix+'/kettleApi/joinType',
 export const getElasticSearchPreview= (data, callback) => post(prefix+'/elasticSearchApi/elasticSearchPreview', 'getElasticSearchPreview', data, callback, );
 export const getFieldFromPreviousStep= (data, callback) => post(prefix+'/kettlePreview/getFieldFromPreviousStep', 'getFieldFromPreviousStep', data, callback, );
 export const getLogout= (data, callback) => post(prefix+'/user/logout', 'getLogout', data, callback, );
+export const getLog= (data, callback) => post(prefix+'/logApi/getLog', 'getLog', data, callback, );
