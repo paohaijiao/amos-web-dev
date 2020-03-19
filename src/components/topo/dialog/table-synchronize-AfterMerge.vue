@@ -53,14 +53,14 @@
         </thead>
         <tbody>
         <tr v-for="item in tablelist">
-          <td><input type="text" class="form-control" v-model="item.key_field"></td>
+          <td><input type="text" class="form-control" v-model="form.key_field"></td>
           <td>
-            <select class="form-control select2 select2-hidden-accessible" v-model="item.key_condition">
+            <select class="form-control select2 select2-hidden-accessible" v-model="form.key_condition">
               <option v-for="item1 in options1 " :key="item1.value" :label="item1.value" :value="item1.value"></option>
             </select>
           </td>
           <td>
-            <input type="text" class="form-control" v-model="item.key_name">
+            <input type="text" class="form-control" v-model="form.key_name">
           </td>
 
         </tr>
