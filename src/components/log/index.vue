@@ -22,14 +22,18 @@
                 <h3 class="box-title">列表详情</h3>
               </div>
               <div class="box-body">
+<!--                <div class="row" style="display: flex;">-->
+<!--                <select  v-model="op_type" class="form-control select2 select2-hidden-accessible" style="width:250px;">-->
+<!--                  <option v-for="item in op"  :key="item" :label="item" :value="item"></option>-->
+<!--                </select>-->
+<!--                  <button class="btn btn-primary" @click="add()" style="width: 100px;">查询</button></div>-->
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>用户名</th>
                     <th>操作类型</th>
                     <th>操作时间</th>
-                    <th>创建人</th>
-                    <th>操作</th>
+                    <th>创建时间</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -38,7 +42,6 @@
                     <td>{{item.optType}}</td>
                     <td>{{item.optRemark}}</td>
                     <td>{{item.createtime | formatDate }}</td>
-                    <td> <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button></td>
                   </tr>
                   </tbody>
                   <pagination :records="pagination.total" :per-page="pagination.size" v-model="pagination.page" @paginate="getList"></pagination>
@@ -65,10 +68,12 @@ export default {
 
   data() {
     return {
+      op_type:'',
       search: '',
       tableData: [],
       baseTypeList:[],
       databaseList:[],
+      op:[],
       pagination: {
         total:0,
         page:1,
@@ -77,8 +82,15 @@ export default {
     }
   },
   methods: {
-
-
+      getLogType(){
+          let option=new Object();
+          let that=this;
+          this.$api.getLogType( option ,res=> {
+              if (res.code === 200) {
+                  that.op = res.data
+              }
+          })
+      },
     getList() {
       let option=new Object();
         option.size=this.pagination.size;
@@ -86,7 +98,6 @@ export default {
         option.name=this.search ? this.search : null;
        let that=this;
       this.$api.getLog( option ,res=> {
-          debugger;
           if (res.code === 200) {
             that.tableData = res.data.content
             that.pagination.total = res.data.totalElements
@@ -96,7 +107,8 @@ export default {
 
   },
   created() {
-    this.getList({})
+    this.getList()
+    this.getLogType();
   },
   watch: {
     $route(to,from) {

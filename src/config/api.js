@@ -300,3 +300,4 @@ export const getElasticSearchPreview= (data, callback) => post(prefix+'/elasticS
 export const getFieldFromPreviousStep= (data, callback) => post(prefix+'/kettlePreview/getFieldFromPreviousStep', 'getFieldFromPreviousStep', data, callback, );
 export const getLogout= (data, callback) => post(prefix+'/user/logout', 'getLogout', data, callback, );
 export const getLog= (data, callback) => post(prefix+'/logApi/getLog', 'getLog', data, callback, );
+export const getLogType= (data, callback) => post(prefix+'/logApi/getLogType', 'getLogType', data, callback, );
