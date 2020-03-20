@@ -32,7 +32,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="item in tableData">
+          <tr v-for="(item,index) in tableData">
             <td><input type="text" class="form-control" v-model="item.field_name"></td>
             <td>
               <select class="form-control select2 select2-hidden-accessible" v-model="item.calc_type">
@@ -57,7 +57,7 @@
             <td><input type="text" class="form-control" v-model="item.grouping_symbol"></td>
             <td><input type="text" class="form-control" v-model="item.currency_symbol"></td>
             <td>
-              <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+              <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
             </td>
           </tr>
           </tbody>

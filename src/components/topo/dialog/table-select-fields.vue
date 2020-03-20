@@ -26,12 +26,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="item in tableData">
+      <tr v-for="(item,index) in tableData">
         <td>
           <input type="text" class="form-control" v-model="item.remove_name">
         </td>
         <td>
-          <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+          <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
         </td>
       </tr>
       </tbody>
@@ -45,7 +45,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in tableData">
+        <tr v-for="(item,index) in tableData">
           <td>
             <input type="text" class="form-control" v-model="item.field_name">
           </td>
@@ -53,7 +53,7 @@
             <input type="text" class="form-control" v-model="item.field_rename">
           </td>
           <td>
-            <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+            <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
           </td>
         </tr>
         </tbody>
@@ -113,6 +113,7 @@
                         let ele=new Object();
                         ele.field_name=array[i].name;
                         ele.remove_name=array[i].name;
+                        ele.field_rename=array[i].name;
                         that.tableData.push(ele);
                     }
                     this.dialogVisible=true;
