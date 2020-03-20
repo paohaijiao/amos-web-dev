@@ -84,6 +84,7 @@
           <dialog-delete
             v-if="dialog.Delete"
             :item="editItem"
+            :title="title"
             @on-close="onCloseDialog"
           ></dialog-delete>
           <dialog-textfileoutput
