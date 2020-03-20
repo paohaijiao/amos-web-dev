@@ -26,27 +26,34 @@
       <input type="text" class="form-control"    v-model="form.commit" placeholder="请输入提交记录数量">
     </div>
     <div class="box-body">
-      <div><span>查询关键字</span>&nbsp;</div>
+      <div>
+        <span>查询关键字</span>&nbsp;
+        <button  class="form-control mybutton btn btn-danger " @click="addQueryList" style="width:100px">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getQueryField" style="width:100px">获取字段</button>
+      </div>
       <table class="table table-bordered"  >
         <thead>
         <tr>
           <th>表字段</th>
           <th>比较符</th>
           <th >流字段</th>
+          <th >操作</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in tablelist">
-          <td><input type="text" class="form-control" v-model="form.key_name"></td>
+        <tr v-for="(list,index) in tablelist">
+          <td><input type="text" class="form-control" v-model="list.key_name"></td>
           <td>
-            <select class="form-control select2 select2-hidden-accessible" v-model="form.key_condition">
-              <option v-for="item1 in options1" :key="item1.value" :label="item1.value" :value="item1.value"></option>
+            <select class="form-control select2 select2-hidden-accessible" v-model="list.key_condition">
+              <option v-for="item1 in options1 " :key="item1.value" :label="item1.value" :value="item1.value"></option>
             </select>
           </td>
           <td>
-            <input type="text" class="form-control" v-model="form.key_field">
+            <input type="text" class="form-control" v-model="list.key_field">
           </td>
-
+          <td>
+            <button type="button" class="btn btn-info" @click="handleListDelete(index, item)">删除</button>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -63,7 +70,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in tableData">
+        <tr v-for="(item,index) in tableData">
           <td>
               <input type="text" class="form-control" v-model="item.value_name">
           </td>
@@ -71,7 +78,7 @@
              <input type="text" class="form-control" v-model="item.value_rename">
           </td>
           <td>
-            <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+            <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
           </td>
 
         </tr>
@@ -163,21 +170,39 @@ export default {
     },
     handleDelete(index) {
       this.tableData.splice(index, 1)
-    }
+    },
+      addQueryList(){
+          let obj = {}
+          this.tablelist.push(obj)
+      },
+      handleListDelete(index){
+          this.tablelist.splice(index, 1)
+      },
+      getQueryField(){
+          let param=new Object();
+          param.transName=this.title;
+          param.stepName=this.form.name
+          let that=this;
+          debugger;
+          this.$api.getFieldFromPreviousStep(param,res => {
+              if (res.code === 200) {
+                  that.tablelist=[];
+                  let array=res.data.data;
+                  for(var i=0;i<array.length;i++){
+                      let ele=new Object();
+                      ele.key_field=array[i].name;
+                      ele.key_name=array[i].name;
+                      ele.key_condition='=';
+                      that.tablelist.push(ele);
+                  }
+              }
+          })
+      },
   },
   created() {
-    this.getSource()
-    this.tableData = this.form.field ? this.form.field : []
-      debugger;
-    this.tablelist = this.form.key_condition
-      ? [
-          {
-            key_condition: this.form.key_condition,
-            key_field: this.form.key_field,
-            key_name: this.form.key_name
-          }
-        ]
-      : [{}]
+      this.getSource()
+      this.tableData = this.form.field ? this.form.field : []
+      this.tablelist = this.form.list ? this.form.list : []
   }
 }
 </script>
