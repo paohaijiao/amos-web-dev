@@ -531,6 +531,7 @@
            <dialog-synchronize-after-merge
              v-if="dialog.SynchronizeAfterMerge"
              :item="editItem"
+             :title="title"
              @on-close="onCloseDialog">
            </dialog-synchronize-after-merge>
               </div>
