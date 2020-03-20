@@ -40,7 +40,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="item in tableData">
+          <tr v-for="(item,index) in tableData">
             <td><input type="text" class="form-control" v-model="item.validator_field_validation_name"></td>
             <td>
               <select  v-model="form.validate_all" class="form-control select2 select2-hidden-accessible">
@@ -104,7 +104,7 @@
 
 
             <td>
-              <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+              <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
             </td>
           </tr>
           </tbody>
