@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in tableData">
+        <tr v-for="(item,index) in tableData">
           <td>
             <input type="text" class="form-control" v-model="item.field_name">
           </td>
@@ -35,7 +35,7 @@
             <input type="text" class="form-control" v-model="item.field_nullif">
           </td>
           <td>
-            <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+            <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
           </td>
 
         </tr>
