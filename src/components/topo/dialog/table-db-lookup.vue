@@ -1,7 +1,8 @@
 <template>
   <div style="min-height: 400px" :visible="dialogVisible">
     <div class="modal-header">
-      <h4 class="modal-title">数据库查询</h4>
+      <h4 class="modal-title">
+        数据库查询</h4>
     </div>
     <div class="form-group">
       <label  >步骤名称</label>
@@ -17,20 +18,7 @@
       <label  >模式名</label>
       <input type="text" class="form-control"    v-model="form.lookup_schema" placeholder="请输入模式名">
     </div>
-    <div class="form-group">
-      <label  >表字段</label>
-      <input type="text" class="form-control"    v-model="form.lookup_key_name" placeholder="请输入表名">
-    </div>
-    <div class="form-group">
-      <label >比较操作符</label>
-      <select  v-model="form.lookup_key_condition" class="form-control select2 select2-hidden-accessible">
-        <option v-for="item in  compares"  :key="item.key" :label="item.value" :value="item.key"></option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label  >流字段</label>
-      <input type="text" class="form-control"    v-model="form.lookup_key_field" placeholder="请输入表名">
-    </div>
+
 
     <div class="form-group">
       <label  >表名</label>
@@ -38,9 +26,41 @@
     </div>
 
     <div class="box">
+      <div>
+        <span>查询关键字</span>&nbsp;
+        <button  class="form-control mybutton btn btn-danger " @click="addQueryList" style="width:100px">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getQueryField" style="width:100px">获取字段</button>
+      </div>
+      <table class="table table-bordered"  >
+        <thead>
+        <tr>
+          <th>表字段</th>
+          <th>比较符</th>
+          <th >流字段</th>
+          <th >操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(list,index) in tablelist">
+          <td><input type="text" class="form-control" v-model="list.lookup_key_name"></td>
+          <td>
+            <select class="form-control select2 select2-hidden-accessible" v-model="list.lookup_key_condition">
+              <option v-for="item1 in compares " :key="item1.value" :label="item1.value" :value="item1.value"></option>
+            </select>
+          </td>
+          <td>
+            <input type="text" class="form-control" v-model="list.lookup_key_field">
+          </td>
+          <td>
+            <button type="button" class="btn btn-info" @click="handleListDelete(index, item)">删除</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
       <div class="box-header with-border">
         <label style="line-height: 35px;">字段</label>
         <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增</button>
+        <button  class="form-control mybutton btn btn-primary " @click="getField" style="width:100px">获取字段</button>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -56,7 +76,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="item in tableData">
+          <tr v-for="(item,index) in tableData">
             <td><input type="text" class="form-control" v-model="item.return_value_name"></td>
             <td><input type="text" class="form-control" v-model="item.return_value_rename"></td>
             <td><input type="text" class="form-control" v-model="item.return_value_default"></td>
@@ -66,7 +86,7 @@
               </select>
             </td>
             <td>
-              <button type="button" class="btn btn-info" @click="handleDelete($index, item)">删除</button>
+              <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
             </td>
           </tr>
           </tbody>
@@ -85,13 +105,14 @@
 <script>
 import _ from 'lodash'
 export default {
-  props: ['item'],
+  props: ['item','title'],
   data() {
     return {
       form: _.cloneDeep(this.item.data) || {},
       dialogVisible: true,
       types: [],
       tableData: [],
+      tablelist:[],
       options:[],
       compares:[]
     }
@@ -99,6 +120,7 @@ export default {
   methods: {
     onConfirm() {
       this.form.field = this.tableData
+      this.form.list = this.tablelist
       this.item.data = this.form
       $('#myModal').modal('hide')
       this.onClose();
@@ -121,7 +143,31 @@ export default {
     handleDelete(index) {
       this.tableData.splice(index, 1)
     },
-      getSource() {
+    getField(){
+          let param=new Object();
+          param.transName=this.title;
+          param.stepName=this.form.name
+          this.form.field = this.tableData
+          let that=this;
+          debugger;
+          this.$api.getFieldFromPreviousStep(param,res => {
+              if (res.code === 200) {
+                  this.dialogVisible=false;
+                  that.tableData=[];
+                  let array=res.data.data;
+                  for(var i=0;i<array.length;i++){
+                      let ele=new Object();
+                      ele.return_value_name=array[i].name;
+                      ele.return_value_rename=array[i].name;
+                      ele.return_value_default='';
+                      ele.return_value_type=array[i].type;
+                      that.tableData.push(ele);
+                  }
+                  this.dialogVisible=true;
+              }
+          })
+      },
+    getSource() {
           let param=new Object();
           this.$api.getCompareType(param,res => {
               if (res.code === 200) {
@@ -149,9 +195,38 @@ export default {
               }
           })
       },
+      addQueryList(){
+          let obj = {}
+          this.tablelist.push(obj)
+      },
+      handleListDelete(index){
+          this.tablelist.splice(index, 1)
+      },
+      getQueryField(){
+          let param=new Object();
+          param.transName=this.title;
+          param.stepName=this.form.name
+          let that=this;
+          debugger;
+          this.$api.getFieldFromPreviousStep(param,res => {
+              if (res.code === 200) {
+                  that.tablelist=[];
+                  let array=res.data.data;
+                  for(var i=0;i<array.length;i++){
+                      let ele=new Object();
+                      ele.lookup_key_name=array[i].name;
+                      ele.lookup_key_field=array[i].name;
+                      ele.lookup_key_condition='=';
+                      that.tablelist.push(ele);
+                  }
+              }
+          })
+      },
   },
   created() {
     this.tableData = this.form.field ? this.form.field : []
+    this.tablelist = this.form.list?this.form.list : []
+      debugger;
     this.getSource();
   }
 }

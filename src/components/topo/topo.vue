@@ -511,6 +511,7 @@
            <dialog-db-look-up
              v-if="dialog.DBLookup"
              :item="editItem"
+             :title="title"
              @on-close="onCloseDialog"
            ></dialog-db-look-up>
            <dialog-sort-row
