@@ -162,14 +162,6 @@ export default {
             return;
         }
 
-      if(null==this.item.username||''==this.item.username){
-        this.$alert('数据库用户不能为空');
-        return;
-      }
-      if(null==this.item.password||''==this.item.password){
-        this.$alert('数据库密码不能为空');
-        return;
-      }
       let params = {
         name: this.item.name,
         databaseTypeId: this.item.databaseTypeId,
