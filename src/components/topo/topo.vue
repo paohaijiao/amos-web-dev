@@ -548,6 +548,16 @@
              :title="title"
              @on-close="onCloseDialog"
            ></dialog-concat-fields>
+           <dialog-mapping-input
+             v-if="dialog.MappingInput"
+             :item="editItem"
+             :title="title"
+           ></dialog-mapping-input>
+            <dialog-mapping-output
+                  v-if="dialog.MappingOutput"
+                  :item="editItem"
+                  :title="title"
+            ></dialog-mapping-output>
               </div>
             </div>
           </div>
@@ -659,6 +669,8 @@ import dialogMergeJoin from './dialog/table-merge-join'
 import dialogSynchronizeAfterMerge from './dialog/table-synchronize-AfterMerge'
 import dialogDbPross from './dialog/table-db-process'
 import dialogConcatFields from './dialog/table-concatFields'
+import dialogMappingInput from './dialog/table-mapping-input'
+import dialogMappingOutput from './dialog/table-mapping-output'
 
 
 let chart = null
@@ -760,6 +772,8 @@ export default {
     dialogMergeJoin,
     dialogSynchronizeAfterMerge,
     dialogDbPross,
+    dialogMappingInput,
+    dialogMappingOutput,
     DashFooter,
     DashHeader,
     Sidebar
@@ -872,7 +886,9 @@ export default {
         MergeJoin:false,
         SynchronizeAfterMerge:false,
         DBProc:false,
-        ConcatFields:false
+        ConcatFields:false,
+        MappingInput:false,
+        MappingOutput:false
       },
       result: null
     }
