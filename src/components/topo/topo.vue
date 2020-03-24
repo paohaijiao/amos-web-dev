@@ -542,6 +542,12 @@
                   :title="title"
                   @on-close="onCloseDialog">
            </dialog-db-pross>
+           <dialog-concat-fields
+             v-if="dialog.ConcatFields"
+             :item="editItem"
+             :title="title"
+             @on-close="onCloseDialog"
+           ></dialog-concat-fields>
               </div>
             </div>
           </div>
@@ -652,6 +658,7 @@ import dialogJionRows from './dialog/table-join-rows'
 import dialogMergeJoin from './dialog/table-merge-join'
 import dialogSynchronizeAfterMerge from './dialog/table-synchronize-AfterMerge'
 import dialogDbPross from './dialog/table-db-process'
+import dialogConcatFields from './dialog/table-concatFields'
 
 
 let chart = null
@@ -673,6 +680,7 @@ export default {
     dialogUpdate,
     dialogInsertUpdate,
     dialogJsonOutput,
+    dialogConcatFields,
     dialogAbort,
     dialogConstant,
     dialogValuemapper,
@@ -863,7 +871,8 @@ export default {
         JoinRows:false,
         MergeJoin:false,
         SynchronizeAfterMerge:false,
-        DBProc:false
+        DBProc:false,
+        ConcatFields:false
       },
       result: null
     }
