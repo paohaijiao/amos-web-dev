@@ -301,3 +301,5 @@ export const getFieldFromPreviousStep= (data, callback) => post(prefix+'/kettleP
 export const getLogout= (data, callback) => post(prefix+'/user/logout', 'getLogout', data, callback, );
 export const getLog= (data, callback) => post(prefix+'/logApi/getLog', 'getLog', data, callback, );
 export const getLogType= (data, callback) => post(prefix+'/logApi/getLogType', 'getLogType', data, callback, );
+export const getDataType= (data, callback) => post(prefix+'/kettleApi/dataType', 'getDataType', data, callback, );
+export const getArgDirection= (data, callback) => post(prefix+'/kettleApi/argDirection', 'getArgDirection', data, callback, );

@@ -536,6 +536,12 @@
              :title="title"
              @on-close="onCloseDialog">
            </dialog-synchronize-after-merge>
+           <dialog-db-pross
+                  v-if="dialog.DBProc"
+                  :item="editItem"
+                  :title="title"
+                  @on-close="onCloseDialog">
+           </dialog-db-pross>
               </div>
             </div>
           </div>
@@ -645,6 +651,7 @@ import dialogSortRow from './dialog/table-sort-rows'
 import dialogJionRows from './dialog/table-join-rows'
 import dialogMergeJoin from './dialog/table-merge-join'
 import dialogSynchronizeAfterMerge from './dialog/table-synchronize-AfterMerge'
+import dialogDbPross from './dialog/table-db-process'
 
 
 let chart = null
@@ -744,6 +751,7 @@ export default {
     dialogJionRows,
     dialogMergeJoin,
     dialogSynchronizeAfterMerge,
+    dialogDbPross,
     DashFooter,
     DashHeader,
     Sidebar
@@ -854,7 +862,8 @@ export default {
         SortRows:false,
         JoinRows:false,
         MergeJoin:false,
-        SynchronizeAfterMerge:false
+        SynchronizeAfterMerge:false,
+        DBProc:false
       },
       result: null
     }

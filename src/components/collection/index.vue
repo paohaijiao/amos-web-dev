@@ -185,10 +185,10 @@ export default {
         this.$alert('数据库端口不能为空');
         return;
       }
-      if(null==this.item.username||''==this.item.username){
-        this.$alert('数据库用户不能为空');
-        return;
-      }
+      // if(null==this.item.username||''==this.item.username){
+      //   this.$alert('数据库用户不能为空');
+      //   return;
+      // }
       // if(null==this.item.password||''==this.item.password){
       //   this.$alert('数据库密码不能为空');
       //   return;
@@ -242,7 +242,7 @@ export default {
       }else if(dbId == 54){
           retval = 'Presto'
       }else if(dbId == 55) {
-          retval = 'Phoenix'
+          retval = 'DRILL'
       }else{
           retval = '未知数据源'
           }
