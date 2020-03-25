@@ -19,12 +19,14 @@
           <thead>
           <tr>
             <th>字段名</th>
+            <th>需要转换成null的值</th>
             <th >操作</th>
           </tr>
           </thead>
           <tbody>
           <tr v-for="(item,index) in tableData">
             <td><input type="text" class="form-control" v-model="item.field_name"></td>
+            <td><input type="text" class="form-control" v-model="item.field_value"></td>
             <td>
               <button type="button" class="btn btn-info" @click="handleDelete(index, item)">删除</button>
             </td>
@@ -78,6 +80,7 @@ export default {
                   for(var i=0;i<array.length;i++){
                       let ele=new Object();
                       ele.field_name=array[i].name;
+                      ele.field_value='';
                       that.tableData.push(ele);
                   }
                   this.dialogVisible=true;
