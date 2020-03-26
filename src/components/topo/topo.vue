@@ -558,6 +558,11 @@
                   :item="editItem"
                   :title="title"
             ></dialog-mapping-output>
+            <dialog-mongo-db-output
+                  v-if="dialog.MongoDbOutput"
+                  :item="editItem"
+                  :title="title"
+            ></dialog-mongo-db-output>
               </div>
             </div>
           </div>
@@ -671,6 +676,7 @@ import dialogDbPross from './dialog/table-db-process'
 import dialogConcatFields from './dialog/table-concatFields'
 import dialogMappingInput from './dialog/table-mapping-input'
 import dialogMappingOutput from './dialog/table-mapping-output'
+import dialogMongoDbOutput from './dialog/table-mongodb-output'
 
 
 let chart = null
@@ -774,6 +780,7 @@ export default {
     dialogDbPross,
     dialogMappingInput,
     dialogMappingOutput,
+    dialogMongoDbOutput,
     DashFooter,
     DashHeader,
     Sidebar
@@ -888,7 +895,8 @@ export default {
         DBProc:false,
         ConcatFields:false,
         MappingInput:false,
-        MappingOutput:false
+        MappingOutput:false,
+        MongoDbOutput:false
       },
       result: null
     }

@@ -303,3 +303,5 @@ export const getLog= (data, callback) => post(prefix+'/logApi/getLog', 'getLog',
 export const getLogType= (data, callback) => post(prefix+'/logApi/getLogType', 'getLogType', data, callback, );
 export const getDataType= (data, callback) => post(prefix+'/kettleApi/dataType', 'getDataType', data, callback, );
 export const getArgDirection= (data, callback) => post(prefix+'/kettleApi/argDirection', 'getArgDirection', data, callback, );
+export const getMongoOperateType= (data, callback) => post(prefix+'/kettleApi/mongoOperateType', 'getMongoOperateType', data, callback, );
+export const getPoliceType= (data, callback) => post(prefix+'/kettleApi/policeType', 'getPoliceType', data, callback, );
