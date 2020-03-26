@@ -563,6 +563,11 @@
                   :item="editItem"
                   :title="title"
             ></dialog-mongo-db-output>
+            <dialog-mongo-db-input
+              v-if="dialog.MongoDbInput"
+              :item="editItem"
+              :title="title">
+            </dialog-mongo-db-input>
               </div>
             </div>
           </div>
@@ -677,6 +682,7 @@ import dialogConcatFields from './dialog/table-concatFields'
 import dialogMappingInput from './dialog/table-mapping-input'
 import dialogMappingOutput from './dialog/table-mapping-output'
 import dialogMongoDbOutput from './dialog/table-mongodb-output'
+import dialogMongoDbInput from './dialog/table-mongodb-input'
 
 
 let chart = null
@@ -781,6 +787,7 @@ export default {
     dialogMappingInput,
     dialogMappingOutput,
     dialogMongoDbOutput,
+    dialogMongoDbInput,
     DashFooter,
     DashHeader,
     Sidebar
@@ -896,7 +903,8 @@ export default {
         ConcatFields:false,
         MappingInput:false,
         MappingOutput:false,
-        MongoDbOutput:false
+        MongoDbOutput:false,
+        MongoDbInput:false
       },
       result: null
     }
