@@ -133,7 +133,7 @@ export default {
                       let ele=new Object();
                       ele.field_name=array[i].name;
                       ele.field_path='$.'+array[i].name;
-                      ele.field_type='$.'+array[i].type;
+                      ele.field_type=array[i].type;
                       that.tableData.push(ele);
                   }
               }
