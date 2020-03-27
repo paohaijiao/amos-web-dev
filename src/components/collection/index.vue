@@ -243,6 +243,10 @@ export default {
           retval = 'Presto'
       }else if(dbId == 55) {
           retval = 'DRILL'
+      }else if(dbId == 38) {
+        retval = 'ORACLE'
+      }else if(dbId == 39) {
+        retval = 'ORACLERDB'
       }else{
           retval = '未知数据源'
           }

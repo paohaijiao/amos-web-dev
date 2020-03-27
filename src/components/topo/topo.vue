@@ -568,6 +568,16 @@
               :item="editItem"
               :title="title">
             </dialog-mongo-db-input>
+             <dialog-files-from-result
+               v-if="dialog.FilesFromResult"
+               :item="editItem"
+               :title="title">
+             </dialog-files-from-result>
+             <dialog-rows-from-result
+               v-if="dialog.RowsFromResult"
+               :item="editItem"
+               :title="title"
+             ></dialog-rows-from-result>
               </div>
             </div>
           </div>
@@ -683,6 +693,8 @@ import dialogMappingInput from './dialog/table-mapping-input'
 import dialogMappingOutput from './dialog/table-mapping-output'
 import dialogMongoDbOutput from './dialog/table-mongodb-output'
 import dialogMongoDbInput from './dialog/table-mongodb-input'
+import dialogFilesFromResult from './dialog/table-files-from-result'
+import dialogRowsFromResult from './dialog/table-rows-from-result'
 
 
 let chart = null
@@ -788,6 +800,8 @@ export default {
     dialogMappingOutput,
     dialogMongoDbOutput,
     dialogMongoDbInput,
+    dialogFilesFromResult,
+    dialogRowsFromResult,
     DashFooter,
     DashHeader,
     Sidebar
@@ -904,7 +918,9 @@ export default {
         MappingInput:false,
         MappingOutput:false,
         MongoDbOutput:false,
-        MongoDbInput:false
+        MongoDbInput:false,
+        FilesFromResult:false,
+        RowsFromResult:false
       },
       result: null
     }
