@@ -24,9 +24,9 @@
               <div class="box-body">
                 <div>
                   <label>转换名</label>
-                  <select style="width:100%;height:34px" v-model="transName"  @change="initStep()">
+                  <select style="width:100%;height:34px" v-model="transId"  @change="initStep()">
                     <option>请选择转换名</option>
-                    <option :value="item.name" v-for="item in option" >{{item.name}}</option>
+                    <option :value="item.id" v-for="item in option" >{{item.name}}</option>
                   </select>
                 </div>
                 <div>
@@ -70,7 +70,7 @@
         data() {
             return {
                 transName:'',
-                stepName:'',
+                transId:null,
                 row:10,
                 option:[],
                 stetpOption:[],
@@ -84,7 +84,7 @@
                 this.tables=[];
                 let that=this;
                 var param=new Object();
-                if(this.transName==null||this.transName==''){
+                if(this.transId==null||this.transId==''){
                   this.$alert('请选择一个转换')
                     return
                 }
@@ -96,7 +96,7 @@
                   this.$alert('请输入需要预览的条数')
                     return
                 }
-                param.transName=this.transName;
+                param.transId=this.transId;
                 param.stepName=this.stepName;
                 param.row=this.row;
                 this.$api.getPreview(param,res => {
@@ -148,14 +148,14 @@
                 })
             },
             initStep(){
-                let transName=this.transName;
-                if(transName==null){
+                let transId=this.transId;
+                if(transId==null){
                   this.$alert('转换名称不能为空')
                     return;
                 }
                 let that=this;
                 let param=new Object();
-                param.transName=transName;
+                param.transId=transId;
                 this.$api.getStepByTransId( param,res => {
                     if (res.code === 200) {
                         that.stetpOption = res.data

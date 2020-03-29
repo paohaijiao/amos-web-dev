@@ -89,9 +89,6 @@ export default {
     onClose() {
       this.dialogVisible = false
       this.$emit('on-close', this.item)
-      // this.item.updateItem({
-      //     text: this.form.title
-      // })
     },
     getSource() {
         let param=new Object();

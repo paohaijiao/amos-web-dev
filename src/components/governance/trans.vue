@@ -43,7 +43,12 @@
                     <td>{{item.transStatus}}</td>
                     <td>{{item.modifiedUser}}</td>
                     <td>{{item.createdDate|formatDate}}</td>
-                    <td><button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button> <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button></td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button>
+                      <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
+                        <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button>
+
+                    </td>
                   </tr>
                   </tbody>
                   <pagination :records="pagination.total" :per-page="pagination.size" v-model="pagination.page" @paginate="getList"></pagination>
@@ -52,6 +57,32 @@
             </div>
           </div>
 
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">变更挂载点</h4>
+              </div>
+              <div class="container">
+                <h1>节点列表</h1>
+                <br/>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <label for="treeview"></label>
+                    <div id="treeview"/>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+              </div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <router-view></router-view>
@@ -72,8 +103,9 @@ export default {
   data() {
     return {
       search: '',
-        tableData: [],
-        pagination: {
+      item:{id:null},
+      tableData: [],
+      pagination: {
             total:0,
             page:1,
             size:10
@@ -96,6 +128,54 @@ export default {
           }
         })
     },
+    changeDirectory(item){
+        let that =this;
+        this.$api.getTreeViewFolder({},res => {
+            if (res.code === 200) {
+                $('#myModal').modal('show')
+                that.treeData=res.data.list;
+                that.menus=res.data.menus;
+                var options = {
+                    bootstrap2: false,
+                    showTags: true,
+                    levels: 1,
+                    data: that.treeData,
+                    multiSelect:false,
+                    showCheckbox:true,
+                    selectedColor:'#fff',
+                    hierarchicalCheck:true,
+                    onNodeChecked: function(event, node){
+                        let obj=new Object()
+                        obj.transId=item.id;
+                        obj.dirId=node.id
+                        that.$confirm('变更挂载目录?', '', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            type: 'warning'
+                        }).then(() => {
+                            debugger;
+                            that.$api.updateTransDir( obj,res => {
+                                if (res.code === 200) {
+                                    $('#myModal').modal('hide')
+                                    that.$alert('变更成功');
+                                    that.$router.push({path: "/index/datadirectorymanage"});
+                                } else {
+                                    that.$alert('变更挂载点失败');
+                                }
+                            })
+                        }).catch(() => {
+                        })
+                    },
+                    onNodeUnchecked:function(event, node){
+                    }
+                };
+                $('#treeview').treeview(options);
+
+            }else{
+                this.$alert(res.message);
+            }
+        })
+     },
     add(){
       this.$router.push({
         path: '/index/governance'
@@ -146,5 +226,8 @@ export default {
 .paging-box {
   margin-top: 20px;
   text-align: right;
+}
+.container {
+  width: 601px !important;
 }
 </style>

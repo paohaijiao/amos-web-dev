@@ -7,6 +7,7 @@ import * as Api from './config/api'
 import Common from './config/common'
 import {Alert, Confirm, Toast, Loading} from 'wc-messagebox'
 import JsonViewer from 'vue-json-viewer'
+import iView from 'iview';
 import 'wc-messagebox/style.css'
 Vue.prototype.$api = Api
 Vue.prototype.GLOBAL = Common
@@ -22,6 +23,9 @@ Vue.use(Confirm)
 Vue.use(Toast, 3000)
 Vue.use(Loading)
 Vue.use(JsonViewer)
+Vue.use(iView)
+import 'iview/dist/styles/iview.css';
+
 import Pagination from 'vue-pagination-2'
 Vue.component('pagination', Pagination)
 Vue.filter('formatDate', function(datestr) {

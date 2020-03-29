@@ -816,7 +816,7 @@ export default {
       },
       editItem: null,
       visible: false,
-      title: '',
+      title: null,
       title1:'hahah',
       list: [],
       dialog: {
