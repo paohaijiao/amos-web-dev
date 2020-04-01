@@ -22,10 +22,6 @@
       <input type="text" class="form-control"   v-model="form.table" placeholder="请输入表名称"></input>
     </div>
     <div class="form-group">
-      <label  >表名称</label>
-      <input type="text" class="form-control"   v-model="form.table" placeholder="请输入表名称"></input>
-    </div>
-    <div class="form-group">
       <label  >操作字段名</label>
       <input type="text" class="form-control"   v-model="form.operation_order_field" placeholder="请输入操作字段名"></input>
     </div>
