@@ -1,7 +1,7 @@
 <template>
   <div style="min-height: 400px" :visible="dialogVisible">
     <div class="modal-header">
-      <h4 class="modal-title">DB存储过程</h4>
+      <h4 class="modal-title">从结果中获取文件</h4>
     </div>
     <div class="form-group">
       <label  >步骤名称</label>
