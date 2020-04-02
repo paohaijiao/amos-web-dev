@@ -30,9 +30,9 @@
                   </select>
                 </div>
                 <div>
-                  <label>步骤名</label>
+                  <label>节点名称</label>
                   <select style="width:100%;height:34px" v-model="stepName" >
-                    <option>请选择步骤名</option>
+                    <option>请选择节点名</option>
                     <option :value="item.name" v-for="item in stetpOption" :key="item.name">{{item.name}}</option>
                   </select>
                 </div>
