@@ -578,6 +578,13 @@
                :item="editItem"
                :title="title"
              ></dialog-rows-from-result>
+                <dialog-get-x-m-l-data
+                  v-if="dialog.getXMLData"
+                  :item="editItem"
+                  :title="title"
+                ></dialog-get-x-m-l-data>
+
+
               </div>
             </div>
           </div>
@@ -695,6 +702,7 @@ import dialogMongoDbOutput from './dialog/table-mongodb-output'
 import dialogMongoDbInput from './dialog/table-mongodb-input'
 import dialogFilesFromResult from './dialog/table-files-from-result'
 import dialogRowsFromResult from './dialog/table-rows-from-result'
+import dialogGetXMLData from './dialog/tablegetXMLData'
 
 
 let chart = null
@@ -802,6 +810,7 @@ export default {
     dialogMongoDbInput,
     dialogFilesFromResult,
     dialogRowsFromResult,
+    dialogGetXMLData,
     DashFooter,
     DashHeader,
     Sidebar
@@ -920,7 +929,8 @@ export default {
         MongoDbOutput:false,
         MongoDbInput:false,
         FilesFromResult:false,
-        RowsFromResult:false
+        RowsFromResult:false,
+        getXMLData:false
       },
       result: null
     }

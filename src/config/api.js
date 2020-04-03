@@ -311,3 +311,5 @@ export const getAddFolder= (data, callback) => post(prefix+'/directoryApi/addFol
 export const updateFolder= (data, callback) => post(prefix+'/directoryApi/updateFolder', 'updateFolder', data, callback, );
 export const updateTransDir= (data, callback) => post(prefix+'/directoryApi/updateTransDir', 'updateTransDir', data, callback, );
 export const updateJobDir= (data, callback) => post(prefix+'/directoryApi/updateJobDir', 'updateJobDir', data, callback, );
+export const nodeType= (data, callback) => post(prefix+'/kettleApi/nodeType', 'nodeType', data, callback, );
+export const resultType= (data, callback) => post(prefix+'/kettleApi/resultType', 'resultType', data, callback, );
