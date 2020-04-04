@@ -609,6 +609,12 @@
                :item="editItem"
                :title="title"
              ></dialog-number-range>
+                <dialog-trans-exec
+                  v-if="dialog.TransExecutor"
+                  :item="editItem"
+                  :title="title">
+
+                </dialog-trans-exec>
 
               </div>
             </div>
@@ -733,6 +739,7 @@ import dialogDelay from './dialog/table-delay'
 import dialogCloneRow from './dialog/table-clone-row'
 import dialogMapping from './dialog/table-mapping'
 import dialogNumberRange from './dialog/table-number-range'
+import dialogTransExec from './dialog/table-trans-exec'
 
 
 let chart = null
@@ -846,6 +853,7 @@ export default {
     dialogCloneRow,
     dialogMapping,
     dialogNumberRange,
+    dialogTransExec,
     DashFooter,
     DashHeader,
     Sidebar
@@ -882,6 +890,7 @@ export default {
         AccessOutput:false,
         PGBulkLoader:false,
         Constant: false,
+        TransExecutor:false,
         ValueMapper: false,
         SplitFieldToRows3: false,
         StringCut: false,
