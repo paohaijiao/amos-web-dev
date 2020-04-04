@@ -604,6 +604,11 @@
                   :item="editItem"
                   :title="title">
              </dialog-mapping>
+             <dialog-number-range
+               v-if="dialog.NumberRange"
+               :item="editItem"
+               :title="title"
+             ></dialog-number-range>
 
               </div>
             </div>
@@ -727,6 +732,7 @@ import dialogPropertyOutput from './dialog/table-PropertyOutput'
 import dialogDelay from './dialog/table-delay'
 import dialogCloneRow from './dialog/table-clone-row'
 import dialogMapping from './dialog/table-mapping'
+import dialogNumberRange from './dialog/table-number-range'
 
 
 let chart = null
@@ -839,6 +845,7 @@ export default {
     dialogDelay,
     dialogCloneRow,
     dialogMapping,
+    dialogNumberRange,
     DashFooter,
     DashHeader,
     Sidebar
@@ -962,6 +969,7 @@ export default {
         getXMLData:false,
         Mapping:false,
         Delay:false,
+        NumberRange:false,
         CloneRow:false
       },
       result: null
