@@ -22,7 +22,7 @@
                 <h3 class="box-title">列表详情</h3>
               </div>
               <div class="box-body">
-                <div><button class="btn btn-primary" @click="add()" style="width: 100px;">新增</button></div>
+                <div></div>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -57,7 +57,7 @@
                     <td>{{item.oozieUrl}}</td>
                     <td>{{item.mapr}}</td>
                     <td>{{item.kafkaBootstrapServers}}</td>
-                    <td><button type="submit" class="btn btn-primary" @click="update(item)">修改</button></td>
+                    <td><button type="submit" class="btn btn-primary" @click="update(item)">查看</button></td>
                   </tr>
                   </tbody>
                   <pagination :records="pagination.total" :per-page="pagination.size" v-model="pagination.page" @paginate="getList"></pagination>
@@ -127,7 +127,6 @@
                       </div>
                       <div class="box-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" @click="submitForm()">提交</button>
                       </div>
                       <!-- /.box-body -->
                       <div class="modal-footer">
