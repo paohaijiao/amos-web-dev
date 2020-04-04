@@ -29,8 +29,6 @@
               <th>字段名称</th>
               <th>重命名</th>
               <th>字段类型</th>
-              <th>字段长度</th>
-              <th>字段精度</th>
               <th>是否替换</th>
               <th >操作</th>
             </tr>
@@ -44,8 +42,6 @@
                   <option v-for="item1 in typeoptions" :key="item1.value" :label="item1.name" :value="item1.value"></option>
                 </select>
               </td>
-              <td><input type="text" class="form-control" v-model="item.field_length"></td>
-              <td><input type="text" class="form-control" v-model="item.field_precision"></td>
               <td>
                 <select class="form-control select2 select2-hidden-accessible" v-model="item.field_replace">
                   <option v-for="item1 in option" :key="item1.value" :label="item1.name" :value="item1.value"></option>
@@ -118,12 +114,6 @@
             })
           }
         })
-         let that=this;
-          this.$axios.get('/api/kettleApi/calcType').then(res => {
-              if (res.data.code === 200) {
-                  that.types = res.data.data;
-              }
-          })
       },
       addList() {
         let obj = {}
@@ -134,8 +124,10 @@
       }
     },
     created() {
+      debugger;
       this.getSource()
       this.tableData = this.form.field ? this.form.field : []
+
     }
   }
 </script>
