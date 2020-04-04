@@ -25,7 +25,7 @@
                   </div>
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="exportPath">本地目录(保证导出的文件不存在)</label>
+                      <label for="exportPath">本地目录</label>
                       <input type="text" class="form-control" v-model="item.exportPath" id="exportPath" placeholder="导出路径">
                     </div>
                     <div class="form-group">
