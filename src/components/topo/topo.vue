@@ -599,6 +599,11 @@
                :item="editItem"
                :title="title">
              </dialog-clone-row>
+             <dialog-mapping
+                  v-if="dialog.Mapping"
+                  :item="editItem"
+                  :title="title">
+             </dialog-mapping>
 
               </div>
             </div>
@@ -721,6 +726,7 @@ import dialogGetXMLData from './dialog/tablegetXMLData'
 import dialogPropertyOutput from './dialog/table-PropertyOutput'
 import dialogDelay from './dialog/table-delay'
 import dialogCloneRow from './dialog/table-clone-row'
+import dialogMapping from './dialog/table-mapping'
 
 
 let chart = null
@@ -832,6 +838,7 @@ export default {
     dialogPropertyOutput,
     dialogDelay,
     dialogCloneRow,
+    dialogMapping,
     DashFooter,
     DashHeader,
     Sidebar
@@ -953,6 +960,7 @@ export default {
         RowsFromResult:false,
         PropertyOutput:false,
         getXMLData:false,
+        Mapping:false,
         Delay:false,
         CloneRow:false
       },
