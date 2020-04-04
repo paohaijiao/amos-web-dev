@@ -594,7 +594,11 @@
                   :item="editItem"
                   :title="title"
                 ></dialog-delay>
-
+             <dialog-clone-row
+               v-if="dialog.CloneRow"
+               :item="editItem"
+               :title="title">
+             </dialog-clone-row>
 
               </div>
             </div>
@@ -716,6 +720,7 @@ import dialogRowsFromResult from './dialog/table-rows-from-result'
 import dialogGetXMLData from './dialog/tablegetXMLData'
 import dialogPropertyOutput from './dialog/table-PropertyOutput'
 import dialogDelay from './dialog/table-delay'
+import dialogCloneRow from './dialog/table-clone-row'
 
 
 let chart = null
@@ -826,6 +831,7 @@ export default {
     dialogGetXMLData,
     dialogPropertyOutput,
     dialogDelay,
+    dialogCloneRow,
     DashFooter,
     DashHeader,
     Sidebar
@@ -947,7 +953,8 @@ export default {
         RowsFromResult:false,
         PropertyOutput:false,
         getXMLData:false,
-        Delay:false
+        Delay:false,
+        CloneRow:false
       },
       result: null
     }
