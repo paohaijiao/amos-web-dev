@@ -613,8 +613,12 @@
                   v-if="dialog.TransExecutor"
                   :item="editItem"
                   :title="title">
-
                 </dialog-trans-exec>
+                <dialog-jobs-exec
+                  v-if="dialog.JobExecutor"
+                  :item="editItem"
+                  :title="title">
+                </dialog-jobs-exec>
 
               </div>
             </div>
@@ -740,6 +744,7 @@ import dialogCloneRow from './dialog/table-clone-row'
 import dialogMapping from './dialog/table-mapping'
 import dialogNumberRange from './dialog/table-number-range'
 import dialogTransExec from './dialog/table-trans-exec'
+import dialogJobsExec from './dialog/table-job-exec'
 
 
 let chart = null
@@ -854,6 +859,7 @@ export default {
     dialogMapping,
     dialogNumberRange,
     dialogTransExec,
+    dialogJobsExec,
     DashFooter,
     DashHeader,
     Sidebar
@@ -979,6 +985,7 @@ export default {
         Mapping:false,
         Delay:false,
         NumberRange:false,
+        JobExecutor:false,
         CloneRow:false
       },
       result: null

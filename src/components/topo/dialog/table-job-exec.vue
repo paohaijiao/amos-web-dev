@@ -1,7 +1,7 @@
 <template>
   <div style="min-height: 400px" :visible="dialogVisible">
     <div class="modal-header">
-      <h4 class="modal-title">执行转换</h4>
+      <h4 class="modal-title">执行作业</h4>
     </div>
     <div class="form-group">
       <label  >步骤名称</label>
@@ -12,8 +12,8 @@
       <input type="text" class="form-control"    v-model="form.directory_path" placeholder="请输入目录">
     </div>
     <div class="form-group">
-      <label  >转换名称</label>
-      <input type="text" class="form-control"    v-model="form.trans_name" placeholder="请输入转换名称">
+      <label  >作业名称</label>
+      <input type="text" class="form-control"    v-model="form.job_name" placeholder="请输入作业名称">
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" @click="cancel">取消</button>
