@@ -313,3 +313,4 @@ export const updateTransDir= (data, callback) => post(prefix+'/directoryApi/upda
 export const updateJobDir= (data, callback) => post(prefix+'/directoryApi/updateJobDir', 'updateJobDir', data, callback, );
 export const nodeType= (data, callback) => post(prefix+'/kettleApi/nodeType', 'nodeType', data, callback, );
 export const resultType= (data, callback) => post(prefix+'/kettleApi/resultType', 'resultType', data, callback, );
+export const scaleType= (data, callback) => post(prefix+'/kettleApi/scaleType', 'scaleType', data, callback, );

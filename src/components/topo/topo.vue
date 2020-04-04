@@ -588,8 +588,12 @@
                :item="editItem"
                :title="title"
              >
-
              </dialog-property-output>
+                <dialog-delay
+                  v-if="dialog.Delay"
+                  :item="editItem"
+                  :title="title"
+                ></dialog-delay>
 
 
               </div>
@@ -711,6 +715,7 @@ import dialogFilesFromResult from './dialog/table-files-from-result'
 import dialogRowsFromResult from './dialog/table-rows-from-result'
 import dialogGetXMLData from './dialog/tablegetXMLData'
 import dialogPropertyOutput from './dialog/table-PropertyOutput'
+import dialogDelay from './dialog/table-delay'
 
 
 let chart = null
@@ -820,6 +825,7 @@ export default {
     dialogRowsFromResult,
     dialogGetXMLData,
     dialogPropertyOutput,
+    dialogDelay,
     DashFooter,
     DashHeader,
     Sidebar
@@ -940,7 +946,8 @@ export default {
         FilesFromResult:false,
         RowsFromResult:false,
         PropertyOutput:false,
-        getXMLData:false
+        getXMLData:false,
+        Delay:false
       },
       result: null
     }
