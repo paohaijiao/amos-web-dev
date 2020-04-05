@@ -624,6 +624,11 @@
                   :item="editItem"
                   :title="title">
                 </dialog-detect-flow>
+                <dialog-block-until-steps-finish
+                  v-if="dialog.BlockUntilStepsFinish"
+                  :item="editItem"
+                  :title="title">
+                </dialog-block-until-steps-finish>
 
               </div>
             </div>
@@ -751,6 +756,7 @@ import dialogNumberRange from './dialog/table-number-range'
 import dialogTransExec from './dialog/table-trans-exec'
 import dialogJobsExec from './dialog/table-job-exec'
 import dialogDetectFlow from './dialog/table-detect-flow'
+import dialogBlockUntilStepsFinish from './dialog/table-blockUntilStepsFinish'
 
 
 let chart = null
@@ -867,6 +873,7 @@ export default {
     dialogTransExec,
     dialogJobsExec,
     dialogDetectFlow,
+    dialogBlockUntilStepsFinish,
     DashFooter,
     DashHeader,
     Sidebar
@@ -922,6 +929,7 @@ export default {
         ParquetInput: false,
         AvroInputNew: false,
         AvroOutput: false,
+        BlockUntilStepsFinish:false,
         HadoopFileInputPlugin: false,
         HadoopFileOutputPlugin: false,
         ParquetOutput: false,
