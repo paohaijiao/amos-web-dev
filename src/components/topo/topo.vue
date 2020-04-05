@@ -619,6 +619,11 @@
                   :item="editItem"
                   :title="title">
                 </dialog-jobs-exec>
+                <dialog-detect-flow
+                  v-if="dialog.DetectLastRow"
+                  :item="editItem"
+                  :title="title">
+                </dialog-detect-flow>
 
               </div>
             </div>
@@ -745,6 +750,7 @@ import dialogMapping from './dialog/table-mapping'
 import dialogNumberRange from './dialog/table-number-range'
 import dialogTransExec from './dialog/table-trans-exec'
 import dialogJobsExec from './dialog/table-job-exec'
+import dialogDetectFlow from './dialog/table-detect-flow'
 
 
 let chart = null
@@ -860,6 +866,7 @@ export default {
     dialogNumberRange,
     dialogTransExec,
     dialogJobsExec,
+    dialogDetectFlow,
     DashFooter,
     DashHeader,
     Sidebar
@@ -983,6 +990,7 @@ export default {
         PropertyOutput:false,
         getXMLData:false,
         Mapping:false,
+        DetectLastRow:false,
         Delay:false,
         NumberRange:false,
         JobExecutor:false,
