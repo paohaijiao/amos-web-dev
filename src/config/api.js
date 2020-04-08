@@ -314,3 +314,4 @@ export const updateJobDir= (data, callback) => post(prefix+'/directoryApi/update
 export const nodeType= (data, callback) => post(prefix+'/kettleApi/nodeType', 'nodeType', data, callback, );
 export const resultType= (data, callback) => post(prefix+'/kettleApi/resultType', 'resultType', data, callback, );
 export const scaleType= (data, callback) => post(prefix+'/kettleApi/scaleType', 'scaleType', data, callback, );
+export const orcType= (data, callback) => post(prefix+'/kettleApi/orcType', 'orcType', data, callback, );

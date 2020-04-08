@@ -629,6 +629,11 @@
                   :item="editItem"
                   :title="title">
                 </dialog-block-until-steps-finish>
+                <dialog-orc-output
+                  v-if="dialog.OrcOutput"
+                  :item="editItem"
+                  :title="title">
+                </dialog-orc-output>
 
               </div>
             </div>
@@ -757,6 +762,7 @@ import dialogTransExec from './dialog/table-trans-exec'
 import dialogJobsExec from './dialog/table-job-exec'
 import dialogDetectFlow from './dialog/table-detect-flow'
 import dialogBlockUntilStepsFinish from './dialog/table-blockUntilStepsFinish'
+import dialogOrcOutput from './dialog/table-orc-output.vue'
 
 
 let chart = null
@@ -874,6 +880,7 @@ export default {
     dialogJobsExec,
     dialogDetectFlow,
     dialogBlockUntilStepsFinish,
+    dialogOrcOutput,
     DashFooter,
     DashHeader,
     Sidebar
@@ -920,6 +927,7 @@ export default {
         ReplaceString: false,
         SetValueField: false,
         IfNull: false,
+        OrcOutput:false,
         NullIf: false,
         Calculator:false,
         Rest: false,

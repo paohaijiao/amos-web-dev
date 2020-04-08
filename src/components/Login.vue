@@ -4,7 +4,7 @@
       <a style="color: #f4f4f4"><b>数据</b>中台</a>
     </div>
     <div class="login-box-body">
-      <p class="login-box-msg">登录账户</p>
+      <p class="login-box-msg">登录账户<span style="color:red">(互联网环境)</span></p>
 
         <div class="form-group has-feedback">
           <input type="email" class="form-control" placeholder="登录名" v-model="loginForm.username" value="admin">
@@ -64,6 +64,7 @@ export default {
               this.$api.getUserLogin(param,res=> {
                           if (res.code === 200) {
                               let userInfo = res.data.userInfo;
+                              debugger;
                               window.localStorage.setItem(
                                   'menuList',
                                   JSON.stringify(res.data.powerList)
