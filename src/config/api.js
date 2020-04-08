@@ -315,3 +315,4 @@ export const nodeType= (data, callback) => post(prefix+'/kettleApi/nodeType', 'n
 export const resultType= (data, callback) => post(prefix+'/kettleApi/resultType', 'resultType', data, callback, );
 export const scaleType= (data, callback) => post(prefix+'/kettleApi/scaleType', 'scaleType', data, callback, );
 export const orcType= (data, callback) => post(prefix+'/kettleApi/orcType', 'orcType', data, callback, );
+export const xmlType= (data, callback) => post(prefix+'/kettleApi/xmlType', 'xmlType', data, callback, );

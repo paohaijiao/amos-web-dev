@@ -634,6 +634,11 @@
                   :item="editItem"
                   :title="title">
                 </dialog-orc-output>
+                <dialog-xml-output
+                  v-if="dialog.XMLOutput"
+                  :item="editItem"
+                  :title="title">
+                </dialog-xml-output>
 
               </div>
             </div>
@@ -763,6 +768,7 @@ import dialogJobsExec from './dialog/table-job-exec'
 import dialogDetectFlow from './dialog/table-detect-flow'
 import dialogBlockUntilStepsFinish from './dialog/table-blockUntilStepsFinish'
 import dialogOrcOutput from './dialog/table-orc-output.vue'
+import dialogXmlOutput from './dialog/table-xml-output'
 
 
 let chart = null
@@ -797,6 +803,7 @@ export default {
     dialogSetvaluefield,
     dialogIfnull,
     dialogNullif,
+    dialogXmlOutput,
     dialogSwitchCase,
     dialogDetectEmptyStream,
     dialogRest,
@@ -905,6 +912,7 @@ export default {
         RowGenerator: false,
         JsonInput: false,
         AccessInput:false,
+        XMLOutput: false,
         ElasticSearchBulk:false,
         TableInput: false,
         TableOutput: false,

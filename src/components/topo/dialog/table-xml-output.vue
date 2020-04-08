@@ -1,7 +1,7 @@
 <template>
   <div style="min-height: 400px" :visible="dialogVisible">
     <div class="modal-header">
-      <h4 class="modal-title">orc文件输出</h4>
+      <h4 class="modal-title">xml文件输出</h4>
     </div>
     <div class="form-group">
       <label  >步骤名称</label>
@@ -14,8 +14,12 @@
       </select>
     </div>
     <div class="form-group">
-      <label  >文件名</label>
-      <input type="text" class="form-control"    v-model="form.filename" placeholder="请输入文件名">
+      <label  >父XML元素(样例:Rows)</label>
+      <input type="text" class="form-control"    v-model="form.xml_main_element" placeholder="请输入父XML元素">
+    </div>
+    <div class="form-group">
+      <label  >记录XML元素(样例:Rows)</label>
+      <input type="text" class="form-control"    v-model="form.xml_repeat_element" placeholder="请输入记录XML元素">
     </div>
     <div class="box-body">
       <div><span>数据库字段</span>&nbsp;
@@ -26,7 +30,7 @@
         <thead>
         <tr>
           <th style="width:250px" >字段名</th>
-          <th style="width:250px" >路径</th>
+          <th style="width:250px" >content type</th>
           <th style="width:200px">类型</th>
           <th style="width:100px">操作</th>
         </tr>
@@ -34,15 +38,17 @@
         <tbody>
         <tr v-for="(item,index) in tableData">
           <td>
-            <input type="text" class="form-control" v-model="item.path">
+            <input type="text" class="form-control" v-model="item.field_name">
           </td>
           <td>
-            <input type="text"  class="form-control" v-model="item.name">
+            <select  v-model="item.field_content_type" class="form-control select2 select2-hidden-accessible">
+              <option v-for="tt in  xmlType"  :key="tt.key" :label="tt.value" :value="tt.key"></option>
+            </select>
           </td>
           <td>
             <div class="form-group">
-              <select  v-model="item.type" class="form-control select2 select2-hidden-accessible">
-                <option v-for="tt in  orcType"  :key="tt.key" :label="tt.value" :value="tt.key"></option>
+              <select  v-model="item.field_type" class="form-control select2 select2-hidden-accessible">
+                <option v-for="tt in  dataType"  :key="tt.key" :label="tt.value" :value="tt.key"></option>
               </select>
             </div>
           </td>
@@ -72,9 +78,10 @@ export default {
       form: _.cloneDeep(this.item.data) || {},
       dialogVisible: true,
       options: [{"key":"Y","value":"是"},{"key":"N","value":"否"}],
-      orcType:[],
+      dataType:[],
       tableData: [],
-      tablelist:[]
+      tablelist:[],
+      xmlType:[]
     }
   },
   methods: {
@@ -108,9 +115,9 @@ export default {
                   let array=res.data.data;
                   for(var i=0;i<array.length;i++){
                       let ele=new Object();
-                      ele.name=array[i].name;
-                      ele.path=array[i].name;
-                      ele.type=array[i].type;
+                      ele.field_name=array[i].name;
+                      ele.field_content_type='Element';
+                      ele.field_type=array[i].type;
                       that.tableData.push(ele);
                   }
               }
@@ -119,9 +126,18 @@ export default {
     initRCtype(){
       let param=new Object();
       let that=this;
-      this.$api.orcType(param,res => {
+      this.$api.getDataType(param,res => {
         if (res.code === 200) {
-          that.orcType=res.data;
+          that.dataType=res.data;
+        }
+      })
+    },
+    initXmlType(){
+      let param=new Object();
+      let that=this;
+      this.$api.xmlType(param,res => {
+        if (res.code === 200) {
+          that.xmlType=res.data;
         }
       })
     },
@@ -162,6 +178,7 @@ export default {
   },
   created() {
     this.initRCtype();
+    this.initXmlType();
     this.tableData = this.form.field ? this.form.field : []
     this.tablelist = this.form.list?this.form.list : []
   }
