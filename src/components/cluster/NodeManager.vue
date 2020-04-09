@@ -36,7 +36,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="(item)  in tableData">
+                  <tr v-for="(item)  in lists">
                     <td>{{item.name}}</td>
                     <td>{{item.basePort}}</td>
                     <td>{{item.socketsBufferSize}}</td>
@@ -45,7 +45,7 @@
                     <td>{{item.dynamicCluster}}</td>
                     <td>
                         <button type="submit" class="btn btn-primary" @click="update(item)">修改</button>
-                        <button type="submit" class="btn btn-info" @click="update(item)">配置子节点</button>
+                        <button type="submit" class="btn btn-info" @click="cluster(item)">配置子节点</button>
                         <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button>
                     </td>
                   </tr>
@@ -100,6 +100,51 @@
                     </div>
                   </div>
                 </div>
+                <div class="modal fade" id="clusterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" >添加节点</h4>
+                      </div>
+                      <div class="box-body">
+                        <div class="form-group">
+                          <button  class="form-control mybutton btn btn-danger " @click="addList" style="width:100px">新增节点</button>
+                          <button  class="form-control mybutton btn btn-primary " @click="initTableData" style="width:150px">一键生成节点</button>
+                        </div>
+                        <table class="table table-bordered"  >
+                          <thead>
+                          <tr>
+                            <th>节点名称</th>
+                            <th >操作</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr v-for="(list,index) in tableData">
+                            <td>
+                              <select  v-model="list.idSlave" class="form-control select2 select2-hidden-accessible">
+                                <option v-for="list in  nodes"  :key="list.idSlave" :label="list.name" :value="list.idSlave"></option>
+                              </select>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-info" @click="handleDelete(index, list)">删除</button>
+                            </td>
+
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="box-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" @click="submitCluster()">提交</button>
+                      </div>
+                      <!-- /.box-body -->
+                      <div class="modal-footer">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -133,6 +178,8 @@ export default {
       },
       search: '',
       tableData: [],
+      lists: [],
+      nodes:[],
       types:[{"key":true,"value":true},{"key":false,"value":false}],
       pagination: {
         total:0,
@@ -151,6 +198,43 @@ export default {
       this.item.socketsCompressed=null,
       this.item.dynamicCluster=null
       $('#myModal').modal('show');
+    },
+    submitCluster(){
+      let params=new Object();
+      params.slaves=this.tableData;
+      params.clusterId=this.item.idCluster;
+      debugger;
+      this.$api.rClusterSlaveSave( params,res => {
+          if (res.code === 200) {
+            this.$alert('操作成功');
+            this.getList()
+            $('#clusterModal').modal('hide');
+          }else if(null!=res.errors){
+            let array=res.errors;
+            let msge='';
+            array.forEach(e=>{
+              msge+=e.defaultMessage;
+            })
+            this.$alert(msge);
+          }else if(res.message!=null) {
+            this.$alert(res.message);
+          }else{
+            this.$alert('系统错误');
+          }
+        }
+      )
+    },
+    cluster(item){
+      this.item.idCluster=item.idCluster;
+      $('#clusterModal').modal('show');
+    },
+    addList() {
+      debugger;
+      let obj = {}
+      this.tableData.push(obj)
+    },
+    handleDelete(index) {
+      this.tableData.splice(index, 1)
     },
     submitForm() {
       if(null==this.item.name||''==this.item.name){
@@ -206,6 +290,7 @@ export default {
           }
         )
     },
+
     getList() {
       let option=new Object();
         option.size=this.pagination.size;
@@ -214,11 +299,31 @@ export default {
        let that=this;
       this.$api.clusterFindAll( option ,res=> {
           if (res.code === 200) {
-            that.tableData = res.data.content
+            that.lists = res.data.content
             that.pagination.total = res.data.totalElements
           }
         })
     },
+    initNodes() {
+      let option=new Object();
+      let that=this;
+      this.$api.findNode( option ,res=> {
+        if (res.code === 200) {
+          that.nodes = res.data;
+        }
+      })
+    },
+    initTableData() {
+      let option=new Object();
+      option.idCluster=this.item.idCluster
+      let that=this;
+      this.$api.findNode( option ,res=> {
+        if (res.code === 200) {
+          that.tableData = res.data;
+        }
+      })
+    },
+
     searchList() {
       this.pagination.page = 1
       this.getList()
@@ -251,6 +356,7 @@ export default {
   },
   created() {
     this.getList({})
+    this.initNodes();
   },
   watch: {
     $route(to,from) {
