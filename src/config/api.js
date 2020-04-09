@@ -319,3 +319,6 @@ export const xmlType= (data, callback) => post(prefix+'/kettleApi/xmlType', 'xml
 export const rSlaveFindAll= (data, callback) => post(prefix+'/rSlaveApi/findAll', 'rSlaveFindAll', data, callback, );
 export const rSlaveSave= (data, callback) => post(prefix+'/rSlaveApi/createOrUpdate', 'rSlaveSave', data, callback, );
 export const rSlaveDelete= (data, callback) => post(prefix+'/rSlaveApi/delete', 'rSlaveDelete', data, callback, );
+export const clusterSave= (data, callback) => post(prefix+'/clusterApi/createOrUpdate', 'clusterSave', data, callback, );
+export const clusterFindAll= (data, callback) => post(prefix+'/clusterApi/findAll', 'clusterFindAll', data, callback, );
+export const clusterDelete= (data, callback) => post(prefix+'/clusterApi/delete', 'clusterDelete', data, callback, );
