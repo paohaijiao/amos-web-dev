@@ -316,3 +316,6 @@ export const resultType= (data, callback) => post(prefix+'/kettleApi/resultType'
 export const scaleType= (data, callback) => post(prefix+'/kettleApi/scaleType', 'scaleType', data, callback, );
 export const orcType= (data, callback) => post(prefix+'/kettleApi/orcType', 'orcType', data, callback, );
 export const xmlType= (data, callback) => post(prefix+'/kettleApi/xmlType', 'xmlType', data, callback, );
+export const rSlaveFindAll= (data, callback) => post(prefix+'/rSlaveApi/findAll', 'rSlaveFindAll', data, callback, );
+export const rSlaveSave= (data, callback) => post(prefix+'/rSlaveApi/createOrUpdate', 'rSlaveSave', data, callback, );
+export const rSlaveDelete= (data, callback) => post(prefix+'/rSlaveApi/delete', 'rSlaveDelete', data, callback, );
