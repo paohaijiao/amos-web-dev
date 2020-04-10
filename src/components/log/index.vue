@@ -38,7 +38,7 @@
                   </thead>
                   <tbody>
                   <tr v-for="(item)  in tableData">
-                    <td>{{item.sysUserId}}</td>
+                    <td>{{item.username}}</td>
                     <td>{{item.optType}}</td>
                     <td>{{item.optRemark}}</td>
                     <td>{{item.createtime | formatDate }}</td>
