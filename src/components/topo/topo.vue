@@ -1151,6 +1151,7 @@ export default {
                 ? chart.getItems()[k].data.name
                 : '',
               stepTypeCode: chart.getItems()[k].code,
+              copy: chart.getItems()[k].copy,
               x: chart.getItems()[k].x,
               y: chart.getItems()[k].y,
               para: chart.getItems()[k].data ? chart.getItems()[k].data : {},

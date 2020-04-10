@@ -329,3 +329,4 @@ export const partitionList= (data, callback) => post(prefix+'/rPartitionSchemaAp
 export const partitionDelete= (data, callback) => post(prefix+'/rPartitionSchemaApi/delete', 'partitionDelete', data, callback, );
 export const getSavePartition= (data, callback) => sendPost(prefix+'/rPartitionSchemaApi/savePartition',data,{}, callback );
 export const getPartition= (data, callback) => post(prefix+'/rPartitionSchemaApi/getPartition', 'getPartition', data, callback, );
+export const getClusterNotPage= (data, callback) => post(prefix+'/clusterApi/getClusterNotPage', 'getClusterNotPage', data, callback, );
