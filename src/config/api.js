@@ -324,3 +324,8 @@ export const clusterSave= (data, callback) => post(prefix+'/clusterApi/createOrU
 export const clusterFindAll= (data, callback) => post(prefix+'/clusterApi/findAll', 'clusterFindAll', data, callback, );
 export const clusterDelete= (data, callback) => post(prefix+'/clusterApi/delete', 'clusterDelete', data, callback, );
 export const rClusterSlaveSave= (data, callback) => sendPost(prefix+'/rClusterSlave/createOrUpdate',  data, {},callback);
+export const partitionSave= (data, callback) => post(prefix+'/rPartitionSchemaApi/createOrUpdate', 'partitionSave', data, callback, );
+export const partitionList= (data, callback) => post(prefix+'/rPartitionSchemaApi/findAll', 'partitionList', data, callback, );
+export const partitionDelete= (data, callback) => post(prefix+'/rPartitionSchemaApi/delete', 'partitionDelete', data, callback, );
+export const getSavePartition= (data, callback) => sendPost(prefix+'/rPartitionSchemaApi/savePartition',data,{}, callback );
+export const getPartition= (data, callback) => post(prefix+'/rPartitionSchemaApi/getPartition', 'getPartition', data, callback, );

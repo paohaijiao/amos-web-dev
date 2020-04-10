@@ -38,6 +38,7 @@ import log from '@/components/log/index.vue'
 import datadirectoryManager from '@/components/datadirectory/datadirectoryManager.vue'
 import nodeList from '@/components/cluster/NodeList.vue'
 import NodeManager from '@/components/cluster/NodeManager.vue'
+import dataParttion from '@/components/cluster/dataParttion.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -336,7 +337,7 @@ export default new Router({
     },
     //nodeList
     {
-      path: '/index/masterServer',
+      path: '/index/node',
       component: nodeList,
       name: '数据治理',
       meta: {
@@ -344,8 +345,16 @@ export default new Router({
       }
     },
     {
-      path: '/index/subServer',
+      path: '/index/nodeManage',
       component: NodeManager,
+      name: '数据治理',
+      meta: {
+        title: '集群管理'
+      }
+    },
+    {
+      path: '/index/dataPartion',
+      component: dataParttion,
       name: '数据治理',
       meta: {
         title: '集群管理'
