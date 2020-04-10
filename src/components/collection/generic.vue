@@ -5,7 +5,7 @@
     <div class="content-wrapper" >
       <section class="content-header">
         <h1>
-          通用数据源jdbc(druid数据源请走rest)
+          jdbc(kylin,neo4j等)
           <small>列表</small>
         </h1>
         <ol class="breadcrumb">
