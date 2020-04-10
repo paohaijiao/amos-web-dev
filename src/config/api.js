@@ -330,3 +330,5 @@ export const partitionDelete= (data, callback) => post(prefix+'/rPartitionSchema
 export const getSavePartition= (data, callback) => sendPost(prefix+'/rPartitionSchemaApi/savePartition',data,{}, callback );
 export const getPartition= (data, callback) => post(prefix+'/rPartitionSchemaApi/getPartition', 'getPartition', data, callback, );
 export const getClusterNotPage= (data, callback) => post(prefix+'/clusterApi/getClusterNotPage', 'getClusterNotPage', data, callback, );
+export const getPartionType= (data, callback) => post(prefix+'/kettleApi/partionType', 'partionType', data, callback, );
+export const getPartitionNode= (data, callback) => post(prefix+'/rPartitionSchemaApi/getPartitionNode', 'getPartitionNode', data, callback, );
