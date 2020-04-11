@@ -22,11 +22,19 @@
                 <h3 class="box-title">列表详情</h3>
               </div>
               <div class="box-body">
-<!--                <div class="row" style="display: flex;">-->
-<!--                <select  v-model="op_type" class="form-control select2 select2-hidden-accessible" style="width:250px;">-->
-<!--                  <option v-for="item in op"  :key="item" :label="item" :value="item"></option>-->
-<!--                </select>-->
-<!--                  <button class="btn btn-primary" @click="add()" style="width: 100px;">查询</button></div>-->
+                <div class="row" style="display: flex;">
+
+                  <label style="line-height: 35px;font-size:19px;margin-left:13px">类型:</label>
+                    <select  id="type" v-model="optType" class="form-control select2 select2-hidden-accessible"  style="width:250px">
+                      <option v-for="item in op"  :key="item" :label="item" :value="item"></option>
+                    </select>
+                    <label for="user" style="line-height: 35px;font-size:19px;"> 操作人:</label>
+                    <input id="user" type="text" class="form-control"   style="width:250px" v-model="search" placeholder="请输入操作人">
+                    <button class="btn btn-primary" @click="getList()" style="width: 100px;margin-left: 50px;height: 35px;">查询</button>
+                </div>
+
+
+
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -68,8 +76,8 @@ export default {
 
   data() {
     return {
-      op_type:'',
-      search: '',
+      optType:'',
+      search: null,
       tableData: [],
       baseTypeList:[],
       databaseList:[],
@@ -95,12 +103,13 @@ export default {
       let option=new Object();
         option.size=this.pagination.size;
         option.page=this.pagination.page;
-        option.name=this.search ? this.search : null;
+        option.username=this.search ? this.search : null;
+        option.optType=this.optType ? this.optType : null;
        let that=this;
       this.$api.getLog( option ,res=> {
           if (res.code === 200) {
-            that.tableData = res.data.content
-            that.pagination.total = res.data.totalElements
+            that.tableData = res.data.list
+            that.pagination.total = res.data.total
           }
         })
     },

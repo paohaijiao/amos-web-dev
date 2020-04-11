@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
       <label  >端口号</label>
-      <input type="text" class="form-control"    v-model="form.port" placeholder="请输入端口号">
+      <input type="number" class="form-control"    v-model="form.port" placeholder="请输入端口号">
     </div>
     <div class="form-group">
       <label  >数据库名称</label>
