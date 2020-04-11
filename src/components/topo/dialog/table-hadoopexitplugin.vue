@@ -15,7 +15,34 @@
       <label for="name" >输出值字段名</label>
       <input type="text" class="form-control"    v-model="form.outvaluefieldname" placeholder="请输入输出值字段名">
     </div>
-
+    <div>
+      <div class="form-group">
+        <label  >线程数(1或更多)</label>
+        <input type="number" class="form-control" min="1"  v-model="form.copy" placeholder="请输入需要使用的线程数"></input>
+      </div>
+      <div class="form-group">
+        <label>执行集群<span style="color:red">(可选)</span></label>
+        <select  v-model="form.cluster_schema" class="form-control select2 select2-hidden-accessible">
+          <option v-for="item in clusters"  :key="item.name" :label="item.name" :value="item.name"></option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>分区方式<span style="color:red">(可选)</span></label>
+        <select  v-model="form.PARTITIONING_METHOD" class="form-control select2 select2-hidden-accessible">
+          <option v-for="item in partionType"  :key="item.key" :label="item.value" :value="item.key"></option>
+        </select>
+      </div>
+      <div class="form-group" v-if="form.PARTITIONING_METHOD=='Mirror'">
+        <label>分区节点<span style="color:red">(可选)</span></label>
+        <select  v-model="form.PARTITIONING_SCHEMA" class="form-control select2 select2-hidden-accessible">
+          <option v-for="item in partionNode"  :key="item.name" :label="item.name" :value="item.name"></option>
+        </select>
+      </div>
+      <div class="form-group" v-if="form.PARTITIONING_METHOD=='ModPartitioner'">
+        <label>分区字段<span style="color:red">(可选)</span></label>
+        <input type="text" class="form-control" min="1"  v-model="form.PARTITIONING_SCHEMA" placeholder="请输入分区字段"></input>
+      </div>
+    </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" @click="cancel">取消</button>
       <button type="button" class="btn btn-danger" @click="onConfirm">确定</button>
@@ -31,7 +58,10 @@
     data() {
       return {
         form: _.cloneDeep(this.item.data) || {},
-        dialogVisible: true
+        dialogVisible: true,
+        clusters:[],
+        partionType:[],
+        partionNode:[],
       }
     },
     methods: {
@@ -45,6 +75,25 @@
         $('#myModal').modal('hide')
         this.onClose()
       },
+      initCluster() {
+        let param=new Object();
+        this.$api.getClusterNotPage(param,res => {
+          if (res.code === 200) {
+            this.clusters = res.data
+          }
+        })
+        this.$api.getPartionType(param,res => {
+          if (res.code === 200) {
+            this.partionType = res.data
+          }
+        })
+        this.$api.getPartitionNode(param,res => {
+          if (res.code === 200) {
+            this.partionNode= res.data
+          }
+        })
+
+      },
       onClose() {
         this.dialogVisible = false
         this.$emit('on-close', this.item)
@@ -54,6 +103,7 @@
       }
     },
     created() {
+      this.initCluster();
 
     }
   }
