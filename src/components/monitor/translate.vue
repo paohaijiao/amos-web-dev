@@ -22,6 +22,15 @@
                 <h3 class="box-title">列表详情</h3>
               </div>
               <div class="box-body">
+                <div class="row" style="display: flex;">
+                  <label style="line-height: 35px;font-size:19px;margin-left:13px">转换名称:</label>
+                  <input  type="text" class="form-control"   style="width:250px" v-model="search" placeholder="请输入转换名称">
+
+                  <label for="user" style="line-height: 35px;font-size:19px;"> 日志:</label>
+                  <input id="user" type="text" class="form-control"   style="width:250px" v-model="log" placeholder="请输入日志关键字">
+                  <button class="btn btn-primary" @click="getList()" style="width: 100px;margin-left: 50px;height: 35px;">查询</button>
+                  <button class="btn btn-primary" @click="doDownload()" style="width: 100px;margin-left: 50px;height: 35px;">下载日志</button>
+                </div>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -79,7 +88,8 @@ export default {
   components: {DashHeader,DashFooter,Sidebar},
   data() {
     return {
-      search: '',
+      search: null,
+      log: null,
       tableData: [],
       pagination: {
             total:0,
@@ -93,12 +103,13 @@ export default {
         let option=new Object();
         option.size=this.pagination.size;
         option.page=this.pagination.page;
-        option.name=this.search ? this.search : null;
+        option.transName=this.search ? this.search : null;
+        option.logField=this.log ? this.log : null;
        let that=this;
       this.$api.getTransLogList(option,res => {
           if (res.code === 200) {
-              that.tableData = res.data.content
-              that.pagination.total = res.data.totalElements
+              that.tableData = res.data.list
+              that.pagination.total = res.data.total
           }
         })
     },

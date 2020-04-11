@@ -25,7 +25,6 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>批次</th>
                     <th>转换名称</th>
                     <th>步骤名称</th>
                     <th>线程数</th>
@@ -41,7 +40,6 @@
                   </thead>
                   <tbody>
                   <tr v-for="(item)  in tableData">
-                    <td>{{item.id}}</td>
                     <td>{{item.transName}}</td>
                     <td>{{item.stepName}}</td>
                     <td>{{item.step_copy}}</td>
