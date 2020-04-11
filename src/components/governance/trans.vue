@@ -22,7 +22,17 @@
                 <h3 class="box-title">列表详情</h3>
               </div>
               <div class="box-body">
-                <div><button class="btn btn-primary" data-toggle="modal" @click="add()" style="width: 100px;">新增</button></div>
+                <div class="row" style="display: flex;">
+
+                  <label style="line-height: 35px;font-size:19px;margin-left:13px">转换名:</label>
+                  <input  type="text" class="form-control"   style="width:250px" v-model="search" placeholder="请输入转换名称">
+
+                  <label for="user" style="line-height: 35px;font-size:19px;"> 创建人:</label>
+                  <input id="user" type="text" class="form-control"   style="width:250px" v-model="modifiedUser" placeholder="请输入操作人">
+
+                  <button class="btn btn-primary" data-toggle="modal" @click="add()" style="width: 100px;margin-left: 50px;height: 35px;">新增</button>
+                  <button class="btn btn-primary" @click="getList()" style="width: 100px;margin-left: 50px;height: 35px;">查询</button>
+                </div>
                 <table  class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -102,7 +112,8 @@ export default {
   components: {DashHeader,DashFooter,Sidebar},
   data() {
     return {
-      search: '',
+      search: null,
+      modifiedUser: null,
       item:{id:null},
       tableData: [],
       pagination: {
@@ -118,11 +129,12 @@ export default {
         option.size=this.pagination.size;
         option.page=this.pagination.page;
         option.name=this.search ? this.search : null;
+        option.modifiedUser=this.search ? this.modifiedUser : null;
         let that =this;
       this.$api.getTransList( option,res=> {
           if (res.code === 200) {
-              that.tableData = res.data.content
-              that.pagination.total = res.data.totalElements
+              that.tableData = res.data.list
+              that.pagination.total = res.data.total
           } else{
               this.$alert(res.message);
           }
