@@ -332,3 +332,4 @@ export const getPartition= (data, callback) => post(prefix+'/rPartitionSchemaApi
 export const getClusterNotPage= (data, callback) => post(prefix+'/clusterApi/getClusterNotPage', 'getClusterNotPage', data, callback, );
 export const getPartionType= (data, callback) => post(prefix+'/kettleApi/partionType', 'partionType', data, callback, );
 export const getPartitionNode= (data, callback) => post(prefix+'/rPartitionSchemaApi/getPartitionNode', 'getPartitionNode', data, callback, );
+export const updateTransStatus= (data, callback) => post(prefix+'/dataAdminPlatform/updateTransStatus', 'updateTransStatus', data, callback, );

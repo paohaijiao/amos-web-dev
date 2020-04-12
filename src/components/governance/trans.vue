@@ -40,6 +40,7 @@
                     <th>转换名称</th>
                     <th>描述</th>
                     <th>转换状态</th>
+                    <th>是否支持事务</th>
                     <th>创建人</th>
                     <th>创建时间</th>
                     <th>操作</th>
@@ -51,13 +52,14 @@
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
                     <td>{{item.transStatus}}</td>
+                    <td>{{item.transation}}</td>
                     <td>{{item.modifiedUser}}</td>
                     <td>{{item.createdDate|formatDate}}</td>
                     <td>
                         <button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button>
-                      <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
+                        <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
+                        <button type="submit" class="btn  btn-info" @click="openTransation(item)">修改事务</button>
                         <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button>
-
                     </td>
                   </tr>
                   </tbody>
@@ -67,6 +69,30 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="modal fade" id="transaction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改事务</h4>
+              </div>
+              <div class="form-group">
+                <label >支持事务</label>
+                <select style="width:100%;height:34px" v-model="valueStr" >
+                  <option :value="item.key" v-for="item in option" >{{item.value}}</option>
+                </select>
+              </div>
+              <div class="box-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" @click="submitTransation()">提交</button>
+              </div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
           <div class="modal-dialog">
@@ -87,6 +113,7 @@
               </div>
               <div class="box-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+
               </div>
               <div class="modal-footer">
 
@@ -114,8 +141,10 @@ export default {
     return {
       search: null,
       modifiedUser: null,
+      valueStr:null,
       item:{id:null},
       tableData: [],
+      option:[{"key":"N","value":"否"},{"key":"Y","value":"是"}],
       pagination: {
             total:0,
             page:1,
@@ -201,6 +230,29 @@ export default {
           id
         }
       })
+    },
+    openTransation(item){
+      this.item=item;
+      $('#transaction').modal('show')
+    },
+    submitTransation(){
+      let param=new Object();
+      if(null==this.valueStr){
+        this.$alert('请选择是否支持事务');
+        return;
+      }
+      param.transformationId=this.item.id;
+      param.code="UNIQUE_CONNECTIONS";
+      param.valueStr=this.valueStr;
+      this.$api.updateTransStatus( param,res => {
+        if (res.code === 200) {
+          this.$alert('修改成功');
+          this.getList();
+        } else {
+          this.$alert('修改失败');
+        }
+      })
+      $('#transaction').modal('hide')
     },
     deleteRow(item) {
       let param = {
