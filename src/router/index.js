@@ -4,7 +4,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Dash from '@/components/Dash'
 import collectionIndex from '@/components/collection/index'
-import collectionData from '@/components/collection/collection-data'
+import datasync from '@/components/collection/datasync'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
 import generic from '@/components/collection/generic'
 import scheduling from '@/components/scheduling/scheduling'
@@ -79,11 +79,11 @@ export default new Router({
       }
     },
     {
-      path: '/index/collection-data',
-      component: collectionData,
+      path: '/index/datasync',
+      component: datasync,
       name: '数据治理',
       meta: {
-        title: '采集关系'
+        title: '数据同步'
       }
     },
     {

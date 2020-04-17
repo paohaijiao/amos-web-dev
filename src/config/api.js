@@ -229,8 +229,8 @@ export const getListDatabase= (data, callback) => post(prefix+'/dataSourceApi/li
 export const getDeleteDatabase= (data, callback) => post(prefix+'/dataSourceApi/delete', 'getDeleteDatabase', data, callback);
 export const getListAllDatabase= (data, callback) => post(prefix+'/dataSourceApi/listAllDatabase', 'getListAllDatabase', data, callback);
 export const getCreateOrUpdate= (data, callback) => post(prefix+'/dataSourceApi/createOrUpdate', 'getCreateOrUpdate', data, callback);
-export const getGatherSave= (data, callback) => post(prefix+'/dataSourceApi/gatherSave', 'getGatherSave', data, callback);
-export const getGatherList= (data, callback) => post(prefix+'/dataSourceApi/gatherList', 'getGatherList', data, callback);
+export const getSyncJobSCreateOrUpdate= (data, callback) => post(prefix+'/sysSyncJobSApi/createOrUpdate', 'getSyncJobSCreateOrUpdate', data, callback);
+export const syncList= (data, callback) => post(prefix+'/sysSyncJobSApi/syncList', 'syncList', data, callback);
 export const getGatherDelete= (data, callback) => post(prefix+'/dataSourceApi/deleteById', 'getGatherDelete', data, callback);
 export const getMakeHadoopCluster= (data, callback) => post(prefix+'/dataAdminPlatform/makeHadoopCluster', 'getMakeHadoopCluster', data, callback);
 export const getHadoopCluster= (data, callback) => post(prefix+'/dataAdminPlatform/getHadoopCluster', 'getHadoopCluster', data, callback);
@@ -333,3 +333,7 @@ export const getClusterNotPage= (data, callback) => post(prefix+'/clusterApi/get
 export const getPartionType= (data, callback) => post(prefix+'/kettleApi/partionType', 'partionType', data, callback, );
 export const getPartitionNode= (data, callback) => post(prefix+'/rPartitionSchemaApi/getPartitionNode', 'getPartitionNode', data, callback, );
 export const updateTransStatus= (data, callback) => post(prefix+'/dataAdminPlatform/updateTransStatus', 'updateTransStatus', data, callback, );
+export const testConnection= (data, callback) => post(prefix+'/dataSourceApi/testConnection', 'testConnection', data, callback, );
+export const getTableNames= (data, callback) => post(prefix+'/metaApi/getTableNames', 'getTableNames', data, callback, );
+export const transfer= (data, callback) => post(prefix+'/metaApi/transferSchemaAndData', 'transfer', data, callback, );
+export const synDelete= (data, callback) => post(prefix+'/sysSyncJobSApi/synDelete', 'synDelete', data, callback, );

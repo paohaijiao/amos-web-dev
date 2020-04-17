@@ -76,8 +76,10 @@
                           </div>
                         </div>
                       <div class="box-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
                         <button type="button" class="btn btn-primary" @click="submitForm()">提交</button>
+                        <button type="button" class="btn btn-warning" @click="testConnection()">测试连接</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                       </div>
                         <!-- /.box-body -->
                       <div class="modal-footer">
@@ -147,6 +149,48 @@ export default {
           this.databaseList = res.data
         }
       })
+    },
+    testConnection(){
+      debugger;
+      if(null==this.item.name||''==this.item.name){
+        this.$alert('数据源名称不能为空');
+        return;
+      }
+      if(null==this.item.driverClass||''==this.item.driverClass){
+        this.$alert('驱动类不能为空');
+        return;
+      }
+      if(null==this.item.url||''==this.item.url){
+        this.$alert('url不能为空');
+        return;
+      }
+      let params = {
+        name: this.item.name,
+        databaseTypeId: 10,
+        databaseContypeId: 1,
+        url: this.item.url,
+        clazz: this.item.driverClass,
+        username: this.item.username,
+        password: this.item.password,
+        dbaccess:"Native"
+      }
+      this.$api.testConnection( params,res => {
+          if (res.code === 200) {
+            this.$alert(res.data);
+          }else if(null!=res.errors){
+            let array=res.errors;
+            let msge='';
+            array.forEach(e=>{
+              msge+=e.defaultMessage;
+            })
+            this.$alert(msge);
+          }else if(res.message!=null) {
+            this.$alert(res.message);
+          }else{
+            this.$alert('系统错误');
+          }
+        }
+      )
     },
     submitForm() {
       if(null==this.item.name||''==this.item.name){

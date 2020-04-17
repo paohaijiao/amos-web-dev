@@ -88,8 +88,9 @@
                           </div>
                         </div>
                       <div class="box-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                         <button type="button" class="btn btn-primary" @click="submitForm()">提交</button>
+                        <button type="button" class="btn btn-warning" @click="testConnection()">测试连接</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                       </div>
                         <!-- /.box-body -->
                       <div class="modal-footer">
@@ -164,6 +165,54 @@ export default {
         }
       })
     },
+    testConnection(){
+      debugger;
+      if(null==this.item.databaseTypeId||''==this.item.databaseTypeId){
+        this.$alert('数据源类型不能为空');
+        return;
+      }
+      if(null==this.item.hostName||''==this.item.hostName){
+        this.$alert('数据源主机名或者ip不能为空');
+        return;
+      }
+      if(null==this.item.databaseName||''==this.item.databaseName){
+        this.$alert('数据库名称不能为空');
+        return;
+      }
+      if(null==this.item.port||''==this.item.port){
+        this.$alert('数据库端口不能为空');
+        return;
+      }
+
+      let params = {
+        name: this.item.name,
+        databaseTypeId: this.item.databaseTypeId,
+        databaseContypeId: 1,
+        hostName: this.item.hostName,
+        databaseName: this.item.databaseName,
+        port: this.item.port,
+        username: this.item.username,
+        password: this.item.password,
+        dbaccess:"Native"
+      }
+      this.$api.testConnection( params,res => {
+          if (res.code === 200) {
+            this.$alert(res.data);
+          }else if(null!=res.errors){
+            let array=res.errors;
+            let msge='';
+            array.forEach(e=>{
+              msge+=e.defaultMessage;
+            })
+            this.$alert(msge);
+          }else if(res.message!=null) {
+            this.$alert(res.message);
+          }else{
+            this.$alert('系统错误');
+          }
+        }
+      )
+    },
     submitForm() {
       if(null==this.item.name||''==this.item.name){
         this.$alert('数据源名称不能为空');
@@ -185,14 +234,7 @@ export default {
         this.$alert('数据库端口不能为空');
         return;
       }
-      // if(null==this.item.username||''==this.item.username){
-      //   this.$alert('数据库用户不能为空');
-      //   return;
-      // }
-      // if(null==this.item.password||''==this.item.password){
-      //   this.$alert('数据库密码不能为空');
-      //   return;
-      // }
+
       let params = {
         name: this.item.name,
         databaseTypeId: this.item.databaseTypeId,
