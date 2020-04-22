@@ -26,12 +26,12 @@
                   <thead>
                   <tr>
 <!--                    <th style="width:20%;">主键</th>-->
-                    <th>菜单名称</th>
-                    <th>url</th>
-                    <th>父节点</th>
-                    <th>描述</th>
-                    <th>编码</th>
-                    <th>操作</th>
+                    <th style="width:15%">菜单名称</th>
+                    <th style="width:15%">url</th>
+                    <th style="width:15%">父节点</th>
+                    <th style="width:15%">描述</th>
+                    <th style="width:15%">编码</th>
+                    <th style="width:25%">操作</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -186,5 +186,8 @@ export default {
 <style >
 td{
   width:15px !important;
+}
+th {
+   text-align: left  !important;
 }
 </style>

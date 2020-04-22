@@ -25,17 +25,17 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>转换名称</th>
-                    <th>步骤名称</th>
-                    <th>线程数</th>
-                    <th>阅读量</th>
-                    <th>写入量</th>
-                    <th>修改量</th>
-                    <th>输入量</th>
-                    <th>输出量</th>
-                    <th>拒绝量</th>
-                    <th>错误量</th>
-                    <th>创建时间</th>
+                    <th width="15%">转换名称</th>
+                    <th width="15%">步骤名称</th>
+                    <th width="5%">线程数</th>
+                    <th width="5%">阅读量</th>
+                    <th width="5%">写入量</th>
+                    <th width="5%">修改量</th>
+                    <th width="5%">输入量</th>
+                    <th width="5%">输出量</th>
+                    <th width="5%">拒绝量</th>
+                    <th width="5%">错误量</th>
+                    <th width="10%">创建时间</th>
                   </tr>
                   </thead>
                   <tbody>
