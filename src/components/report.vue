@@ -221,10 +221,10 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>批次</th>
-                    <th>步骤名称</th>
-                    <th>运行情况</th>
-                    <th>运行时长</th>
+                    <th style="width: 25%">批次</th>
+                    <th style="width: 25%">步骤名称</th>
+                    <th style="width: 25%">运行情况</th>
+                    <th style="width: 25%">运行时长</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -464,26 +464,9 @@
                 });
             },
         },
-        mounted(){
+        mounted() {
             this.initLineChar();
             this.initPieChart();
-            $('.sparkbar').each(function () {
-                var $this = $(this);
-                $this.sparkline('html', {
-                    type    : 'bar',
-                    height  : $this.data('height') ? $this.data('height') : '30',
-                    barColor: $this.data('color')
-                });
-            });
-            var $this = $(this);
-            $this.sparkline('html', {
-                type     : 'line',
-                height   : $this.data('height') ? $this.data('height') : '90',
-                width    : '100%',
-                lineColor: $this.data('linecolor'),
-                fillColor: $this.data('fillcolor'),
-                spotColor: $this.data('spotcolor')
-            });
         },
         created() {
 

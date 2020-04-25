@@ -114,7 +114,7 @@
       <div class="col-md-3 col-sm-6 col-xs-12">
         <process-info-box color-class="bg-aqua"
                           :icon-classes="['ion', 'ion-ios-chatbubble-outline']"
-                          text="数据采集数"
+                          text="数据同步"
                           :number="item.spark"
                           :progress="40"
                           description=""></process-info-box>
@@ -228,7 +228,7 @@ export default {
         var pieConfig = {
           type: 'pie',
           data: {
-            labels: ['作业', '转换', 'spark采集'],
+            labels: ['作业', '转换', '数据同步'],
             datasets: [{
               data: [this.containner.jobs, this.containner.trans, this.containner.sparks],
               backgroundColor: ['#00a65a', '#f39c12', '#00c0ef'],
