@@ -162,7 +162,7 @@
                   <div class="description-block border-right">
                     <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
                     <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">输入量环比</span>
+                    <span class="description-text">本月输入量环比</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -171,7 +171,7 @@
                   <div class="description-block border-right">
                     <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
                     <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">输出量环比</span>
+                    <span class="description-text">本月输出量环比</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -180,7 +180,7 @@
                   <div class="description-block border-right">
                     <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
                     <h5 class="description-header">$24,813.53</h5>
-                    <span class="description-text">拒绝量环比</span>
+                    <span class="description-text">本月拒绝量环比</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -189,7 +189,7 @@
                   <div class="description-block">
                     <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
                     <h5 class="description-header">1200</h5>
-                    <span class="description-text">错误量环比</span>
+                    <span class="description-text">本月错误量环比</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -221,17 +221,17 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>批次</th>
                     <th>步骤名称</th>
                     <th>运行情况</th>
-                    <th>运行情况</th>
+                    <th>运行时长</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                     <td><a href="pages/examples/invoice.html">OR9842</a></td>
                     <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
+                    <td><span class="label label-success">开始</span></td>
                     <td>
                       <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
                     </td>
@@ -239,7 +239,7 @@
                   <tr>
                     <td><a href="pages/examples/invoice.html">OR1848</a></td>
                     <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
+                    <td><span class="label label-warning">结束</span></td>
                     <td>
                       <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
                     </td>
@@ -247,23 +247,15 @@
                   <tr>
                     <td><a href="pages/examples/invoice.html">OR7429</a></td>
                     <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
+                    <td><span class="label label-danger">运行中</span></td>
                     <td>
                       <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
                     <td><a href="pages/examples/invoice.html">OR1848</a></td>
                     <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
+                    <td><span class="label label-warning">结束</span></td>
                     <td>
                       <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
                     </td>
@@ -271,7 +263,7 @@
                   <tr>
                     <td><a href="pages/examples/invoice.html">OR7429</a></td>
                     <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
+                    <td><span class="label label-danger">运行中</span></td>
                     <td>
                       <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
                     </td>
@@ -279,7 +271,7 @@
                   <tr>
                     <td><a href="pages/examples/invoice.html">OR9842</a></td>
                     <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
+                    <td><span class="label label-success">开始</span></td>
                     <td>
                       <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
                     </td>
@@ -302,7 +294,7 @@
 
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">组件占比</h3>
+              <h3 class="box-title">使用功能占比</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -316,12 +308,12 @@
                 <!-- /.col -->
                 <div class="col-md-4">
                   <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                    <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                    <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                    <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                    <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                    <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
+                    <li><i class="fa fa-circle-o text-red"></i> 采集数据</li>
+                    <li><i class="fa fa-circle-o text-green"></i> 数据治理</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> 任务调度</li>
+                    <li><i class="fa fa-circle-o text-aqua"></i> 在线预览</li>
+                    <li><i class="fa fa-circle-o text-light-blue"></i> 数据服务</li>
+                    <li><i class="fa fa-circle-o text-gray"></i> 任务监控</li>
                   </ul>
                 </div>
                 <!-- /.col -->
@@ -331,11 +323,11 @@
             <!-- /.box-body -->
             <div class="box-footer no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">United States of America
+                <li><a href="#">超级管理员
                   <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+                <li><a href="#">普通管理员 <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
                 </li>
-                <li><a href="#">China
+                <li><a href="#">用户
                   <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
               </ul>
             </div>
@@ -373,6 +365,22 @@
         },
         methods: {
             //https://chartjs.bootcss.com/docs/charts/area.html 参考文档
+            initSparkBar(){
+
+            },
+            initSparkLine(){
+                $('.sparkline').each(function () {
+                    var $this = $(this);
+                    $this.sparkline('html', {
+                        type     : 'line',
+                        height   : $this.data('height') ? $this.data('height') : '90',
+                        width    : '100%',
+                        lineColor: $this.data('linecolor'),
+                        fillColor: $this.data('fillcolor'),
+                        spotColor: $this.data('spotcolor')
+                    });
+                });
+            },
             initPieChart(){
                 var pieChartCanvas =  document.getElementById('pieChart').getContext('2d');
                 var data = {
@@ -382,7 +390,7 @@
                             backgroundColor:['#f56954','#00a65a','#f39c12','#00c0ef','#3c8dbc','#d2d6de']
                         }
                     ],
-                    labels: ["Chrome", "IE", "FireFox","sarify","opera","Navigator"]
+                    labels: ["采集数据", "数据治理", " 任务调度"," 在线预览"," 数据服务"," 任务监控"]
                 };
                 var pieOptions     = {
                     cutoutPercentage:40,
@@ -400,22 +408,13 @@
                     datasets: [
                         {
                             label               : 'Electronics',
-                            fillColor           : 'rgba(210, 214, 222, 1)',
-                            strokeColor         : 'rgba(210, 214, 222, 1)',
-                            pointColor          : 'rgba(210, 214, 222, 1)',
                             pointStrokeColor    : '#c1c7d1',
-                            pointHighlightFill  : '#fff',
-                            pointHighlightStroke: 'rgba(220,220,220,1)',
-                            data                : [65, 59, 80, 81, 56, 55, 40]
+                            data                : [65, 59, 80, 81, 56, 55, 40],
+                            backgroundColor:['red','yellow','grey','blue']
                         },
                         {
                             label               : 'Digital Goods',
-                            fillColor           : 'rgba(60,141,188,0.9)',
-                            strokeColor         : 'rgba(60,141,188,0.8)',
                             pointColor          : '#3b8bba',
-                            pointStrokeColor    : 'rgba(60,141,188,1)',
-                            pointHighlightFill  : '#fff',
-                            pointHighlightStroke: 'rgba(60,141,188,1)',
                             data                : [28, 48, 40, 19, 86, 27, 90]
                         }
                     ]
@@ -468,6 +467,23 @@
         mounted(){
             this.initLineChar();
             this.initPieChart();
+            $('.sparkbar').each(function () {
+                var $this = $(this);
+                $this.sparkline('html', {
+                    type    : 'bar',
+                    height  : $this.data('height') ? $this.data('height') : '30',
+                    barColor: $this.data('color')
+                });
+            });
+            var $this = $(this);
+            $this.sparkline('html', {
+                type     : 'line',
+                height   : $this.data('height') ? $this.data('height') : '90',
+                width    : '100%',
+                lineColor: $this.data('linecolor'),
+                fillColor: $this.data('fillcolor'),
+                spotColor: $this.data('spotcolor')
+            });
         },
         created() {
 
