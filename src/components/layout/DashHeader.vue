@@ -1,8 +1,12 @@
 <template>
   <header class="main-header" style="background-color: #3c8dbc;">
-    <span class="logo-mini">
-<!--      <a href="/"><img src="http://img5.imgtn.bdimg.com/it/u=3476482573,773944624&fm=26&gp=0.jpg" alt="Logo" class="img-responsive center-block logo"></a>-->
-    </span>
+    <!-- Logo -->
+    <a href="javascript:;" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>LT</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>A</b>mos</span>
+    </a>
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->

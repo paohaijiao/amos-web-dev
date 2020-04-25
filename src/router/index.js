@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Dash from '@/components/Dash'
+import report from '@/components/report'
 import collectionIndex from '@/components/collection/index'
 import datasync from '@/components/collection/datasync'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
@@ -63,6 +64,12 @@ export default new Router({
       name: 'dash',
       component: Dash
     },
+    {
+      path: '/index/static',
+      name: 'static',
+      component: report
+    },
+
     {
       path: '/index/index1',
       name: '主页',
