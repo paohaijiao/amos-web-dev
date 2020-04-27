@@ -337,3 +337,5 @@ export const testConnection= (data, callback) => post(prefix+'/dataSourceApi/tes
 export const getTableNames= (data, callback) => post(prefix+'/metaApi/getTableNames', 'getTableNames', data, callback, );
 export const transfer= (data, callback) => post(prefix+'/metaApi/transferSchemaAndData', 'transfer', data, callback, );
 export const synDelete= (data, callback) => post(prefix+'/sysSyncJobSApi/synDelete', 'synDelete', data, callback, );
+export const configList= (data, callback) => post(prefix+'/sysConfigurationApi/findAll', 'findAll', data, callback, );
+export const configCreateOrUpdate= (data, callback) => post(prefix+'/sysConfigurationApi/createOrUpdate', 'configCreateOrUpdate', data, callback, );

@@ -28,7 +28,7 @@
                 routeActiveMenu: this.$route.path,
                 menuList: [],
                 iconLIst: ['fa-dashboard', 'fa-files-o', 'fa-th', 'fa-laptop', 'fa-edit', 'fa-table', 'fa-calendar', 'fa-envelope',
-                  'fa-folder', 'fa-trash-o', 'fa-book','fa-apple','fa-gavel','fa-krw']
+                  'fa-folder', 'fa-trash-o', 'fa-book','fa-apple','fa-gavel','fa-krw','fa-tasks']
             }
         },
       methods:{

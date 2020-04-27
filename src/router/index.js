@@ -40,6 +40,7 @@ import datadirectoryManager from '@/components/datadirectory/datadirectoryManage
 import nodeList from '@/components/cluster/NodeList.vue'
 import NodeManager from '@/components/cluster/NodeManager.vue'
 import dataParttion from '@/components/cluster/dataParttion.vue'
+import constvue from '@/components/config/const.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -365,6 +366,14 @@ export default new Router({
       name: '数据治理',
       meta: {
         title: '集群管理'
+      }
+    },
+    {
+      path: '/index/const',
+      component: constvue,
+      name: '系统配置',
+      meta: {
+        title: '常量配置'
       }
     },
 

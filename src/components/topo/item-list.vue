@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       iconLIst:['fa-adn','fa-angellist','fa-behance-square','fa-bitbucket-square',' fa-codiepie','fa-line-chart',
-          'fa-bar-chart','fa-dollar','fa-krw','fa-hand-o-righ','fa-file-archive-o','fa-file-audio-o','fa-anchor',
+          'fa-bar-chart','fa-dollar','fa-krw','fa-tasks','fa-file-audio-o','fa-anchor',
       'fa-ambulance','fa-american-sign-language-interpreting','fa-archive','fa-arrows','fa-asl-interpreting',
           'fa-asterisk','fa-audio-description','fa-automobile','fa-balance-scale','fa-bandcamp','fa-bank','fa-bar-chart-o',
       'fa-bath',' fa-beer','fa-bell','fa-bicycle','fa-binoculars','fa-bitbucket','fa-black-tie','fa-bolt',
