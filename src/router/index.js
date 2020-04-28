@@ -4,6 +4,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Dash from '@/components/Dash'
 import report from '@/components/report'
+import index2 from '@/components/index2'
 import collectionIndex from '@/components/collection/index'
 import datasync from '@/components/collection/datasync'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
@@ -70,6 +71,12 @@ export default new Router({
       name: 'static',
       component: report
     },
+    {
+      path: '/index/index2',
+      name: '信息统计',
+      component: index2
+    },
+
 
     {
       path: '/index/index1',
