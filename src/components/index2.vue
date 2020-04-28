@@ -171,7 +171,7 @@
           </div>
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">指标</h3>
+              <h3 class="box-title">指标能力</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

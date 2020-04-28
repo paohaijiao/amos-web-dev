@@ -78,7 +78,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div class="box">
+          <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">月度报表情况</h3>
 
@@ -292,7 +292,7 @@
 
           <!-- /.info-box -->
 
-          <div class="box box-default">
+          <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">使用功能占比</h3>
             </div>
