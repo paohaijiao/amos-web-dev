@@ -169,7 +169,7 @@
             <!-- /.box-body -->
             <!-- /.footer -->
           </div>
-          <div class="box box-success">
+          <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">指标能力</h3>
             </div>
@@ -268,12 +268,12 @@
                 var  ctx                   = document.getElementById('radarChart').getContext('2d')
                 var data ={
                     "labels": [
-                        "输入",
-                        "输出",
-                        "拒绝",
-                        "错误",
-                        "更新",
-                        "输出"
+                        "大数据能力",
+                        "结构化数据能力",
+                        "非结构化能力",
+                        "OLAP能力",
+                        "数据加工能力",
+                        "其他形式处理能力"
                     ],
                     "datasets": [{
                         "label": "转换能力",
