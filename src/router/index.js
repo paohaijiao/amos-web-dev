@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Dash from '@/components/Dash'
 import report from '@/components/report'
 import index2 from '@/components/index2'
+import index3 from '@/components/index3'
 import collectionIndex from '@/components/collection/index'
 import datasync from '@/components/collection/datasync'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
@@ -82,6 +83,11 @@ export default new Router({
       path: '/index/index1',
       name: '主页',
       component: Dash
+    },
+    {
+      path: '/index/index3',
+      name: '主页',
+      component: index3
     },
 
     //采集数据开始
