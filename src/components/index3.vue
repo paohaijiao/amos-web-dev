@@ -83,71 +83,12 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">最近运行情况</h3>
+              <h3 class="box-title">使用者分布</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th style="width: 25%">批次</th>
-                    <th style="width: 25%">步骤名称</th>
-                    <th style="width: 25%">运行情况</th>
-                    <th style="width: 25%">运行时长</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>OR9842</td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">开始</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>OR1848</td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">结束</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>OR7429</td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">运行中</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>OR1848</td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">结束</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>OR7429</td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">运行中</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>OR9842</td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">开始</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
+              <div class="chart">
+                <canvas id="mapchart" style="height:400px;width:400px"></canvas>
               </div>
               <!-- /.table-responsive -->
             </div>
@@ -324,6 +265,8 @@
     import Sidebar from './layout/Sidebar'
     import Chart from 'chart.js';
     import echarts from 'echarts'
+   // import '../../node_modules/echarts/map/js/world.js'
+    import '../../node_modules/echarts/map/js/china.js'
 
     export default {
         name: 'report',
@@ -340,8 +283,69 @@
         },
         methods: {
             //https://chartjs.bootcss.com/docs/charts/area.html 参考文档
-            initSparkBar(){
-
+            //http://blog.csdn.net/u010520912/article/details/78252271
+            initMap(){
+                let myChart = echarts.init(document.getElementById("mapchart"));
+                var mydata = [
+                    {name: '北京',value: this.randomData() },{name: '天津',value: Math.round(Math.random()*500) },
+                    {name: '上海',value: this.randomData()  },{name: '重庆',value: Math.round(Math.random()*500)},
+                    {name: '河北',value: this.randomData() },{name: '河南',value:Math.round(Math.random()*500) },
+                    {name: '云南',value: this.randomData() },{name: '辽宁',value: Math.round(Math.random()*500) },
+                    {name: '黑龙江',value: this.randomData() },{name: '湖南',value: Math.round(Math.random()*500)},
+                    {name: '安徽',value: this.randomData() },{name: '山东',value: Math.round(Math.random()*500) },
+                    {name: '新疆',value: this.randomData() },{name: '江苏',value: Math.round(Math.random()*500) },
+                    {name: '浙江',value: this.randomData() },{name: '江西',value: Math.round(Math.random()*500) },
+                    {name: '湖北',value: this.randomData() },{name: '广西',value: Math.round(Math.random()*500) },
+                    {name: '甘肃',value: this.randomData() },{name: '山西',value: Math.round(Math.random()*500) },
+                    {name: '内蒙古',value: this.randomData() },{name: '陕西',value: Math.round(Math.random()*500) },
+                    {name: '吉林',value: this.randomData() },{name: '福建',value: Math.round(Math.random()*500) },
+                    {name: '贵州',value: this.randomData() },{name: '广东',value: Math.round(Math.random()*500) },
+                    {name: '青海',value: this.randomData() },{name: '西藏',value: Math.round(Math.random()*500) },
+                    {name: '四川',value: this.randomData() },{name: '宁夏',value: Math.round(Math.random()*500) },
+                    {name: '海南',value: this.randomData() },{name: '台湾',value:Math.round(Math.random()*500) },
+                    {name: '香港',value: this.randomData() },{name: '澳门',value: Math.round(Math.random()*500) }
+                ];
+                var option = {
+                    backgroundColor: '#FFFFFF',
+                    title: {
+                        text: '',
+                        subtext: '',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    visualMap: {
+                        show : false,
+                        x: 'left',
+                        y: 'bottom',
+                        splitList: [
+                            {start: 500, end:600},{start: 400, end: 500},
+                            {start: 300, end: 400},{start: 200, end: 300},
+                            {start: 100, end: 200},{start: 0, end: 100},
+                        ],
+                        color: ['#66CC33', '#00FF00', '#66FF33','#339900', '#33CC00', '#00CC00']
+                    },
+                    series: [{
+                        name: '随机数据',
+                        type: 'map',
+                        mapType: 'china',
+                        roam: true,
+                        label: {
+                            normal: {
+                                show: false
+                            },
+                            emphasis: {
+                                show: false
+                            }
+                        },
+                        data:mydata
+                    }]
+                };
+                myChart.setOption(option);
+            },
+            randomData(){
+                return Math.round(Math.random()*500);
             },
             initSparkLine(){
                 $('.sparkline').each(function () {
@@ -477,6 +481,7 @@
         mounted() {
             this.initPieChart();
             this.drawLine();
+            this.initMap();
         },
         created() {
 
