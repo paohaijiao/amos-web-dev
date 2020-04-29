@@ -284,45 +284,27 @@
 
           <!-- /.info-box -->
 
-          <div class="box box-default">
+          <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">使用功能占比</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                   <div class="chart-responsive">
-                    <canvas id="pieChart" height="150"></canvas>
+                    <canvas id="funnel" height="400px" width="600px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
                 <!-- /.col -->
-                <div class="col-md-4">
-                  <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-red"></i> 采集数据</li>
-                    <li><i class="fa fa-circle-o text-green"></i> 数据治理</li>
-                    <li><i class="fa fa-circle-o text-yellow"></i> 任务调度</li>
-                    <li><i class="fa fa-circle-o text-aqua"></i> 在线预览</li>
-                    <li><i class="fa fa-circle-o text-light-blue"></i> 数据服务</li>
-                    <li><i class="fa fa-circle-o text-gray"></i> 任务监控</li>
-                  </ul>
-                </div>
+
                 <!-- /.col -->
               </div>
               <!-- /.row -->
             </div>
             <!-- /.box-body -->
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">超级管理员
-                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">普通管理员 <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                </li>
-                <li><a href="#">用户
-                  <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-              </ul>
-            </div>
+
             <!-- /.footer -->
           </div>
           <!-- /.box -->
@@ -375,24 +357,57 @@
                 });
             },
             initPieChart(){
-                var pieChartCanvas =  document.getElementById('pieChart').getContext('2d');
-                var data = {
-                    datasets: [
-                        {
-                            data: [10, 20, 30,40,50,60],
-                            backgroundColor:['#f56954','#00a65a','#f39c12','#00c0ef','#3c8dbc','#d2d6de']
+                let myChart = echarts.init(document.getElementById("funnel"));
+                var option = {
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c}%"
+                    },
+                    toolbox: {
+                        feature: {
+                            dataView: {readOnly: false},
+                            restore: {},
+                            saveAsImage: {}
                         }
-                    ],
-                    labels: ["采集数据", "数据治理", " 任务调度"," 在线预览"," 数据服务"," 任务监控"]
+                    },
+                    legend: {
+                        data: ['展现','点击','访问']
+                    },
+                    series: [
+                        {
+                            name: '实际',
+                            type: 'funnel',
+                            left: '10%',
+                            width: '80%',
+                            maxSize: '80%',
+                            label: {
+                                position: 'inside',
+                                formatter: '{c}%',
+                                color: '#fff'
+                            },
+                            itemStyle: {
+                                opacity: 0.5,
+                                borderColor: '#fff',
+                                borderWidth: 2
+                            },
+                            emphasis: {
+                                label: {
+                                    position: 'inside',
+                                    formatter: '{b}实际: {c}%'
+                                }
+                            },
+                            data: [
+                                {value: 30, name: '访问'},
+                                {value: 60, name: '点击'},
+                                {value: 90, name: '展现'}
+                            ]
+                        }
+                    ]
                 };
-                var pieOptions     = {
-                    cutoutPercentage:40,
-                    animation:{
-                        animateRotate:true
-                    }
-                };
-                let config={type: "doughnut",data:data,options:pieOptions}
-                new Chart(pieChartCanvas, config)
+                myChart.setOption(option);
             },
           drawLine() {
               let myChart = echarts.init(document.getElementById("myChart"));
