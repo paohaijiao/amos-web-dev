@@ -77,10 +77,88 @@
       <!-- /.row -->
 
       <div class="row">
-        <div class="col-md-12">
-          <div class="box">
+        <div class="col-md-8">
+
+
+          <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">月度报表情况</h3>
+              <h3 class="box-title">最近运行情况</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th style="width: 25%">批次</th>
+                    <th style="width: 25%">步骤名称</th>
+                    <th style="width: 25%">运行情况</th>
+                    <th style="width: 25%">运行时长</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>OR9842</td>
+                    <td>Call of Duty IV</td>
+                    <td><span class="label label-success">开始</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OR1848</td>
+                    <td>Samsung Smart TV</td>
+                    <td><span class="label label-warning">结束</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OR7429</td>
+                    <td>iPhone 6 Plus</td>
+                    <td><span class="label label-danger">运行中</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OR1848</td>
+                    <td>Samsung Smart TV</td>
+                    <td><span class="label label-warning">结束</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OR7429</td>
+                    <td>iPhone 6 Plus</td>
+                    <td><span class="label label-danger">运行中</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OR9842</td>
+                    <td>Call of Duty IV</td>
+                    <td><span class="label label-success">开始</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <div class="col-md-4">
+          <div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">功能概览</h3>
 
               <div class="box-tools pull-right">
                 <div class="btn-group">
@@ -98,12 +176,9 @@
             <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
-                  <p class="text-center">
-                    <strong>功能概览</strong>
-                  </p>
 
                   <div class="chart">
-                    <div id="myChart" style="width:1200px; height: 400px"></div>
+                    <div id="myChart" style="width:600px; height: 400px"></div>
                   </div>
                   <!-- /.chart-responsive -->
                 </div>
@@ -113,46 +188,6 @@
               <!-- /.row -->
             </div>
             <!-- ./box-body -->
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                    <h5 class="description-header">$35,210.43</h5>
-                    <span class="description-text">本月输入量环比</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                    <h5 class="description-header">$10,390.90</h5>
-                    <span class="description-text">本月输出量环比</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                    <h5 class="description-header">$24,813.53</h5>
-                    <span class="description-text">本月拒绝量环比</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-3 col-xs-6">
-                  <div class="description-block">
-                    <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                    <h5 class="description-header">1200</h5>
-                    <span class="description-text">本月错误量环比</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-              </div>
-              <!-- /.row -->
-            </div>
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
@@ -186,7 +221,7 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                    <td>OR9842</td>
                     <td>Call of Duty IV</td>
                     <td><span class="label label-success">开始</span></td>
                     <td>
@@ -194,7 +229,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                    <td>OR1848</td>
                     <td>Samsung Smart TV</td>
                     <td><span class="label label-warning">结束</span></td>
                     <td>
@@ -202,7 +237,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td>OR7429</td>
                     <td>iPhone 6 Plus</td>
                     <td><span class="label label-danger">运行中</span></td>
                     <td>
@@ -210,7 +245,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                    <td>OR1848</td>
                     <td>Samsung Smart TV</td>
                     <td><span class="label label-warning">结束</span></td>
                     <td>
@@ -366,7 +401,7 @@
                   if (res.code === 200) {
                      var option= {
                           title: {
-                              text: '数据中台结构概览',
+                              text: '',
                               subtext: 'S',
                               textStyle: {
                                   fontSize: 14,
