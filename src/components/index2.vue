@@ -94,7 +94,7 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="barChart" style="height:251px"></canvas>
+                <canvas id="barChart" style="height:300px"></canvas>
               </div>
             </div>
             <!-- /.box-body -->
@@ -157,7 +157,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="polarChart" height="200"></canvas>
+                    <canvas id="polarChart" height="370px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -178,7 +178,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="radarChart" height="200"></canvas>
+                    <canvas id="radarChart" height="380px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>

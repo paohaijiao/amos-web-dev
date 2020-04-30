@@ -115,7 +115,7 @@
                   </p>
 
                   <div class="progress-group" style="width:40%">
-                    <span class="progress-text">输入量</span>
+                    <span class="progress-text">转换最长时间</span>
                     <span class="progress-number"><b>120</b>/500</span>
 
                     <div class="progress sm">
@@ -124,7 +124,7 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">输出量</span>
+                    <span class="progress-text">转换最短时间</span>
                     <span class="progress-number"><b>310</b>/400</span>
 
                     <div class="progress sm">
@@ -133,7 +133,7 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">拒绝量</span>
+                    <span class="progress-text">作业最长时间</span>
                     <span class="progress-number"><b>480</b>/800</span>
 
                     <div class="progress sm">
@@ -142,7 +142,7 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">错误量</span>
+                    <span class="progress-text">作业最短时间</span>
                     <span class="progress-number"><b>250</b>/500</span>
 
                     <div class="progress sm">

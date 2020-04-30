@@ -87,11 +87,19 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="chart">
-                <canvas id="mapchart" style="height:400px;width:400px"></canvas>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="chart-responsive">
+                    <canvas id="mapchart" style="height:400px"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <!-- /.col -->
               </div>
-              <!-- /.table-responsive -->
+              <!-- /.row -->
             </div>
+
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
@@ -116,8 +124,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-12">
-
+                <div class="col-md-4">
                   <div class="chart">
                     <div id="myChart" style="width:600px; height: 400px"></div>
                   </div>
