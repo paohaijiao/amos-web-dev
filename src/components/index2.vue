@@ -107,7 +107,7 @@
             <div class="box-header">
               <i class="fa fa-th"></i>
 
-              <h3 class="box-title">Sales Graph</h3>
+              <h3 class="box-title">折线图</h3>
             </div>
             <div class="box-body border-radius-none">
               <div class="chart" id="line-chart" style="height: 350px;"></div>

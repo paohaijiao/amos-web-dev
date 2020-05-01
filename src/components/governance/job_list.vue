@@ -54,6 +54,7 @@
                       <button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button>
                       <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
                       <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button>
+                      <button type="submit" class="btn btn-success" @click="exploreMeta(item)">探索元数据</button>
                     </td>
                   </tr>
                   </tbody>
@@ -90,6 +91,38 @@
             </div>
           </div>
         </div>
+        <div class="modal fade" id="meta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">探索元数据</h4>
+              </div>
+              <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>转换/作业</th>
+                  <th>步骤/数据库连接/注释</th>
+                  <th>字符串</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item  in tableList">
+                  <td>{{item[0]}}</td>
+                  <td>{{item[1]}}</td>
+                  <td>{{item[2]}}</td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="box-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+              </div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <router-view></router-view>
     </div>
@@ -111,7 +144,8 @@ export default {
       search: null,
       modifiedUser: null,
       tableData: [],
-       pagination: {
+      tableList:[],
+      pagination: {
             total:0,
             page:1,
             size:10
@@ -119,6 +153,21 @@ export default {
     }
   },
   methods: {
+      exploreMeta(item) {
+          let option=new Object();
+          option.jobid=item.id;
+
+          let that =this;
+          this.$api.exploreJobMetaData( option,res=> {
+              if (res.code === 200) {
+                  $('#meta').modal('show')
+                  that.tableList = res.data.data
+                  debugger;
+              } else{
+                  this.$alert(res.message);
+              }
+          })
+      },
     changeDirectory(item){
           debugger;
           let that =this;

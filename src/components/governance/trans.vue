@@ -42,7 +42,7 @@
                     <th>转换状态</th>
                     <th>是否支持事务</th>
                     <th>创建人</th>
-                    <th>创建时间</th>
+<!--                    <th>创建时间</th>-->
                     <th>操作</th>
                   </tr>
                   </thead>
@@ -54,7 +54,7 @@
                     <td>{{item.transStatus}}</td>
                     <td>{{item.transation}}</td>
                     <td>{{item.modifiedUser}}</td>
-                    <td>{{item.createdDate|formatDate}}</td>
+<!--                    <td>{{item.createdDate|formatDate}}</td>-->
                     <td>
                         <button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button>
                         <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
@@ -204,15 +204,13 @@ export default {
         })
     },
       exploreMeta(item) {
-          $('#meta').modal('show')
           let option=new Object();
           option.transName=item.name;
-
           let that =this;
           this.$api.exploreMeta( option,res=> {
               if (res.code === 200) {
+                  $('#meta').modal('show')
                   that.tableList = res.data.data
-                  debugger;
               } else{
                   this.$alert(res.message);
               }
