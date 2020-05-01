@@ -83,14 +83,14 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">使用者分布</h3>
+              <button class="backBtn" @click="back()">返回上级</button>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <div id="mapchart" style="height:400px"></div>
+                    <div id="mapChart"  style="height:400px" class="chart"></div>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -210,14 +210,24 @@
     import DashFooter from './layout/DashFooter'
     import DashHeader from './layout/DashHeader'
     import Sidebar from './layout/Sidebar'
-    import Chart from 'chart.js';
     import echarts from 'echarts'
-   // import '../../node_modules/echarts/map/js/world.js'
     import '../../node_modules/echarts/map/js/china.js'
-
+    import cityMap from "./map/china-main-city-map.js";
+    import axios from "axios";
+    var chinaId = 100000;
+    var chinaName = "china";
+    var chinaJson = null;
+    //记录父级ID、Name
+    var mapStack = [];
+    var parentId = null;
+    var parentName = null;
+    //Echarts地图全局变量，主要是在返回上级地图的方法中会用到
+    var mapchart = null;
     export default {
-        name: 'report',
-        props: {},
+        name: "chinaMap",
+        props: {
+            msg: String
+        },
         components: {
             DashFooter,
             DashHeader,
@@ -231,28 +241,67 @@
         methods: {
             //https://chartjs.bootcss.com/docs/charts/area.html 参考文档
             //http://blog.csdn.net/u010520912/article/details/78252271
-            initMap(){
-                let myChart = echarts.init(document.getElementById("mapchart"));
-                var mydata = [
-                    {name: '北京',value: this.randomData() },{name: '天津',value: Math.round(Math.random()*500) },
-                    {name: '上海',value: this.randomData()  },{name: '重庆',value: Math.round(Math.random()*500)},
-                    {name: '河北',value: this.randomData() },{name: '河南',value:Math.round(Math.random()*500) },
-                    {name: '云南',value: this.randomData() },{name: '辽宁',value: Math.round(Math.random()*500) },
-                    {name: '黑龙江',value: this.randomData() },{name: '湖南',value: Math.round(Math.random()*500)},
-                    {name: '安徽',value: this.randomData() },{name: '山东',value: Math.round(Math.random()*500) },
-                    {name: '新疆',value: this.randomData() },{name: '江苏',value: Math.round(Math.random()*500) },
-                    {name: '浙江',value: this.randomData() },{name: '江西',value: Math.round(Math.random()*500) },
-                    {name: '湖北',value: this.randomData() },{name: '广西',value: Math.round(Math.random()*500) },
-                    {name: '甘肃',value: this.randomData() },{name: '山西',value: Math.round(Math.random()*500) },
-                    {name: '内蒙古',value: this.randomData() },{name: '陕西',value: Math.round(Math.random()*500) },
-                    {name: '吉林',value: this.randomData() },{name: '福建',value: Math.round(Math.random()*500) },
-                    {name: '贵州',value: this.randomData() },{name: '广东',value: Math.round(Math.random()*500) },
-                    {name: '青海',value: this.randomData() },{name: '西藏',value: Math.round(Math.random()*500) },
-                    {name: '四川',value: this.randomData() },{name: '宁夏',value: Math.round(Math.random()*500) },
-                    {name: '海南',value: this.randomData() },{name: '台湾',value:Math.round(Math.random()*500) },
-                    {name: '香港',value: this.randomData() },{name: '澳门',value: Math.round(Math.random()*500) }
-                ];
-                var option = {
+            //npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+            back() {
+                if (mapStack.length != 0) {
+                    //如果有上级目录则执行
+                    var map = mapStack.pop();
+                    axios
+                        .get("./static/json/map/" + map.mapId + ".json", {})
+                        .then(response => {
+                            const mapJson = response.data;
+                            this.registerAndsetOption(
+                                mapChart,
+                                map.mapId,
+                                map.mapName,
+                                mapJson,
+                                false
+                            );
+                            //返回上一级后，父级的ID、Name随之改变
+                            parentId = map.mapId;
+                            parentName = map.mapName;
+                        });
+                }
+            },
+            mapChart(divid) {
+                let that=this;
+                debugger;
+                axios.get("./static/json/map/" + chinaId + ".json", {}).then(response => {
+                    const mapJson = response.data;
+                    chinaJson = mapJson;
+                    let mapChart = echarts.init(document.getElementById(divid));
+                    this.registerAndsetOption(mapChart, chinaId, chinaName, mapJson, false);
+                    parentId = chinaId;
+                    parentName = "china";
+                    mapChart.on("click", function(param) {
+                        var cityId = cityMap[param.name];
+                        if (cityId) {
+                            //代表有下级地图
+                            axios
+                                .get("./static/json/map/" + cityId + ".json", {})
+                                .then(response => {
+                                    const mapJson = response.data;
+                                    that.registerAndsetOption(
+                                        mapChart,
+                                        cityId,
+                                        param.name,
+                                        mapJson,
+                                        true
+                                    );
+                                });
+                        } else {
+                            //没有下级地图，回到一级中国地图，并将mapStack清空
+                            that.registerAndsetOption(mapChart, chinaId, chinaName, chinaJson, false);
+                            mapStack = [];
+                            parentId = chinaId;
+                            parentName = chinaName;
+                        }
+                    });
+                });
+            },
+            registerAndsetOption(mapChart, id, name, mapJson, flag) {
+                echarts.registerMap(name, mapJson);
+                mapChart.setOption({
                     backgroundColor: '#FFFFFF',
                     title: {
                         text: '',
@@ -273,23 +322,40 @@
                         ],
                         color: ['#66CC33', '#00FF00', '#66FF33','#339900', '#33CC00', '#00CC00']
                     },
-                    series: [{
-                        name: '随机数据',
-                        type: 'map',
-                        mapType: 'china',
-                        roam: true,
-                        label: {
-                            normal: {
-                                show: false
+                    series: [
+                        {
+                            type: "map",
+                            map: name,
+                            itemStyle: {
+                                normal: {
+                                    areaColor: "rgba(23, 27, 57,0)",
+                                    borderColor: "#1dc199",
+                                    borderWidth: 1
+                                }
                             },
-                            emphasis: {
-                                show: false
-                            }
-                        },
-                        data:mydata
-                    }]
-                };
-                myChart.setOption(option);
+                            data: this.initMapData(mapJson)
+                        }
+                    ]
+                });
+                if (flag) {
+                    //往mapStack里添加parentId，parentName,返回上一级使用
+                    mapStack.push({
+                        mapId: parentId,
+                        mapName: parentName
+                    });
+                    parentId = id;
+                    parentName = name;
+                }
+            },
+            initMapData(mapJson) {
+                var mapData = [];
+                for (var i = 0; i < mapJson.features.length; i++) {
+                    mapData.push({
+                        name: mapJson.features[i].properties.name,
+                        value: this.randomData()
+                    });
+                }
+                return mapData;
             },
             randomData(){
                 return Math.round(Math.random()*500);
@@ -366,7 +432,7 @@
                 var upBorderColor = '#8A0000';
                 var downColor = '#00da3c';
                 var downBorderColor = '#008F28';
-                var dataCount = 2e5;
+                var dataCount = 20000;
                 var data = this.generateOHLC(dataCount);
                 var option = {
                     dataset: {
@@ -563,7 +629,7 @@
 
                 return sign;
             },
-          drawLine() {
+            drawLine() {
               let myChart = echarts.init(document.getElementById("myChart"));
               let that=this;
               this.$api.getSunburstData( {}, res => {
@@ -631,7 +697,7 @@
         mounted() {
             this.initPieChart();
             this.drawLine();
-            this.initMap();
+            this.mapChart("mapChart");
             this.initKGraph();
         },
         created() {
