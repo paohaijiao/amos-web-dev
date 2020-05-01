@@ -60,6 +60,7 @@
                         <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
                         <button type="submit" class="btn  btn-info" @click="openTransation(item)">修改事务</button>
                         <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button>
+                        <button type="submit" class="btn btn-success" @click="exploreMeta(item)">探索元数据</button>
                     </td>
                   </tr>
                   </tbody>
@@ -121,6 +122,38 @@
             </div>
           </div>
         </div>
+        <div class="modal fade" id="meta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">探索元数据</h4>
+              </div>
+              <table  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>转换/作业</th>
+                  <th>步骤/数据库连接/注释</th>
+                  <th>字符串</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item  in tableList">
+                  <td>{{item[0]}}</td>
+                  <td>{{item[1]}}</td>
+                  <td>{{item[2]}}</td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="box-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+              </div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <router-view></router-view>
     </div>
@@ -144,6 +177,7 @@ export default {
       valueStr:null,
       item:{id:null},
       tableData: [],
+      tableList:[],
       option:[{"key":"N","value":"否"},{"key":"Y","value":"是"}],
       pagination: {
             total:0,
@@ -169,6 +203,22 @@ export default {
           }
         })
     },
+      exploreMeta(item) {
+          $('#meta').modal('show')
+          let option=new Object();
+          option.transName=item.name;
+
+          let that =this;
+          this.$api.exploreMeta( option,res=> {
+              if (res.code === 200) {
+                  that.tableList = res.data.data
+                  debugger;
+              } else{
+                  this.$alert(res.message);
+              }
+          })
+      },
+
     changeDirectory(item){
         let that =this;
         this.$api.getTreeViewFolder({},res => {

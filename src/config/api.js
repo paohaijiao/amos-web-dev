@@ -340,3 +340,4 @@ export const synDelete= (data, callback) => post(prefix+'/sysSyncJobSApi/synDele
 export const configList= (data, callback) => post(prefix+'/sysConfigurationApi/findAll', 'findAll', data, callback, );
 export const configCreateOrUpdate= (data, callback) => post(prefix+'/sysConfigurationApi/createOrUpdate', 'configCreateOrUpdate', data, callback, );
 export const getSunburstData= (data, callback) => post(prefix+'/sunburstApi/getSunburstData', 'getSunburstData', data, callback, );
+export const exploreMeta= (data, callback) => post(prefix+'/kettlePreview/exploreMeta', 'exploreMeta', data, callback, );

@@ -124,7 +124,7 @@
           <!-- /.info-box -->
           <div class="box box-danger" style="height:415px">
             <div class="box-header with-border">
-              <h3 class="box-title">最近六个月运行态势</h3>
+              <h3 class="box-title">组件能力</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -204,18 +204,12 @@
             initPolarChart(){
                 var  ctx                   = document.getElementById('polarChart').getContext('2d')
                 var data = {
-                    labels  : ['January', 'February', 'March', 'April', 'May'],
+                    labels  : ['大数据', 'OLAP', '结构化数据', '非结构数据', '其他'],
                     datasets: [
                         {
                             label               : 'Electronics',
                             pointStrokeColor    : 'red',
                             data                : [65, 59, 80, 81, 56],
-                            backgroundColor:['#36a2eb','#ff6384','#4bc0c0','#ffcd56','#c9cbcf']
-                        },
-                        {
-                            label               : 'Digital Goods',
-                            pointColor          : '#b6465c',
-                            data                : [28, 48, 40, 19, 86],
                             backgroundColor:['#36a2eb','#ff6384','#4bc0c0','#ffcd56','#c9cbcf']
                         }
                     ]
