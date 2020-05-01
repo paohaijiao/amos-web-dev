@@ -94,7 +94,7 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="barChart" style="height:300px"></canvas>
+                <canvas id="barChart" style="height:350px"></canvas>
               </div>
             </div>
             <!-- /.box-body -->
@@ -110,35 +110,9 @@
               <h3 class="box-title">Sales Graph</h3>
             </div>
             <div class="box-body border-radius-none">
-              <div class="chart" id="line-chart" style="height: 250px;"></div>
+              <div class="chart" id="line-chart" style="height: 350px;"></div>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer no-border">
-              <div class="row">
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">Mail-Orders</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">Online</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center">
-                  <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">In-Store</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
             <!-- /.box-footer -->
           </div>
           <!-- /.box -->
@@ -148,7 +122,7 @@
         <div class="col-md-4">
           <!-- Info Boxes Style 2 -->
           <!-- /.info-box -->
-          <div class="box box-danger">
+          <div class="box box-danger" style="height:415px">
             <div class="box-header with-border">
               <h3 class="box-title">最近六个月运行态势</h3>
             </div>
@@ -157,7 +131,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="polarChart" height="370px"></canvas>
+                    <canvas id="polarChart" height="300px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -169,7 +143,7 @@
             <!-- /.box-body -->
             <!-- /.footer -->
           </div>
-          <div class="box box-warning">
+          <div class="box box-warning"  style="height:415px">
             <div class="box-header with-border">
               <h3 class="box-title">指标能力</h3>
             </div>
@@ -178,7 +152,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <canvas id="radarChart" height="380px"></canvas>
+                    <canvas id="radarChart" height="300px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
