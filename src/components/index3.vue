@@ -88,7 +88,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="chart">
-                <canvas id="mapchart" style="height:400px;width:400px"></canvas>
+                <div id="mapchart" style="width:900px;height:400px"></div>
               </div>
               <!-- /.table-responsive -->
             </div>
@@ -174,7 +174,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="chart-responsive">
-                    <canvas id="funnel" height="400px" width="600px"></canvas>
+                    <div id="funnel" style="width:600px;height:400px"></div>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -267,7 +267,7 @@
                         color: ['#66CC33', '#00FF00', '#66FF33','#339900', '#33CC00', '#00CC00']
                     },
                     series: [{
-                        name: '随机数据',
+                        name: '注册用户',
                         type: 'map',
                         mapType: 'china',
                         roam: true,
@@ -548,9 +548,7 @@
                 }
                 else {
                     sign = dataIndex > 0
-                        // If close === open, compare with close of last record
                         ? (data[dataIndex - 1][closeDimIdx] <= closeVal ? 1 : -1)
-                        // No record of previous, set to be positive
                         : 1;
                 }
 
@@ -609,15 +607,11 @@
                               }]
                           }
                       };
-                      myChart.showLoading();
-                      myChart.hideLoading();
                       myChart.setOption(option);
                   }else{
                       this.$alert(res.message);
                   }
               })
-
-
           },
 
         },
