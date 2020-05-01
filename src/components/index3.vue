@@ -222,7 +222,7 @@
     var parentId = null;
     var parentName = null;
     //Echarts地图全局变量，主要是在返回上级地图的方法中会用到
-    var mapchart = null;
+    var mapChart = null;
     export default {
         name: "chinaMap",
         props: {
@@ -265,11 +265,10 @@
             },
             mapChart(divid) {
                 let that=this;
-                debugger;
                 axios.get("./static/json/map/" + chinaId + ".json", {}).then(response => {
                     const mapJson = response.data;
                     chinaJson = mapJson;
-                    let mapChart = echarts.init(document.getElementById(divid));
+                    mapChart = echarts.init(document.getElementById(divid));
                     this.registerAndsetOption(mapChart, chinaId, chinaName, mapJson, false);
                     parentId = chinaId;
                     parentName = "china";
