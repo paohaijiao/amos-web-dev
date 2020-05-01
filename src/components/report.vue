@@ -99,12 +99,12 @@
                 <!-- /.col -->
                 <div class="col-md-4">
                   <p class="text-center">
-                    <strong>作业本年度统计</strong>
+                    <strong>转换本年度统计</strong>
                   </p>
 
                   <div class="progress-group" style="width:40%">
-                    <span class="progress-text">转换最长时间</span>
-                    <span class="progress-number"><b>120</b>/500</span>
+                    <span class="progress-text">读入量</span>
+                    <span class="progress-number"><b>{{job.read}}</b>/{{job.total}}</span>
 
                     <div class="progress sm">
                       <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
@@ -112,8 +112,8 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">转换最短时间</span>
-                    <span class="progress-number"><b>310</b>/400</span>
+                    <span class="progress-text">写出量</span>
+                    <span class="progress-number"><b>{{job.write}}</b>/{{job.total}}</span>
 
                     <div class="progress sm">
                       <div class="progress-bar progress-bar-red" style="width: 50%"></div>
@@ -121,8 +121,8 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">作业最长时间</span>
-                    <span class="progress-number"><b>480</b>/800</span>
+                    <span class="progress-text">输入量</span>
+                    <span class="progress-number"><b>{{job.input}}</b>/{{job.total}}</span>
 
                     <div class="progress sm">
                       <div class="progress-bar progress-bar-green" style="width: 90%"></div>
@@ -130,8 +130,8 @@
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
-                    <span class="progress-text">作业最短时间</span>
-                    <span class="progress-number"><b>250</b>/500</span>
+                    <span class="progress-text">写出量</span>
+                    <span class="progress-number"><b>{{job.output}}</b>/{{job.total}}</span>
 
                     <div class="progress sm">
                       <div class="progress-bar progress-bar-yellow" style="width: 30%"></div>
@@ -237,9 +237,26 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="item  in tableList">
-                    <td  class="colStyle">{{item.channel_id}}</td>
-                    <td class="text-green">{{item.name}}</td>
+                  <tr v-for="(item,index)  in tableList">
+                    <td v-if="index==0"  class="colStyle text-green">{{item.channel_id}}</td>
+                    <td v-if="index==0" class="text-green">{{item.name}}</td>
+
+                    <td v-if="index==1"  class="colStyle text-aqua">{{item.channel_id}}</td>
+                    <td v-if="index==1" class="text-aqua">{{item.name}}</td>
+
+                    <td v-if="index==2"  class="colStyle text-light-blue">{{item.channel_id}}</td>
+                    <td v-if="index==2" class="text-light-blue">{{item.name}}</td>
+
+                    <td v-if="index==3"  class="colStyle text-red">{{item.channel_id}}</td>
+                    <td v-if="index==3" class="text-red">{{item.name}}</td>
+
+                    <td v-if="index==4"  class="colStyle text-yellow">{{item.channel_id}}</td>
+                    <td v-if="index==4" class="text-yellow">{{item.name}}</td>
+
+                    <td v-if="index>4"  class="colStyle text-muted">{{item.channel_id}}</td>
+                    <td v-if="index>4" class="text-muted">{{item.name}}</td>
+
+
                     <td v-if="item.status=='start'"><span class="label label-success" >开始</span></td>
                     <td v-if="item.status=='stop'"><span class="label label-danger" >运行中</span></td>
                     <td v-if="item.status=='end'"><span class="label label-warning" >结束</span></td>
@@ -340,6 +357,13 @@
                    input:0,
                    output:0
                },
+                job:{
+                    read:0,
+                    written:0,
+                    input:0,
+                    output:0,
+                    total:0
+                },
                tableList:[],
                tableRecord:{
                    read:0,
@@ -499,6 +523,18 @@
                         this.$alert(res.message);
                     }
                 })
+            },
+            initStatic(){
+                let option=new Object();
+                let that =this;
+                this.$api.getThisYearJobData( option,res=> {
+                    if (res.code === 200) {
+                        that.job = res.data[0]
+                        debugger;
+                    } else{
+                        this.$alert(res.message);
+                    }
+                })
             }
         },
         mounted() {
@@ -507,6 +543,7 @@
             this.initDashBoardData();
             this.initRecentRun();
             this.initMom();
+            this.initStatic();
         },
         created() {
 

@@ -346,3 +346,4 @@ export const getAllData= (data, callback) => post(prefix+'/staticInfoApi/getAllD
 export const getRecentRun= (data, callback) => post(prefix+'/staticInfoApi/getRecentRun', 'getRecentRun', data, callback, );
 export const getThisYearTransData= (data, callback) => post(prefix+'/staticInfoApi/getThisYearTransData', 'getThisYearTransData', data, callback, );
 export const getThisYearTransDataMOM= (data, callback) => post(prefix+'/staticInfoApi/getThisYearTransDataMOM', 'getThisYearTransDataMOM', data, callback, );
+export const getThisYearJobData= (data, callback) => post(prefix+'/staticInfoApi/getThisYearJobData', 'getThisYearJobData', data, callback, );
