@@ -639,6 +639,12 @@
                   :item="editItem"
                   :title="title">
                 </dialog-xml-output>
+                <dialog-solr
+                  v-if="dialog.SolrInPlugin"
+                  :item="editItem"
+                  :title="title">
+
+                </dialog-solr>
 
               </div>
             </div>
@@ -769,6 +775,7 @@ import dialogDetectFlow from './dialog/table-detect-flow'
 import dialogBlockUntilStepsFinish from './dialog/table-blockUntilStepsFinish'
 import dialogOrcOutput from './dialog/table-orc-output.vue'
 import dialogXmlOutput from './dialog/table-xml-output'
+import dialogSolr from './dialog/table-solr'
 
 
 let chart = null
@@ -888,6 +895,7 @@ export default {
     dialogDetectFlow,
     dialogBlockUntilStepsFinish,
     dialogOrcOutput,
+    dialogSolr,
     DashFooter,
     DashHeader,
     Sidebar
@@ -1018,7 +1026,8 @@ export default {
         Delay:false,
         NumberRange:false,
         JobExecutor:false,
-        CloneRow:false
+        CloneRow:false,
+        SolrInPlugin:false
       },
       result: null
     }
