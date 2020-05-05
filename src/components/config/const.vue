@@ -30,10 +30,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>健</th>
-                    <th>值</th>
-                    <th>描述</th>
-                    <th>操作</th>
+                    <th style="width: 25%">健</th>
+                    <th style="width: 25%">值</th>
+                    <th style="width: 25%">描述</th>
+                    <th style="width: 25%">操作</th>
                   </tr>
                   </thead>
                   <tbody>

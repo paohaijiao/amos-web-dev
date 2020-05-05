@@ -22,7 +22,13 @@
                 <h3 class="box-title">列表详情</h3>
               </div>
               <div class="box-body">
-                <div><button class="btn btn-primary" @click="add()" style="width: 100px;">新增</button></div>
+                <div class="row" style="display: flex;">
+                  <label style="line-height: 35px;font-size:19px;margin-left:13px">数据源名称:</label>
+                  <input  type="text" class="form-control"   style="width:250px" v-model="search" placeholder="请输入数据源名称">
+
+                  <button class="btn btn-primary" @click="getList()" style="width: 100px;margin-left: 50px;height: 35px;">查询</button>
+                  <button class="btn btn-warning" @click="add()" style="width: 100px;margin-left: 50px;height: 35px;">新增</button>
+                </div>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -38,7 +44,7 @@
                   <tbody>
                   <tr v-for="(item)  in tableData">
                     <td>{{item.name}}</td>
-                    <td>{{dealDbName(item.databaseTypeId)}}</td>
+                    <td>{{item.dbType}}</td>
                     <td>{{item.hostName}}</td>
                     <td>{{item.port}}</td>
                     <td>{{item.username}}</td>
@@ -267,33 +273,6 @@ export default {
           }
         )
     },
-    dealDbName(dbId) {
-      let retval = ''
-      if (dbId == 27) {
-        retval = 'MARIADB'
-      } else if (dbId == 31) {
-        retval = 'MSSQL'
-      } else if (dbId == 33) {
-        retval = 'MYSQL'
-      }  else if (dbId == 42) {
-        retval = 'POSTGRESQL'
-      } else if(dbId == 19){
-        retval = 'Impala'
-      }else if(dbId == 16){
-          retval = 'Hadoop Hive 2'
-      }else if(dbId == 54){
-          retval = 'Presto'
-      }else if(dbId == 55) {
-          retval = 'DRILL'
-      }else if(dbId == 38) {
-        retval = 'ORACLE'
-      }else if(dbId == 39) {
-        retval = 'ORACLERDB'
-      }else{
-          retval = '未知数据源'
-          }
-      return retval
-    },
     getBaseType() {
       let that=this;
       let param=new Object()
@@ -314,8 +293,9 @@ export default {
        let that=this;
       this.$api.getListDatabase( option ,res=> {
           if (res.code === 200) {
-            that.tableData = res.data.content
-            that.pagination.total = res.data.totalElements
+            that.tableData = res.data.list
+              debugger;
+            that.pagination.total = res.data.total
           }
         })
     },
