@@ -1,7 +1,7 @@
 <template>
   <div class="items-list">
     <div class="dropdown dropdownItem" v-for="(stepfirst,index) in stepList">
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="width:100%">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width:100%">
         {{stepfirst.name}}
       </button>
       <div class="dropdown-menu item-list" style="margin:0px;padding: 0;width:100%">

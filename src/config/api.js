@@ -347,3 +347,5 @@ export const getRecentRun= (data, callback) => post(prefix+'/staticInfoApi/getRe
 export const getThisYearTransData= (data, callback) => post(prefix+'/staticInfoApi/getThisYearTransData', 'getThisYearTransData', data, callback, );
 export const getThisYearTransDataMOM= (data, callback) => post(prefix+'/staticInfoApi/getThisYearTransDataMOM', 'getThisYearTransDataMOM', data, callback, );
 export const getThisYearJobData= (data, callback) => post(prefix+'/staticInfoApi/getThisYearJobData', 'getThisYearJobData', data, callback, );
+export const addTransNote= (data, callback) => post(prefix+'/dataAdminPlatform/addnote', 'addTransNote', data, callback, );
+export const search= (data, callback) => post(prefix+'/solrApi/search', 'search', data, callback, );

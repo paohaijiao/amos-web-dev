@@ -56,11 +56,13 @@
                     <td>{{item.modifiedUser}}</td>
 <!--                    <td>{{item.createdDate|formatDate}}</td>-->
                     <td>
+                      <button type="submit" class="btn btn-default" @click="openNoteDialog(item)">添加备注</button>
                         <button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button>
                         <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
                         <button type="submit" class="btn  btn-info" @click="openTransation(item)">修改事务</button>
                         <button type="submit" class="btn btn-danger" @click="deleteRow(item)">删除</button>
                         <button type="submit" class="btn btn-success" @click="exploreMeta(item)">探索元数据</button>
+
                     </td>
                   </tr>
                   </tbody>
@@ -154,6 +156,27 @@
             </div>
           </div>
         </div>
+        <div class="modal fade" id="note" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改备注</h4>
+              </div>
+              <div class="form-group">
+                <label >备注</label>
+                <input type="text" class="form-control" v-model="note"></input>
+              </div>
+              <div class="box-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" @click="submitNote()">提交</button>
+              </div>
+              <div class="modal-footer">
+
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <router-view></router-view>
     </div>
@@ -175,6 +198,7 @@ export default {
       search: null,
       modifiedUser: null,
       valueStr:null,
+      note:null,
       item:{id:null},
       tableData: [],
       tableList:[],
@@ -203,6 +227,26 @@ export default {
           }
         })
     },
+      openNoteDialog(item){
+          this.item.id=item.id
+          this.note=item.note
+          debugger;
+          $('#note').modal('show')
+      },
+      submitNote(){
+          $('#note').modal('hide')
+          let option=new Object();
+          option.transId=this.item.id;
+          option.note=this.note;
+          let that =this;
+          this.$api.addTransNote( option,res=> {
+              if (res.code === 200) {
+                 this.getList();
+              } else{
+                  this.$alert(res.message);
+              }
+          })
+      },
       exploreMeta(item) {
           let option=new Object();
           option.transName=item.name;

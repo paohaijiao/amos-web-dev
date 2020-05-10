@@ -1,7 +1,7 @@
 <template>
   <footer class="main-footer">
     <strong>Copyright &copy; {{ year }}
-    <a href="javascript:;">苟定成</a>.</strong> All rights reserved.
+    <a href="javascript:;">泡海椒</a>.</strong> All rights reserved.
   </footer>
 </template>
 

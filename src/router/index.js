@@ -43,6 +43,8 @@ import nodeList from '@/components/cluster/NodeList.vue'
 import NodeManager from '@/components/cluster/NodeManager.vue'
 import dataParttion from '@/components/cluster/dataParttion.vue'
 import constvue from '@/components/config/const.vue'
+import search from '@/components/search/search.vue'
+import searchList from '@/components/search/searchList.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -389,6 +391,22 @@ export default new Router({
         title: '常量配置'
       }
     },
+    {
+      path: '/index/metasearch',
+      component: search,
+      name: '统一搜索',
+      meta: {
+        title: '统一搜索'
+      }
+    },
+    {
+      path: '/index/searchList',
+      component: searchList,
+      name: '搜索列表',
+      meta: {
+        title: '搜索列表'
+      }
+    }
 
   ]
 })
