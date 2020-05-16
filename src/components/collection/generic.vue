@@ -19,7 +19,8 @@
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">列表详情(支持(kylin,neo4j,phoenix,oracle,sqlserver,db2,h2,mysql,postgres,impala,hive,presto,mariadb，drill,kudu
+                <h3 class="box-title">列表详情(支持(kylin,neo4j,phoenix,oracle,sqlserver,db2,h2,mysql,postgres,
+                            impala,hive,presto,mariadb，drill,kudu
                   ,clickhouse,dm,vertica(druid,kylin可走http请求)等数据形式的数据源)</h3>
               </div>
               <div class="box-body">

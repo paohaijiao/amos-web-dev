@@ -2,7 +2,7 @@
   <ul class="sidebar-menu" data-widget="tree">
   <li class=" treeview" v-for="(menu,index) in menuList">
     <a href="#">
-      <i class="fa" :class="iconLIst[index+1]"></i> <span style="font-size: 16px">{{menu.name}}</span>
+      <i class="fa" :class="iconLIst[index+1]"></i> <span style="font-size: 14px">{{menu.name}}</span>
       <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -10,7 +10,7 @@
     <ul class="treeview-menu">
       <router-link tag="li" class="pageLink" :to="item.url" :index="item.url" v-for="item in menu.children" :key="item.id">
         <a >
-          <i class="fa fa-circle-o"></i><span style="font-size: 14px">{{ item.menuName }}</span>
+          <i class="fa fa-circle-o"></i><span style="font-size: 12px">{{ item.menuName }}</span>
         </a>
       </router-link>
 
@@ -59,12 +59,15 @@
     background: #1a2226;
   }
   .sidebar-menu > li > a {
+    /*padding: 5px 5px 5px 15px;*/
     padding: 12px 15px 12px 15px;
   }
   .skin-blue .sidebar a {
     color: #b8c7ce !important;
   }
-
+  /*.treeview-menu > li>a {*/
+  /*  padding: 2px 5px 2px 15px;*/
+  /*}*/
   .sidebar-menu li.active > a > .fa-angle-left,
   .sidebar-menu li.active > a > .pull-right-container > .fa-angle-left {
     animation-name: rotate;

@@ -56,7 +56,7 @@
                     <td>{{item.modifiedUser}}</td>
 <!--                    <td>{{item.createdDate|formatDate}}</td>-->
                     <td>
-                      <button type="submit" class="btn btn-default" @click="openNoteDialog(item)">添加备注</button>
+<!--                      <button type="submit" class="btn btn-default" @click="openNoteDialog(item)">添加备注</button>-->
                         <button type="submit" class="btn btn-primary" @click="detail(item.id)">修改</button>
                         <button type="submit" class="btn btn-warning" @click="changeDirectory(item)">数据目录</button>
                         <button type="submit" class="btn  btn-info" @click="openTransation(item)">修改事务</button>
