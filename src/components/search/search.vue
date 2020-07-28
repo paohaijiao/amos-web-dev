@@ -2,7 +2,7 @@
   <div >
     <dash-header ></dash-header>
     <sidebar />
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="min-height:calc(111vh - 150px);background-color: white">
 
       <div class="featurette">
         <div class="featurette-inner text-center">

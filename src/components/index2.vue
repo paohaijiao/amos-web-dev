@@ -84,7 +84,7 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <div class="col-md-8">
+        <div class="col-md-7">
           <!-- MAP & BOX PANE -->
           <!-- BAR CHART -->
           <div class="box box-success">
@@ -94,7 +94,7 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="barChart" style="height:350px"></canvas>
+                <canvas id="barChart" height="250" ></canvas>
               </div>
             </div>
             <!-- /.box-body -->
@@ -110,7 +110,7 @@
               <h3 class="box-title">折线图</h3>
             </div>
             <div class="box-body border-radius-none">
-              <div class="chart" id="line-chart" style="height: 350px;"></div>
+              <div class="chart" id="line-chart" style="height: 250px;"></div>
             </div>
             <!-- /.box-body -->
             <!-- /.box-footer -->
@@ -119,21 +119,20 @@
         </div>
         <!-- /.col -->
 
-        <div class="col-md-4">
+        <div class="col-md-5">
           <!-- Info Boxes Style 2 -->
           <!-- /.info-box -->
-          <div class="box box-danger" style="height:415px">
+          <div class="box box-danger" >
             <div class="box-header with-border">
               <h3 class="box-title">组件能力</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-8">
+                <div >
                   <div class="chart-responsive">
-                    <canvas id="polarChart" height="300px"></canvas>
+                    <canvas id="polarChart" ></canvas>
                   </div>
-                  <!-- ./chart-responsive -->
                 </div>
                 <!-- /.col -->
                 <!-- /.col -->
@@ -143,16 +142,16 @@
             <!-- /.box-body -->
             <!-- /.footer -->
           </div>
-          <div class="box box-warning"  style="height:415px">
+          <div class="box box-warning"  >
             <div class="box-header with-border">
               <h3 class="box-title">指标能力</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                   <div class="chart-responsive">
-                    <canvas id="radarChart" height="300px"></canvas>
+                    <canvas id="radarChart" height="250"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -209,7 +208,7 @@
                         {
                             label               : 'Electronics',
                             pointStrokeColor    : 'red',
-                            data                : [65, 59, 80, 81, 56],
+                            data                : [92, 89, 80, 81, 56],
                             backgroundColor:['#36a2eb','#ff6384','#4bc0c0','#ffcd56','#c9cbcf']
                         }
                     ]
@@ -397,5 +396,10 @@
         }
     }
 </script>
+<style>
+  canvas{
+    height:250px !important;
+  }
+</style>
 
 

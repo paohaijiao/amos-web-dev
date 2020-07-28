@@ -85,7 +85,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                   <p class="text-center">
                     <strong>节点处理本年度统计</strong>
                   </p>
@@ -215,7 +215,7 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <div class="col-md-8">
+        <div class="col-md-7">
 
 
           <!-- TABLE: LATEST ORDERS -->
@@ -278,7 +278,7 @@
         </div>
         <!-- /.col -->
 
-        <div class="col-md-4">
+        <div class="col-md-5">
 
 
           <!-- /.info-box -->

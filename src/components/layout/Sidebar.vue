@@ -85,6 +85,9 @@ export default {
   float: right;
   height: 35px;
 }
+.treeview{
+
+}
 
 #search-btn {
   width: 20%;

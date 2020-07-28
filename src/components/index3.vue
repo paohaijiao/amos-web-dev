@@ -90,7 +90,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <div id="mapChart"  style="height:400px" class="chart"></div>
+                    <div id="mapChart"   class="chart"></div>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -107,18 +107,6 @@
           <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">功能概览</h3>
-
-              <div class="box-tools pull-right">
-                <div class="btn-group">
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -126,7 +114,7 @@
                 <div class="col-md-12">
 
                   <div class="chart">
-                    <div id="myChart" style="width:600px; height: 400px"></div>
+                    <div id="myChart" style="height:357px;width:357px" ></div>
                   </div>
                   <!-- /.chart-responsive -->
                 </div>
@@ -157,7 +145,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <div id="kgraph" style="width:1000px;height:450px"></div>
+                <div id="kgraph" style="width:800px;height:357px"></div>
 
               <!-- /.table-responsive -->
             </div>
@@ -179,9 +167,9 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-13">
                   <div class="chart-responsive">
-                    <canvas id="funnel" height="400px" width="600px"></canvas>
+                    <canvas id="funnel" height="357px" width="350"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>

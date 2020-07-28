@@ -34,7 +34,7 @@
           </div>
           <div class="modal fade" id="myModal">
             <div class="modal-dialog">
-              <div class="modal-content"    style="width:1200px;margin-left: -82px;" >
+              <div class="modal-content"    style="width:1000px;margin-left: -82px;" >
           <dialog-csv-input
             v-if="dialog.CsvInput"
             :item="editItem"
