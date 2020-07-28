@@ -59,7 +59,7 @@
     background: #1a2226;
   }
   .sidebar-menu > li > a {
-    padding: 5px 15px 5px 15px;
+    padding: 12px 15px 12px 15px;
   }
   .skin-blue .sidebar a {
     color: #b8c7ce !important;
@@ -71,9 +71,7 @@
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
   }
-  .treeview-menu > li > a{
-    padding:1px 5px 1px 15px;
-  }
+
   .treeview-title {
     z-index: 1;
   }

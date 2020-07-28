@@ -4,7 +4,7 @@
       <a style="color: #f4f4f4"><b>数据</b>中台</a>
     </div>
     <div class="login-box-body">
-      <p class="login-box-msg">登录账户<span style="color:red">(互联网环境)</span></p>
+      <p class="login-box-msg">登录账户<span style="color:red">(互联网PC环境)</span></p>
 
         <div class="form-group has-feedback">
           <input type="email" class="form-control" placeholder="登录名" v-model="loginForm.username" value="admin">
@@ -16,11 +16,12 @@
         </div>
         <div class="row">
           <div class="col-xs-8">
-            <div class="checkbox icheck">
-<!--              <label>-->
-<!--                <input type="checkbox">记住密码-->
-<!--              </label>-->
+            <div class="form-group">
               <a  class="text-center" @click="register()">注册新账户</a>
+              <label>
+                <input type="checkbox" v-model="agree" class="flat-red"  checked>
+                <a @click="note()"> 同意使用协议</a>
+              </label>
             </div>
           </div>
           <!-- /.col -->
@@ -42,6 +43,7 @@ export default {
   name: 'Login',
   data() {
     return {
+        agree:true,
         loginForm: {
             username: '',
             password: ''
@@ -57,6 +59,10 @@ export default {
               }
           },
           handleLogin() {
+              if(!this.agree){
+                  this.$alert('请先同意协议');
+                  return;
+              }
               let that=this;
               let param=new Object();
               param.username=this.loginForm.username
@@ -81,8 +87,17 @@ export default {
                       })
                   },
           register(){
-              this.$router.push({ path: '/register' })
-          }
+              if(this.agree){
+                  this.$router.push({ path: '/register' })
+              }else{
+                  this.$alert('请先同意协议');
+                  return;
+              }
+
+          },
+      note(){
+          this.$router.push({ path: '/note' })
+      }
 
 },
 created(){

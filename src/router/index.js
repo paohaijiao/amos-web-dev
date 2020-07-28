@@ -6,6 +6,7 @@ import Dash from '@/components/Dash'
 import report from '@/components/report'
 import index2 from '@/components/index2'
 import index3 from '@/components/index3'
+import note from '@/components/note'
 import collectionIndex from '@/components/collection/index'
 import datasync from '@/components/collection/datasync'
 import hadoopCluster from '@/components/collection/hadoop-cluster'
@@ -64,6 +65,12 @@ export default new Router({
       name: 'Register',
       component: Register
     },
+    {
+      path: '/note',
+      name: 'note',
+      component: note
+    },
+
     {
       path: '/index',
       name: 'dash',

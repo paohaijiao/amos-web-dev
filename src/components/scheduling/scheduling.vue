@@ -291,7 +291,7 @@ export default {
         param.jobDesc=row.jobDesc;
         param.status=row.status === '1' ? '0' : '1';
         debugger;
-      this.$api.getTaskConfigCreateOrUpdate( param,res => {
+      this.$api.suspendOrResume( param,res => {
           if (res.code === 200) {
               this.$alert(res.message);
               this.getList()

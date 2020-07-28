@@ -349,3 +349,4 @@ export const getThisYearTransDataMOM= (data, callback) => post(prefix+'/staticIn
 export const getThisYearJobData= (data, callback) => post(prefix+'/staticInfoApi/getThisYearJobData', 'getThisYearJobData', data, callback, );
 export const addTransNote= (data, callback) => post(prefix+'/dataAdminPlatform/addnote', 'addTransNote', data, callback, );
 export const search= (data, callback) => post(prefix+'/solrApi/search', 'search', data, callback, );
+export const suspendOrResume= (data, callback) => post(prefix+'/sysTaskConfigApi/suspendOrResume', 'suspendOrResume', data, callback, );
