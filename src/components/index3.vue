@@ -167,7 +167,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="chart-responsive">
-                    <canvas id="funnel" height="350px" width="400px"></canvas>
+                    <canvas id="funnel" height="350" width="400px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>

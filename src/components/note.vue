@@ -54,8 +54,35 @@
       <p style="text-indent: 2em;"><span style="text-decoration: underline; font-weight: bold;">7.1. 本协议的签署、解释、履行和争议解决，均适用中华人民共和国法律，并明确排除其冲突法规范的适用。</span></p>
 
     </div>
+    <div align="center">
+      <button type="submit" class="btn  btn-danger" @click="index()">回到首页</button>
+    </div>
   </div>
 </template>
+
+<script>
+  import common from '../config/common'
+  export default {
+    name: 'index',
+    data() {
+      return {
+        agree:true,
+        loginForm: {
+          username: '',
+          password: ''
+        },
+      }
+    },
+    methods: {
+      index() {
+        this.$router.push({path: "/"});
+      },
+
+    },
+    created(){
+    }
+  }
+</script>
 <style>
   .tac {
     text-align: center;
@@ -64,5 +91,8 @@
 
   .fwb {
     font-weight: bold;
+  }
+  p ,h2,h3{
+    color: white;
   }
 </style>
