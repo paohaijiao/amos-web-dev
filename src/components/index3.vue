@@ -77,9 +77,7 @@
       <!-- /.row -->
 
       <div class="row">
-        <div class="col-md-8">
-
-
+        <div class="col-md-7">
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -90,7 +88,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="chart-responsive">
-                    <div id="mapChart"   class="chart"></div>
+                    <div id="mapChart"  style="height:350px;margin-top: -50px" class="chart"></div>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
@@ -103,7 +101,7 @@
           </div>
           <!-- /.box -->
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="box box-warning">
             <div class="box-header with-border">
               <h3 class="box-title">功能概览</h3>
@@ -114,7 +112,7 @@
                 <div class="col-md-12">
 
                   <div class="chart">
-                    <div id="myChart" style="height:357px;width:357px" ></div>
+                    <div id="myChart" style=" height: 300px"></div>
                   </div>
                   <!-- /.chart-responsive -->
                 </div>
@@ -135,7 +133,7 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <div class="col-md-8">
+        <div class="col-md-7">
 
 
           <!-- TABLE: LATEST ORDERS -->
@@ -145,7 +143,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <div id="kgraph" style="width:800px;height:357px"></div>
+                <div id="kgraph" style="height:350px"></div>
 
               <!-- /.table-responsive -->
             </div>
@@ -155,7 +153,7 @@
         </div>
         <!-- /.col -->
 
-        <div class="col-md-4">
+        <div class="col-md-5">
 
 
           <!-- /.info-box -->
@@ -167,9 +165,9 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-13">
+                <div class="col-md-12">
                   <div class="chart-responsive">
-                    <canvas id="funnel" height="357px" width="350"></canvas>
+                    <canvas id="funnel" height="350px" width="400px"></canvas>
                   </div>
                   <!-- ./chart-responsive -->
                 </div>
